@@ -3,6 +3,7 @@ import user from "../../utils/data/user.config";
 import twitter from "../../assets/images/social/twitter.svg";
 import linkedin from "../../assets/images/social/linkedin.svg";
 import github from "../../assets/images/social/github.svg";
+import upwork from "../../assets/images/social/upwork.svg";
 import email from "../../assets/images/social/email.png";
 import { analytics } from "../../utils/firebaseConfig";
 import { logEvent } from "firebase/analytics";
@@ -64,6 +65,24 @@ function SocialBlock() {
 						onClick={() =>
 							onSocialClick(
 								"https://www.linkedin.com/" + user.linkedIn
+							)
+						}
+					/>
+				)}
+			{user.upwork !== undefined &&
+				user.upwork !== null &&
+				user.upwork !== "" && (
+					<img
+						src={upwork}
+						width="40"
+						height="40"
+						alt="Upwork Icon"
+						uk-tooltip="Upwork"
+						className="uk-img uk-margin-small-right uk-link"
+						onClick={() =>
+							onSocialClick(
+								"https://www.upwork.com/freelancers/" +
+								user.upwork
 							)
 						}
 					/>

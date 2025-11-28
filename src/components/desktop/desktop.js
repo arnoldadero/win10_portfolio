@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { filterObjectList } from "../../utils/services/common-util-servies";
+import { filterObjectList } from "../../utils/services/common-util-services";
 import ActionCenter from "../actionCenter/actionCenter";
 import AppComponent from "../appComponent/appComponent";
 import AppIcon from "../base/appIcon";

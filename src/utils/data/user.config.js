@@ -8,6 +8,7 @@ const user = {
 	resume: ResumePDF,
 	email: "arnold@mvuvi.co.ke",
 	linkedIn: "in/arnold-adero-49607955",
+	upwork: "arnoldadero",
 	gitHub: "arnoldadero",
 	twitter: "arnoldadero", // Assuming same handle or placeholder
 	aboutMe: {
