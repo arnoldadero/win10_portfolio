@@ -27,7 +27,7 @@ function DesktopContextMenu(props) {
 				<Item
 					onClick={() =>
 						navigate(
-							"https://github.com/srinibasbiswal/Portfolio_OS_Theme/"
+							"https://github.com/arnoldadero/win10_portfolio/"
 						)
 					}
 				>
@@ -57,7 +57,7 @@ function DesktopContextMenu(props) {
 				<Item
 					onClick={() =>
 						navigate(
-							"https://github.com/srinibasbiswal/Portfolio_OS_Theme/"
+							"https://github.com/arnoldadero/win10_portfolio/"
 						)
 					}
 				>
@@ -73,7 +73,7 @@ function DesktopContextMenu(props) {
 				<Separator />
 				<Item
 					onClick={() =>
-						navigate("https://github.com/srinibasbiswal")
+						navigate("https://github.com/arnoldadero")
 					}
 				>
 					<img
@@ -88,7 +88,7 @@ function DesktopContextMenu(props) {
 				<Separator />
 				<Item
 					onClick={() =>
-						navigate("mailto:srinibasbiswal02@gmail.com")
+						navigate("mailto:arnold@mvuvi.co.ke")
 					}
 				>
 					<img

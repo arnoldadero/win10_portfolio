@@ -27,7 +27,7 @@ function SignInScreen() {
 				</div>
 				<div>
 					<h1 className="uk-heading-small  font-color-white">
-						Srinibas Biswal
+						Arnold Adero
 					</h1>
 				</div>
 				<div>

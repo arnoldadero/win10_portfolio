@@ -9,8 +9,8 @@
 <h4 align="center">A customizable portfolio website based on Microsoft Windows 10 theme.</h4>
 
 <p align="center">  
-  <img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/srinibasbiswal/Portfolio_OS_Theme/Build/master">
-  <img alt="Website" src="https://img.shields.io/website?down_color=lightgrey&down_message=DOWN&up_message=UP&url=https%3A%2F%2Fsrinibasbiswal.com%2F">
+  <img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/arnoldadero/win10_portfolio/Build/master">
+  <img alt="Website" src="https://img.shields.io/website?down_color=lightgrey&down_message=DOWN&up_message=UP&url=https%3A%2F%2Farnoldadero.com%2F">
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
   <a href="#customization">Customization</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#license">License</a> •
-  <a href="https://srinibasbiswal.com/">Live Demo</a>
+  <a href="https://arnoldadero.com/">Live Demo</a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/srinibasbiswal/Portfolio_OS_Theme.git
+$ git clone https://github.com/arnoldadero/win10_portfolio.git
 
 # Go into the repository
 $ cd Portfolio_OS_Theme
@@ -101,7 +101,7 @@ MIT
 
 ---
 
-> [srinibasbiswal.com](https://srinibasbiswal.com) &nbsp;&middot;&nbsp;
-> GitHub [@srinibasbiswal](https://github.com/srinibasbiswal) &nbsp;&middot;&nbsp;
-> LinkedIn [@/in/srinibasbiswal](https://www.linkedin.com/in/srinibasbiswal/)
+> [arnoldadero.com](https://arnoldadero.com) &nbsp;&middot;&nbsp;
+> GitHub [@arnoldadero](https://github.com/arnoldadero) &nbsp;&middot;&nbsp;
+> LinkedIn [@/in/arnold-adero-49607955](https://www.linkedin.com/in/arnold-adero-49607955/)
 

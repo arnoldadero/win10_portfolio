@@ -4,6 +4,7 @@ import "./application.scss";
 import { analytics } from "../../utils/firebaseConfig";
 import { logEvent } from "firebase/analytics";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
+import user from "../../utils/data/user.config";
 import projectAnalytics from "../../utils/data/project.config";
 
 function Mail() {
@@ -124,7 +125,7 @@ function Mail() {
 						label="To :"
 						underlined
 						disabled
-						placeholder="Srinibas Biswal (srinibasbiswal02@gmail.com)"
+						placeholder={`${user.firstName} ${user.lastName} (${user.email})`}
 					/>
 				</div>
 				<div className="uk-margin form-input">

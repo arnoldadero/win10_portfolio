@@ -1,67 +1,42 @@
 import React from "react";
 import "./about.scss";
-import avatar from "../../../assets/images/baseImages/default_avatar.svg";
+// import avatar from "../../../assets/images/baseImages/default_avatar.svg"; // Unused now
 import user from "../../../utils/data/user.config";
+
 
 function Experience() {
 	return (
-		<div>
-			{user.experiences.map((experience, index) => {
-				return (
-					<div className="uk-width-1-1 uk-padding" key={index}>
-						<div className="uk-flex">
-							<div>
-								<img
-									className="uk-border-circle org-img"
-									src={
-										experience.organizationPicture !==
-											undefined &&
-										experience.organizationPicture !==
-											null &&
-										experience.organizationPicture !== ""
-											? experience.organizationPicture
-											: avatar
-									}
-									alt="org"
-								/>
-							</div>
-							<div>
-								<h3
-									className="uk-text-large uk-margin-small-left
-								uk-margin-small-top font-color-white"
-								>
-									{experience.organization}
-								</h3>
-							</div>
-						</div>
+		<div className="uk-flex uk-flex-center uk-flex-middle" style={{ height: "100%" }}>
+			<div className="profile-card uk-text-center uk-card uk-card-secondary uk-card-body" style={{ borderRadius: "8px", maxWidth: "400px", background: "#1e1e1e" }}>
+				<div className="uk-margin-bottom">
+					<img
+						src={user.userImage}
+						alt={`${user.firstName} ${user.lastName}`}
+						className="uk-border-circle"
+						style={{ width: "120px", height: "120px", objectFit: "cover", border: "4px solid #4fc1e9" }}
+					/>
+				</div>
+				<h3 className="uk-text-bold uk-margin-remove-bottom" style={{ color: "#fff" }}>
+					{user.firstName} {user.lastName}
+				</h3>
+				<p className="uk-text-meta uk-margin-remove-top" style={{ color: "#aaa" }}>
+					Top Rated Freelancer
+				</p>
 
-						<div className="container uk-margin-medium-left">
-							{experience.positions.map((position, posIndex) => {
-								return (
-									<div
-										className="timeline-block "
-										key={posIndex}
-									>
-										<div className="marker"></div>
-										<div className="timeline-content">
-											<p className="uk-text-lead font-color-white">
-												{position.positionName}
-											</p>
-											<span>
-												{position.startDate} -
-												{position.endDate}
-											</span>
-											<p className="positon-desc">
-												{position.description}
-											</p>
-										</div>
-									</div>
-								);
-							})}
-						</div>
-					</div>
-				);
-			})}
+				<p className="uk-margin">
+					Check out my full work history, client reviews, and portfolio on Upwork.
+				</p>
+
+				<a
+					href="https://www.upwork.com/freelancers/arnoldadero"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"
+					style={{ borderRadius: "4px", background: "#4fc1e9", color: "#fff", border: "none" }}
+				>
+					View Upwork Profile
+				</a>
+			</div>
 		</div>
 	);
 }

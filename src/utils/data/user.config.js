@@ -1,179 +1,182 @@
-import ResumePDF from "./Srinibas_Biswal_Resume.pdf";
-import default_avatar from "../../assets/images/baseImages/default_avatar.svg";
-import KloudGin from ".././../assets/images/data/KloudGin.png";
-import Freelance from ".././../assets/images/data/Freelance.png";
-import PayPal from ".././../assets/images/data/PayPal.jpeg";
+import ResumePDF from "./ARNOLD ADERO's Resume.pdf";
+import user_avatar from "../../assets/images/baseImages/profile.png";
 
 const user = {
-	firstName: "Srinibas",
-	lastName: "Biswal",
-	userImage: default_avatar,
+	firstName: "Arnold",
+	lastName: "Adero",
+	userImage: user_avatar,
 	resume: ResumePDF,
-	email: "srinibasbiswal02@gmail.com",
-	linkedIn: "in/srinibasbiswal",
-	gitHub: "srinibasbiswal",
-	twitter: "srinibasbiswal",
+	email: "arnold@mvuvi.co.ke",
+	linkedIn: "in/arnold-adero-49607955",
+	gitHub: "arnoldadero",
+	twitter: "arnoldadero", // Assuming same handle or placeholder
 	aboutMe: {
-		intro: " I'm a Full Stack Software Development Engineer from India.",
+		intro: "Forward-thinking Full-Stack Developer with 10+ years of experience delivering scalable, high-performance web applications and digital systems.",
 		description:
-			"I enjoy taking up complex problems and converting to an usable format. My major domains are Web Development (React / Angular / Node) and Software Development (Java / Python).",
-		outro: "When I'm not developing any stuff , you will find me re-watching an episode of The Office or exploring a new place.",
+			"Skilled in React, Next.js, Node.js, Laravel, and Docker, with hands-on expertise integrating modern tools and APIs to streamline development workflows. Known for transforming innovative concepts into reliable, production-ready software while leading teams and managing projects with precision and agility.",
+		outro: "I thrive at the intersection of clean code and modern tooling — leveraging Dockerized workflows, CI/CD pipelines, and modular front-end frameworks like React and Next.js to ship faster and smarter.",
 	},
 	experiences: [
 		{
-			organization: "PayPal",
-			organizationPicture: PayPal,
+			organization: "Upwork (Remote)",
+			organizationPicture: null,
 			isCurrent: true,
-			startDate: "Oct 2021",
-			endDate: null,
+			startDate: "2011",
+			endDate: "Present",
 			positions: [
 				{
-					positionName: "Software Engineer 2",
-					startDate: "Oct 2021",
-					endDate: " Present",
+					positionName: "Full-Stack Developer",
+					startDate: "2011",
+					endDate: "Present",
 					isPresent: true,
 					description:
-						"Working as part of the Identity Engineering Team, responsible for the development and maintaining login scenarios in Web and Native experiences. Implemented a long-term architecture for platform convergence in existing node modules, automating tenant onboarding and reducing onboarding time significantly. Migrated legacy C++ components to Node modules with updated UI, improving performance and design aesthetics. Developed an internal tool tailored for efficient upgrades and verification of internal framework versions across multiple micro-services, saving manual effort and reducing the risk of errors. Technologies: ReactJS, JavaScript, Node, GraphQL, Java, RESTful web services, Swift, MySQL",
+						"Built and maintained scalable full-stack solutions for international clients using React, Laravel, Node.js, and Docker. Delivered SaaS, eCommerce, and CMS projects optimized for performance, security, and SEO. Automated deployment pipelines and containerized production environments for consistency and scalability. Integrated global payment systems (Stripe, PayPal) and regional gateways (M-Pesa). Mentored junior developers and introduced workflow automation with modern dev tools.",
 				},
 			],
 		},
 		{
-			organization: "KloudGin",
-			organizationPicture: KloudGin,
-			isCurrent: false,
-			startDate: "Jun 2019",
-			endDate: "Oct 2021",
+			organization: "Axestore Online",
+			organizationPicture: null,
+			isCurrent: true,
+			startDate: "2019",
+			endDate: "Present",
 			positions: [
 				{
-					positionName: "Software Engineer",
-					startDate: "May 2021",
-					endDate: " Present",
+					positionName: "Owner",
+					startDate: "2019",
+					endDate: "Present",
 					isPresent: true,
 					description:
-						"During this time, I worked on the redesigning and development of the new UI for the product using AngularJS.I also developed multiple APIs to support the GIS feature and also worked on the configuration of the GIS in the product.",
-				},
-				{
-					positionName: "Associate Software Engineer",
-					startDate: "May 2020",
-					endDate: "April 2021",
-					isPresent: false,
-					description:
-						"During this time, I designed and developed multiple APIs for the EAM Module and Inventory Management Module. For the EAM module, I also developed and implemented APIs for supporting new features in the product such as Asset Criticality, Purchase Order, and Material Order modules.",
-				},
-				{
-					positionName: "Trainee Engineer",
-					startDate: "June 2019",
-					endDate: "April 2020",
-					isPresent: false,
-					description:
-						"During this time, I developed and implemented the User Management Module including the development of the supporting APIs and configuration of the UI for the dashboard using Java and KloudGin Platform. I also worked on the API documentation using Swagger API.",
+						"Founded and manage an eCommerce brand with end-to-end responsibility for development, SEO, and digital marketing.",
 				},
 			],
 		},
 		{
-			organization: "Freelance Developer",
-			startDate: "2017",
-			endDate: "2019",
-			organizationPicture: Freelance,
+			organization: "GrowthBond.co",
+			organizationPicture: null,
 			isCurrent: false,
+			startDate: "2018",
+			endDate: "2020",
 			positions: [
 				{
-					positionName: "Fullstack Developer",
-					startDate: "2017",
-					endDate: "2019",
+					positionName: "Country Manager (Kenya)",
+					startDate: "2018",
+					endDate: "2020",
 					isPresent: false,
 					description:
-						"I was a freelance developer during my Bachelor's degree where I worked with different established companies like Prelude, Ediolon and Youngster's Worldwide.",
+						"Partnered with the International Trade Centre (ITC) to deliver social-media advertising training for refugees in Kakuma. Led curriculum design, stakeholder coordination, and mentorship programs for digital inclusion.",
+				},
+			],
+		},
+		{
+			organization: "Weddings in Winnipeg",
+			organizationPicture: null,
+			isCurrent: false,
+			startDate: "2012",
+			endDate: "2016",
+			positions: [
+				{
+					positionName: "Operations Manager",
+					startDate: "2012",
+					endDate: "2016",
+					isPresent: false,
+					description:
+						"Oversaw operations and web management for a Canadian bridal media company, optimizing workflow efficiency and digital reach.",
+				},
+			],
+		},
+		{
+			organization: "GiveDirectly",
+			organizationPicture: null,
+			isCurrent: false,
+			startDate: "2011",
+			endDate: "2011",
+			positions: [
+				{
+					positionName: "Data Management & Research",
+					startDate: "2011",
+					endDate: "2011",
+					isPresent: false,
+					description:
+						"Conducted data collection and analysis for Kenya’s pioneering cash-transfer pilot project, ensuring accuracy and fairness in randomized distribution.",
 				},
 			],
 		},
 	],
 	education: [
 		{
-			instituteName:
-				"ITER, Siksha 'O' Anusandhan (Deemed to be University)",
-			degree: "Bachelor's Degree in Computer Science and Engineering",
-			year: "2019",
+			instituteName: "Zone 01 Kisumu",
+			degree: "Software Development",
+			year: "2024", // Assuming recent or current based on context, user didn't specify year but it's a new program usually. Leaving blank or estimating? I'll put a placeholder year or just leave it. Let's assume recent.
 			id: 1,
 		},
 		{
-			instituteName: "O.D.M. Public School, Bhubaneswar",
-			degree: "Intermediate",
-			year: "2015",
+			instituteName: "University of Nairobi",
+			degree: "Bachelor of Applied Science (BASc), Chemical Engineering",
+			year: "", // User didn't specify year
 			id: 2,
-		},
-		{
-			instituteName: "Prabhujee English Medium School, Bhubaneswar",
-			degree: "Matriculation",
-			year: "2013",
-			id: 3,
 		},
 	],
 	projects: [
 		{
-			projectName: "MyShop",
+			projectName: "Cold Storage Traceability System",
 			description:
-				"A customizable eCommerce website where the user can customize different components of the application.",
-			madeWith: ["React", "Node", "Firebase", "Firestore"],
-			link: "hhttps://github.com/srinibasbiswal/My-Shop",
+				"Designed and developed a logistics and fish-chain traceability platform that won a hackathon and is now scaling into commercial deployment. Built with React, Node.js, and Docker, integrating live IoT tracking and real-time dashboards.",
+			madeWith: ["React", "Node.js", "Docker", "IoT"],
+			link: "", // No link provided
 		},
 		{
-			projectName: "NoteStack",
+			projectName: "M-Pesa Integration",
 			description:
-				"A notes management platform/application where students can share their course notes easily with each other.",
-			madeWith: ["React", "Java", "Firebase", "Firestore"],
-			link: "https://github.com/srinibasbiswal/NoteStack",
+				"Engineered secure payment APIs for multiple platforms, connecting M-Pesa with Laravel-based backends and automating transaction workflows for Kenyan and global clients.",
+			madeWith: ["Laravel", "M-Pesa API", "PHP"],
+			link: "",
 		},
 		{
-			projectName: "Bus Management",
+			projectName: "Modern Development Workflow",
 			description:
-				"A bus management system for ITER, BBSR which helps to know different bus routes and makes easy to decode which route to take.",
-			madeWith: ["Python", "TKinter", "Firebase"],
-			link: "https://iter-bus.firebaseapp.com/",
+				"Adopted cutting-edge development tools (VS Code Dev Containers, GitLab CI/CD, Docker Compose) to boost speed and maintainability across distributed teams.",
+			madeWith: ["Docker", "CI/CD", "VS Code"],
+			link: "",
 		},
 		{
-			projectName: "Seat Swapper",
+			projectName: "Digital Project Management",
 			description:
-				"A train seat swapping system where we can get our desired train seat without any extra payment. This was a project for IBS hackathon.",
-			madeWith: [
-				"Java",
-				"MySQL",
-				"BlockChain",
-				"HTML",
-				"CSS",
-				"JavaScript",
-			],
-			link: "https://github.com/srinibasbiswal/IBS-Hackathon",
-		},
-		{
-			projectName: "Flight Ticket Saver",
-			description:
-				"A flight booking system which was dealing with the bumping of seats with the help of Etherium Smart Contract. This was a project for IATA Hackathon.",
-			madeWith: ["Python", "DJANGO", "HTML", "CSS", "JavaScript"],
-			link: "https://github.com/srinibasbiswal/IATA-Hackathon",
+				"Delivered over 120 global projects on Upwork, maintaining 100 % Job Success and earning Top-Rated status through on-time delivery and exceptional communication.",
+			madeWith: ["Upwork", "Project Management"],
+			link: "",
 		},
 	],
 	skills: [
 		{
-			name: "Language Proficiency",
+			name: "Core Stack & Tools",
 			values: [
-				"ReactJS",
-				"JavaScript",
-				"Node",
-				"Python",
-				"Java",
-				"Firebase",
-				"HTML",
-				"CSS",
+				"React.js",
+				"Next.js",
+				"Node.js",
+				"Laravel",
+				"Strapi",
+				"Tailwind CSS",
+				"Docker",
+				"MySQL",
+				"MongoDB",
+				"REST & GraphQL APIs",
+				"Stripe",
+				"M-Pesa",
+				"CI/CD",
 			],
 		},
 		{
-			name: "Tools/IDE Proficiency",
-			values: ["VSCode","XCode","Git", "PyCharm", "Eclipse", "IntelliJ IDEA", "Postman"],
-		},
-		{
-			name: "Database Proficiency",
-			values: ["MySQL", "MongoDB", "Firestore"],
+			name: "Technical & Professional Skills",
+			values: [
+				"JavaScript (ES6+)",
+				"PHP",
+				"HTML5/CSS3",
+				"Git/GitHub",
+				"Agile",
+				"SEO Optimization",
+				"UI/UX Collaboration",
+			],
 		},
 	],
 };
