@@ -6,6 +6,7 @@ import github from "../../assets/images/social/github.svg";
 import upwork from "../../assets/images/social/upwork.svg";
 import email from "../../assets/images/social/email.png";
 import { analytics } from "../../utils/firebaseConfig";
+import LazyImage from "./lazyImage";
 import { logEvent } from "firebase/analytics";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
 import projectConfig from "../../utils/data/project.config";
@@ -22,84 +23,84 @@ function SocialBlock() {
 
 	return (
 		<div className="social-block">
-			{user.gitHub !== undefined &&
-				user.gitHub !== null &&
-				user.gitHub !== "" && (
-					<img
-						src={github}
-						width="40"
-						height="40"
-						alt="Github Icon"
-						className="uk-img uk-margin-small-right uk-link"
-						uk-tooltip="GitHub"
-						onClick={() =>
-							onSocialClick("https://github.com/" + user.gitHub)
-						}
-					/>
-				)}
-			{user.twitter !== undefined &&
-				user.twitter !== null &&
-				user.twitter !== "" && (
-					<img
-						src={twitter}
-						width="40"
-						height="40"
-						alt="Twitter Icon"
-						uk-tooltip="Twitter"
-						className="uk-img uk-margin-small-right uk-link"
-						onClick={() =>
-							onSocialClick("https://twitter.com/" + user.twitter)
-						}
-					/>
-				)}
-			{user.linkedIn !== undefined &&
-				user.linkedIn !== null &&
-				user.linkedIn !== "" && (
-					<img
-						src={linkedin}
-						width="40"
-						height="40"
-						alt="LinkedIn Icom"
-						uk-tooltip="LinkedIn"
-						className="uk-img uk-margin-small-right uk-link"
-						onClick={() =>
-							onSocialClick(
-								"https://www.linkedin.com/" + user.linkedIn
-							)
-						}
-					/>
-				)}
-			{user.upwork !== undefined &&
-				user.upwork !== null &&
-				user.upwork !== "" && (
-					<img
-						src={upwork}
-						width="40"
-						height="40"
-						alt="Upwork Icon"
-						uk-tooltip="Upwork"
-						className="uk-img uk-margin-small-right uk-link"
-						onClick={() =>
-							onSocialClick(
-								"https://www.upwork.com/freelancers/" +
-								user.upwork
-							)
-						}
-					/>
-				)}
-			{user.email !== undefined &&
-				user.email !== null &&
-				user.email !== "" && (
-					<img
-						src={email}
-						width="40"
-						height="40"
-						alt="Mail Icom"
-						uk-tooltip="Mail Me"
-						className="uk-img uk-margin-small-right uk-link"
-						onClick={() => onSocialClick("mailto:" + user.email)}
-					/>
-				)}
+{user.gitHub !== undefined &&
+user.gitHub !== null &&
+user.gitHub !== "" && (
+<LazyImage
+src={github}
+width="40"
+height="40"
+alt="Github Icon"
+className="uk-img uk-margin-small-right uk-link"
+uk-tooltip="GitHub"
+onClick={() =>
+onSocialClick("https://github.com/" + user.gitHub)
+}
+/>
+)}
+{user.twitter !== undefined &&
+user.twitter !== null &&
+user.twitter !== "" && (
+<LazyImage
+src={twitter}
+width="40"
+height="40"
+alt="Twitter Icon"
+uk-tooltip="Twitter"
+className="uk-img uk-margin-small-right uk-link"
+onClick={() =>
+onSocialClick("https://twitter.com/" + user.twitter)
+}
+/>
+)}
+{user.linkedIn !== undefined &&
+user.linkedIn !== null &&
+user.linkedIn !== "" && (
+<LazyImage
+src={linkedin}
+width="40"
+height="40"
+alt="LinkedIn Icom"
+uk-tooltip="LinkedIn"
+className="uk-img uk-margin-small-right uk-link"
+onClick={() =>
+onSocialClick(
+"https://www.linkedin.com/" + user.linkedIn
+)
+}
+/>
+)}
+{user.upwork !== undefined &&
+user.upwork !== null &&
+user.upwork !== "" && (
+<LazyImage
+src={upwork}
+width="40"
+height="40"
+alt="Upwork Icon"
+uk-tooltip="Upwork"
+className="uk-img uk-margin-small-right uk-link"
+onClick={() =>
+onSocialClick(
+"https://www.upwork.com/freelancers/" +
+user.upwork
+)
+}
+/>
+)}
+{user.email !== undefined &&
+user.email !== null &&
+user.email !== "" && (
+<LazyImage
+src={email}
+width="40"
+height="40"
+alt="Mail Icom"
+uk-tooltip="Mail Me"
+className="uk-img uk-margin-small-right uk-link"
+onClick={() => onSocialClick("mailto:" + user.email)}
+/>
+)}
 		</div>
 	);
 }

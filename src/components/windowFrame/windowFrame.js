@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { IconButton } from "@fluentui/react";
 import { ACTION_TYPES } from "../../utils/documents/enums";
 import "./windowFrame.scss";
+import LazyImage from "../base/lazyImage";
 
 export default function WindowFrame({ children, appInfo, onFunctionClick }) {
     const frameRef = useRef(null);
@@ -273,7 +274,7 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
                 <div className="app-title uk-background-secondary uk-border-rounded">
                     <span className="uk-margin-medium-right uk-margin-small-left uk-flex uk-flex-middle">
                         {appInfo.icon && (
-                            <img
+                            <LazyImage
                                 src={appInfo.icon}
                                 alt={appInfo.name}
                                 width="20"

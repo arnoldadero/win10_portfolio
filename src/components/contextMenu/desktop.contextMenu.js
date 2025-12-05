@@ -9,6 +9,7 @@ import github from "../../assets/images/contextMenu/github.svg";
 import { SCREENS } from "../../utils/documents/enums";
 import Credits from "../base/credits";
 import { useBoolean } from "@fluentui/react-hooks";
+import LazyImage from "../base/lazyImage";
 
 const MENU_ID = "context-menu";
 
@@ -31,25 +32,25 @@ function DesktopContextMenu(props) {
 						)
 					}
 				>
-					<img
-						src={star}
-						width="30"
-						height="30"
-						className="uk-margin-small-right"
-						alt="Star"
-					/>
+<LazyImage
+src={star}
+width="30"
+height="30"
+className="uk-margin-small-right"
+alt="Star"
+/>
 					Star This Project
 				</Item>
 				<Separator />
 				{props.location === SCREENS.DESKTOP && (
 					<Item onClick={handleRefresh}>
-						<img
-							src={refresh}
-							width="30"
-							height="30"
-							className="uk-margin-small-right"
-							alt="Refresh"
-						/>
+<LazyImage
+src={refresh}
+width="30"
+height="30"
+className="uk-margin-small-right"
+alt="Refresh"
+/>
 						Refresh
 					</Item>
 				)}
@@ -61,13 +62,13 @@ function DesktopContextMenu(props) {
 						)
 					}
 				>
-					<img
-						src={source_code}
-						width="30"
-						height="30"
-						className="uk-margin-small-right"
-						alt="Code"
-					/>
+<LazyImage
+src={source_code}
+width="30"
+height="30"
+className="uk-margin-small-right"
+alt="Code"
+/>
 					View Source Code
 				</Item>
 				<Separator />
@@ -76,13 +77,13 @@ function DesktopContextMenu(props) {
 						navigate("https://github.com/arnoldadero")
 					}
 				>
-					<img
-						src={github}
-						width="30"
-						height="30"
-						className="uk-margin-small-right"
-						alt="Github"
-					/>
+<LazyImage
+src={github}
+width="30"
+height="30"
+className="uk-margin-small-right"
+alt="Github"
+/>
 					Github Profile
 				</Item>
 				<Separator />
@@ -91,24 +92,24 @@ function DesktopContextMenu(props) {
 						navigate("mailto:arnold@mvuvi.co.ke")
 					}
 				>
-					<img
-						src={contact_me}
-						width="30"
-						height="30"
-						className="uk-margin-small-right"
-						alt="mail"
-					/>
+<LazyImage
+src={contact_me}
+width="30"
+height="30"
+className="uk-margin-small-right"
+alt="mail"
+/>
 					Contact Me
 				</Item>
 				<Separator />
 				<Item onClick={showModal}>
-					<img
-						src={credits}
-						width="30"
-						height="30"
-						className="uk-margin-small-right"
-						alt="Credits"
-					/>
+<LazyImage
+src={credits}
+width="30"
+height="30"
+className="uk-margin-small-right"
+alt="Credits"
+/>
 					Credits
 				</Item>
 				<Separator />

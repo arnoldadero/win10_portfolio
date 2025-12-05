@@ -1,25 +1,26 @@
 import React from "react";
 import avatar from "../../../assets/images/baseImages/default_avatar.svg";
 import user from "../../../utils/data/user.config";
+import LazyImage from "../../base/lazyImage";
 
 function AboutMe() {
 	return (
 		<div>
 			<div className="uk-card uk-text-center font-color-white">
 				<div className="uk-width-auto">
-					<img
-						className="uk-border-circle"
-						width="120"
-						height="120"
-						src={
-							user.userImage !== undefined &&
-							user.userImage !== null &&
-							user.userImage !== ""
-								? user.userImage
-								: avatar
-						}
-						alt="user"
-					/>
+<LazyImage
+className="uk-border-circle"
+width="120"
+height="120"
+src={
+user.userImage !== undefined &&
+user.userImage !== null &&
+user.userImage !== ""
+? user.userImage
+: avatar
+}
+alt="user"
+/>
 					<p className="uk-text-lead uk-margin-remove-bottom font-color-white">
 						Hey, I'm {user.firstName} {user.lastName}
 					</p>

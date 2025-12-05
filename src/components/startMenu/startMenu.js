@@ -13,6 +13,7 @@ import { analytics } from "../../utils/firebaseConfig";
 import { logEvent } from "firebase/analytics";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
 import projectConfig from "../../utils/data/project.config";
+import LazyImage from "../base/lazyImage";
 
 function StartMenu() {
 	const [
@@ -94,17 +95,17 @@ function StartMenu() {
 									onClick={() => handleIconClick(app)}
 									key={index}
 								>
-									{app.icon !== undefined &&
-										app.icon !== null &&
-										app.icon !== "" && (
-											<img
-												src={app.icon}
-												width="25"
-												height="25"
-												alt={app.name}
-												className="uk-img uk-margin-small-right"
-											/>
-										)}
+{app.icon !== undefined &&
+app.icon !== null &&
+app.icon !== "" && (
+<LazyImage
+src={app.icon}
+width="25"
+height="25"
+alt={app.name}
+className="uk-img uk-margin-small-right"
+/>
+)}
 									{app.name}
 								</li>
 							);
@@ -113,17 +114,17 @@ function StartMenu() {
 				</div>
 				<div className="start-tiles uk-background-secondary">
 					<div className="profile-card uk-card uk-card-body uk-margin-medium-top uk-margin-medium-left uk-margin-medium-right uk-border-rounded uk-text-center">
-						{user.userImage !== undefined &&
-							user.userImage !== null &&
-							user.userImage !== "" && (
-								<img
-									src={user.userImage}
-									width="80"
-									height="80"
-									alt={user.firstName}
-									className="uk-img profile-card-img"
-								/>
-							)}
+{user.userImage !== undefined &&
+user.userImage !== null &&
+user.userImage !== "" && (
+<LazyImage
+src={user.userImage}
+width="80"
+height="80"
+alt={user.firstName}
+className="uk-img profile-card-img"
+/>
+)}
 						<p className="uk-text-center">Hi, {user.firstName}</p>
 						<SocialBlock />
 					</div>

@@ -2,6 +2,7 @@ import React from "react";
 import "./about.scss";
 // import avatar from "../../../assets/images/baseImages/default_avatar.svg"; // Unused now
 import user from "../../../utils/data/user.config";
+import LazyImage from "../../base/lazyImage";
 
 
 function Experience() {
@@ -9,12 +10,12 @@ function Experience() {
 		<div className="uk-flex uk-flex-center uk-flex-middle" style={{ height: "100%" }}>
 			<div className="profile-card uk-text-center uk-card uk-card-secondary uk-card-body" style={{ borderRadius: "8px", maxWidth: "400px", background: "#1e1e1e" }}>
 				<div className="uk-margin-bottom">
-					<img
-						src={user.userImage}
-						alt={`${user.firstName} ${user.lastName}`}
-						className="uk-border-circle"
-						style={{ width: "120px", height: "120px", objectFit: "cover", border: "4px solid #4fc1e9" }}
-					/>
+<LazyImage
+src={user.userImage}
+alt={`${user.firstName} ${user.lastName}`}
+className="uk-border-circle"
+style={{ width: "120px", height: "120px", objectFit: "cover", border: "4px solid #4fc1e9" }}
+/>
 				</div>
 				<h3 className="uk-text-bold uk-margin-remove-bottom" style={{ color: "#fff" }}>
 					{user.firstName} {user.lastName}
