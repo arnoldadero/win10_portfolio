@@ -294,15 +294,10 @@
 /* Mobile (640px) */
 @media screen and (max-width: 640px) {
     .window-frame {
-        top: 10px !important;
-        left: 10px !important;
-        width: calc(100% - 20px) !important;
-        height: calc(100% - 60px) !important;
-        border-radius: 8px !important;
-        max-width: 100%;
+        border-radius: $window-border-radius-mobile;
 
         &::after {
-            display: none;
+            display: none; // No resize handle on mobile
         }
 
         &:hover {

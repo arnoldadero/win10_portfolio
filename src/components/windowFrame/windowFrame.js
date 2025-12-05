@@ -25,20 +25,14 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
         // Calculate dimensions
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
-        const isMobile = windowWidth <= 640;
         
         // Set size (responsive)
-        const width = Math.min(windowWidth * 0.7, 90);
-        const height = Math.min(windowHeight * 0.7, 90);
+        const width = Math.min(windowWidth * 0.9, 900);
+        const height = Math.min(windowHeight * 0.8, 720);
         
-        // Calculate position (centered on mobile, offset on desktop)
-        let posX = 80;
-        let posY = 80;
-        
-        if (isMobile) {
-            posX = Math.max(0, (windowWidth - width) / 2);
-            posY = Math.max(0, (windowHeight - height) / 2);
-        }
+        // Calculate position (centered)
+        const posX = Math.max(0, (windowWidth - width) / 2);
+        const posY = Math.max(0, (windowHeight - height) / 2);
         
         return {
             size: { width, height },
@@ -241,7 +235,17 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
             window.removeEventListener("mousemove", dragMove);
             window.removeEventListener("mouseup", stopDrag);
         };
-    });
+    }, []);
+
+    // Re-trigger animation on launch
+    useEffect(() => {
+        if (frameRef.current) {
+            frameRef.current.classList.remove('launching');
+            // Force reflow to restart the animation
+            void frameRef.current.offsetWidth;
+            frameRef.current.classList.add('launching');
+        }
+    }, [appInfo.id, appInfo.isMaximized]);
 
     const containerStyle = appInfo.isMaximized ? {
         width: "100%",
