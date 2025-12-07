@@ -33,7 +33,7 @@ alt="User"
 				</div>
 				<div>
 					<TextField
-						placeholder="Enter Any Pin"
+						placeholder="Click Signin To Enter"
 						type="password"
 						canRevealPassword
 						revealPasswordAriaLabel="Show password"

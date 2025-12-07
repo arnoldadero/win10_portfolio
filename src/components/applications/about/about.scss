@@ -1,30 +1,109 @@
 @import "../../../theme/variables";
 @import "../../../theme/mixins";
 
-.mail-card {
-	border: 1px solid var(--border-light);
-	background: var(--overlay-light);
+.about-app-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /* About Content Area */
+    .about-content {
+        flex: 1;
+        @include app-content-spacing();
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        background: linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
+        border-radius: 6px;
+
+        /* Profile Card */
+        .about-profile-card {
+            background: var(--overlay-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: var(--spacing-xl);
+            color: var(--text-primary);
+
+            /* Avatar Section */
+            .about-avatar-section {
+                text-align: center;
+                margin-bottom: var(--spacing-lg);
+
+                .about-avatar {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: var(--spacing-md);
+                    border: 2px solid var(--border-medium);
+                }
+
+                .about-name {
+                    @include responsive-font(18px, 16px, 14px);
+                    font-weight: 600;
+                    margin-bottom: var(--spacing-sm);
+                    color: var(--text-primary);
+                }
+
+                .about-intro {
+                    @include responsive-font(14px, 13px, 12px);
+                    color: var(--text-secondary);
+                    line-height: 1.6;
+                    margin: 0;
+                }
+            }
+
+            /* Description */
+            .about-description {
+                @include responsive-font(13px, 12px, 11px);
+                color: var(--text-secondary);
+                line-height: 1.8;
+                margin-bottom: var(--spacing-md);
+                text-align: justify;
+            }
+
+            /* Outro */
+            .about-outro {
+                @include responsive-font(13px, 12px, 11px);
+                color: var(--text-secondary);
+                line-height: 1.8;
+                margin-top: var(--spacing-lg);
+                border-top: 1px solid var(--border-light);
+                padding-top: var(--spacing-lg);
+            }
+        }
+    }
 }
 
-.profile-card {
-	padding: var(--spacing-xl);
-	color: var(--text-primary);
+@media screen and (max-width: 768px) {
+    .about-app-container {
+        .about-content {
+            @include app-content-spacing(10px, 8px, 6px);
 
-	h3 {
-		@include responsive-font(24px, 20px, 18px);
-		margin-bottom: var(--spacing-md);
-		font-weight: 600;
-	}
+            .about-profile-card {
+                padding: var(--spacing-lg);
 
-	p {
-		@include responsive-font(16px, 14px, 13px);
-		line-height: 1.6;
-		color: var(--text-secondary);
-	}
+                .about-avatar-section .about-avatar {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 640px) {
-	.profile-card {
-		padding: var(--spacing-md);
-	}
+    .about-app-container {
+        .about-content {
+            @include app-content-spacing(8px, 6px, 4px);
+
+            .about-profile-card {
+                padding: var(--spacing-md);
+
+                .about-avatar-section .about-avatar {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+    }
 }

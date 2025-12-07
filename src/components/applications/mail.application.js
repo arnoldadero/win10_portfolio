@@ -94,63 +94,67 @@ function Mail() {
 	};
 
 	return (
-		<div className="height-100">
-			<form onSubmit={handleSubmit}>
-				<div className="uk-margin form-input uk-flex  uk-flex-right">
-					<button className="discard-button uk-button uk-margin-small-right uk-background-secondary font-color-white">
-						<Icon iconName="Delete" />
-						Discard
-					</button>
-					<button
-						className="uk-button uk-button-primary"
-						type="submit"
-					>
-						<Icon iconName="Send" /> Send
-					</button>
-				</div>
-				{emailResponse.template.response}
-				<div className="uk-margin form-input">
-					<TextField
-						label="From :"
-						name="from"
-						underlined
-						required
-						placeholder="Your Email / Name"
-						value={emailResponse.template.from}
-						onChange={handleChange}
-					/>
-				</div>
-				<div className="uk-margin form-input">
-					<TextField
-						label="To :"
-						underlined
-						disabled
-						placeholder={`${user.firstName} ${user.lastName} (${user.email})`}
-					/>
-				</div>
-				<div className="uk-margin form-input">
-					<TextField
-						label="Subject :"
-						underlined
-						name="subject"
-						required
-						placeholder="here goes the subject"
-						value={emailResponse.template.subject}
-						onChange={handleChange}
-					/>
-				</div>
-				<div className="uk-margin form-input message-box">
-					<TextField
-						multiline
-						autoAdjustHeight
-						placeholder="Write your message / feedback here."
-						name="message"
-						rows={10}
-						value={emailResponse.template.message}
-						onChange={handleChange}
-					/>
-				</div>
-			</form>
+		<div className="mail-app-container">
+			<div className="mail-content">
+				<form onSubmit={handleSubmit} className="mail-form">
+					<div className="mail-actions">
+						<button className="mail-discard-btn">
+							<Icon iconName="Delete" />
+							Discard
+						</button>
+						<button
+							className="mail-send-btn"
+							type="submit"
+						>
+							<Icon iconName="Send" /> Send
+						</button>
+					</div>
+					<div className="mail-response">
+						{emailResponse.template.response}
+					</div>
+					<div className="mail-form-group">
+						<TextField
+							label="From :"
+							name="from"
+							underlined
+							required
+							placeholder="Your Email / Name"
+							value={emailResponse.template.from}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className="mail-form-group">
+						<TextField
+							label="To :"
+							underlined
+							disabled
+							placeholder={`${user.firstName} ${user.lastName} (${user.email})`}
+						/>
+					</div>
+					<div className="mail-form-group">
+						<TextField
+							label="Subject :"
+							underlined
+							name="subject"
+							required
+							placeholder="here goes the subject"
+							value={emailResponse.template.subject}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className="mail-form-group mail-message-box">
+						<TextField
+							multiline
+							autoAdjustHeight
+							placeholder="Write your message / feedback here."
+							name="message"
+							rows={10}
+							value={emailResponse.template.message}
+							onChange={handleChange}
+						/>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 }

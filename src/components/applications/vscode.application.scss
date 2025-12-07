@@ -4,6 +4,7 @@
 .vscode-app-container {
     height: 100%;
     display: flex;
+    flex: 1;
     background: var(--bg-primary);
 
     /* Sidebar */
@@ -86,13 +87,13 @@
         /* Editor Content */
         .editor-content {
             flex: 1;
-            @include app-content-spacing();
             overflow: auto;
             background: linear-gradient(90deg, rgba(50, 50, 50, 0.3) 0%, transparent 100%);
             font-family: 'Monaco', 'Courier New', monospace;
             @include responsive-font(12px, 11px, 10px);
             line-height: 1.6;
             color: var(--text-secondary);
+            @include app-content-spacing();
 
             .code-line {
                 margin-bottom: 2px;

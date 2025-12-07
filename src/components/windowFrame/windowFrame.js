@@ -138,11 +138,9 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
             newY = startPos.y + dy;
         }
 
-        // Boundaries
-        newWidth = Math.max(MIN_WIDTH, Math.min(newWidth, window.innerWidth));
-        newHeight = Math.max(MIN_HEIGHT, Math.min(newHeight, window.innerHeight));
-        newX = Math.max(0, Math.min(newX, window.innerWidth - newWidth));
-        newY = Math.max(0, Math.min(newY, window.innerHeight - newHeight));
+        // Boundaries - enforce minimum size only, allow position to overflow
+        newWidth = Math.max(MIN_WIDTH, newWidth);
+        newHeight = Math.max(MIN_HEIGHT, newHeight);
 
         setSize({ width: newWidth, height: newHeight });
         setPosition({ x: newX, y: newY });
@@ -178,8 +176,8 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
         const dy = e.clientY - mouseStart.y;
 
         setPosition({
-            x: Math.min(Math.max(startPos.x + dx, 0), window.innerWidth - size.width),
-            y: Math.min(Math.max(startPos.y + dy, 0), window.innerHeight - size.height)
+            x: startPos.x + dx,
+            y: startPos.y + dy
         });
     };
 

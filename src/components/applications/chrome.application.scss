@@ -4,6 +4,7 @@
 .chrome-app-container {
     height: 100%;
     display: flex;
+    flex: 1;
     flex-direction: column;
 
     /* Browser Chrome Bar */
@@ -69,12 +70,11 @@
     /* Web Content Area */
     .chrome-content {
         flex: 1;
-        @include app-content-spacing();
         overflow: auto;
         background: linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
-        border-radius: 6px;
 
         h2 {
+            @include app-content-spacing();
             @include responsive-font(18px, 16px, 14px);
             margin-bottom: var(--spacing-md);
             color: var(--color-blue);
@@ -82,6 +82,7 @@
         }
 
         p {
+            @include app-content-spacing();
             line-height: 1.6;
             color: var(--text-secondary);
             @include responsive-font(13px, 12px, 11px);
@@ -89,10 +90,10 @@
         }
 
         .chrome-tabs {
+            @include app-content-spacing();
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
 
             .chrome-tab {
                 background: rgba(0, 162, 237, 0.1);

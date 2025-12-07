@@ -4,6 +4,7 @@
 .document-app-container {
     height: 100%;
     display: flex;
+    flex: 1;
     flex-direction: column;
 
     /* Document Toolbar */
@@ -50,7 +51,6 @@
     /* Document Content */
     .document-content {
         flex: 1;
-        @include app-content-spacing();
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         background: linear-gradient(to bottom, rgba(50, 50, 50, 0.1) 0%, transparent 100%);
@@ -63,7 +63,7 @@
         }
 
         .ql-editor {
-            padding: 0;
+            @include app-content-spacing();
             line-height: 1.6;
             min-height: 100%;
         }

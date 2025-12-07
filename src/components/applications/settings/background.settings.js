@@ -22,39 +22,44 @@ function BackgroundSettings() {
 	};
 
 	return (
-		<div>
-			<p className="uk-text-lead font-color-white">
-				Change Desktop Background :
-			</p>
-			<div className="uk-child-width-1-2@m" uk-grid={"true"}>
-				{settings.desktop_wallpapers.map((wallpaper, index) => {
-					return (
-						<div key={index}>
-							<div
-								style={{
-									backgroundImage: `url(${wallpaper.value})`,
-									backgroundSize: "cover",
-									backgroundRepeat: "no-repeat",
-									backgroundPosition: "center center",
-								}}
-								className="wallpaper-thumbnail uk-card uk-card-body"
-								onClick={() => changeWallpaper(wallpaper.id)}
-							>
-								{current_settings.currentWallpaperId ===
-									wallpaper.id && (
-										<div className="uk-position-top-right uk-padding-small">
-											<img
-												src={checked}
-												width="40"
-												height="40"
-												alt="Selected"
-											/>
-										</div>
-									)}
+		<div className="settings-app-container">
+			<div className="settings-content">
+				<p className="settings-title">
+					Change Desktop Background :
+				</p>
+				<div className="settings-wallpaper-grid">
+					{settings.desktop_wallpapers.map((wallpaper, index) => {
+						return (
+							<div key={index} className="settings-wallpaper-item">
+								<div
+									style={{
+										backgroundImage: `url(${wallpaper.value})`,
+										backgroundSize: "cover",
+										backgroundRepeat: "no-repeat",
+										backgroundPosition: "center center",
+									}}
+									className="settings-wallpaper-thumbnail"
+									onClick={() => changeWallpaper(wallpaper.id)}
+									role="button"
+									tabIndex={0}
+									onKeyDown={(e) => e.key === 'Enter' && changeWallpaper(wallpaper.id)}
+								>
+									{current_settings.currentWallpaperId ===
+										wallpaper.id && (
+											<div className="settings-wallpaper-selected">
+												<img
+													src={checked}
+													width="40"
+													height="40"
+													alt="Selected"
+												/>
+											</div>
+										)}
+								</div>
 							</div>
-						</div>
-					);
-				})}
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);
