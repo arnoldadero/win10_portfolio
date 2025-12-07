@@ -9,7 +9,7 @@ function ContactMe() {
 				<p>Find me on : </p>
 				<SocialBlock />
 			</div>
-			<div className="mail-card uk-border-rounded uk-padding-small uk-margin-small">
+			<div className="premium-card uk-margin-top">
 				<Mail />
 			</div>
 		</div>

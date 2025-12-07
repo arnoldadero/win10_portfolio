@@ -230,3 +230,147 @@
         }
     }
 }
+
+/* =========================================
+   SHARED PREMIUM STYLES
+   ========================================= */
+.premium-card {
+    background: var(--overlay-light);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--border-medium);
+        background: var(--overlay-medium);
+    }
+}
+
+/* =========================================
+   EDUCATION TIMELINE STYLES
+   ========================================= */
+.education-container {
+    padding: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+
+    .timeline-wrapper {
+        position: relative;
+        padding-left: 20px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--color-blue), rgba(0, 162, 237, 0.1));
+            border-radius: 2px;
+        }
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: var(--spacing-xl);
+        padding-left: var(--spacing-lg);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -25px;
+            /* Adjust based on padding-left - (marker-width / 2) */
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--color-blue);
+            border: 2px solid var(--bg-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(0, 162, 237, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        &:hover .timeline-marker {
+            background: var(--color-white);
+            box-shadow: 0 0 0 6px rgba(0, 162, 237, 0.4);
+            transform: scale(1.2);
+        }
+
+        .timeline-content {
+            @extend .premium-card;
+            /* Reuse the card style */
+            padding: var(--spacing-md) var(--spacing-lg);
+
+            .institute-name {
+                color: var(--text-primary);
+                font-size: 18px;
+                font-weight: 600;
+                margin: 0 0 var(--spacing-xs) 0;
+            }
+
+            .education-year {
+                display: inline-block;
+                color: var(--color-blue);
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: var(--spacing-xs);
+                font-family: monospace;
+                background: rgba(0, 162, 237, 0.1);
+                padding: 2px 8px;
+                border-radius: 4px;
+            }
+
+            .degree-name {
+                color: var(--text-secondary);
+                font-size: 15px;
+                line-height: 1.5;
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+/* Response adjustments for Education */
+@media screen and (max-width: 640px) {
+    .education-container {
+        padding: var(--spacing-md);
+
+        .timeline-wrapper {
+            padding-left: 10px;
+        }
+
+        .timeline-item {
+            padding-left: var(--spacing-md);
+
+            .timeline-marker {
+                left: -16px;
+                width: 10px;
+                height: 10px;
+            }
+
+            .timeline-content {
+                padding: var(--spacing-md);
+
+                .institute-name {
+                    font-size: 16px;
+                }
+
+                .degree-name {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
