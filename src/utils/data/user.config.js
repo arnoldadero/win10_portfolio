@@ -1,6 +1,8 @@
 import ResumePDF from "./ARNOLD ADERO's Resume.pdf";
 import user_avatar from "../../assets/images/baseImages/profile.png";
 
+import coldStorageGif from "../../assets/images/projects/coldstorage.gif";
+
 const user = {
 	firstName: "Arnold",
 	lastName: "Adero",
@@ -125,6 +127,7 @@ const user = {
 				"Designed and developed a logistics and fish-chain traceability platform that won a hackathon and is now scaling into commercial deployment. Built with React, Node.js, and Docker, integrating live IoT tracking and real-time dashboards.",
 			madeWith: ["React", "Node.js", "Docker", "IoT"],
 			link: "", // No link provided
+			image: coldStorageGif,
 		},
 		{
 			projectName: "M-Pesa Integration",

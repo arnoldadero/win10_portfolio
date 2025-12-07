@@ -78,18 +78,16 @@ function AppComponent(props) {
 											className="uk-margin-remove"
 											key={index}
 										>
-											<a
-												className="uk-link-reset"
-												onClick={(e) => {
-													e.preventDefault();
+											<button
+												type="button"
+												onClick={() => {
 													setComponent(component.name, index);
 												}}
-												href="#"
 											>
 												<span className="sidebar-list-item uk-margin-remove">
 													{component.name}
 												</span>
-											</a>
+											</button>
 										</li>
 									);
 								}
@@ -176,21 +174,19 @@ function AppComponent(props) {
 													}
 													key={index}
 												>
-													<a
-														className="uk-link-reset"
-														onClick={(e) => {
-															e.preventDefault();
+													<button
+														type="button"
+														onClick={() => {
 															setComponent(
 																component.name,
 																index
 															);
 														}}
-														href="#"
 													>
 														<span className="sidebar-list-item uk-margin-remove">
 															{component.name}
 														</span>
-													</a>
+													</button>
 												</li>
 											);
 										}

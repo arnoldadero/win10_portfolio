@@ -16,6 +16,21 @@ function Projects() {
 					return (
 						<article className="project-item" key={index}>
 							<div className="premium-card project-card">
+								{project.image && (
+									<div className="uk-card-media-top">
+										<img
+											src={project.image}
+											alt={project.projectName}
+											style={{
+												width: "100%",
+												height: "200px",
+												objectFit: "cover",
+												borderTopLeftRadius: "8px",
+												borderTopRightRadius: "8px",
+											}}
+										/>
+									</div>
+								)}
 								<div className="uk-card-header uk-padding-remove-horizontal">
 									<h3 className="uk-card-title font-color-white uk-margin-remove-bottom">
 										{project.projectName}

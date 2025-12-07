@@ -24,10 +24,19 @@
             margin-bottom: 2px;
         }
 
-        a {
+        a,
+        button {
             display: block;
             text-decoration: none;
             color: var(--text-primary);
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font: inherit;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
         }
 
         .sidebar-list-item {
@@ -52,7 +61,8 @@
 
         /* Active/Selected State (UIkit adds .uk-active to parent li) */
         li.uk-active .sidebar-list-item,
-        li.uk-active a {
+        li.uk-active a,
+        li.uk-active button {
             background: var(--color-blue);
             color: var(--color-white);
             font-weight: 500;
@@ -63,7 +73,8 @@
         }
 
         /* Focus visible for accessibility */
-        a:focus-visible {
+        a:focus-visible,
+        button:focus-visible {
             outline: 2px solid var(--color-blue);
             outline-offset: -2px;
             border-radius: 4px;

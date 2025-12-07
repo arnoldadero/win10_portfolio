@@ -525,7 +525,7 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
                         />
                         <IconButton
                             className="window-control-btn maximize-btn"
-                            iconProps={{ iconName: appInfo.isMaximized ? "ChromeRestore" : "ChromeMaximize" }}
+                            iconProps={{ iconName: appInfo.isMaximized ? "ChromeRestore" : "FullScreen" }}
                             title={appInfo.isMaximized ? "Restore" : "Maximize"}
                             ariaLabel={appInfo.isMaximized ? "Restore window" : "Maximize window"}
                             onClick={() => onFunctionClick(appInfo, ACTION_TYPES.MAXIMIZE)}
