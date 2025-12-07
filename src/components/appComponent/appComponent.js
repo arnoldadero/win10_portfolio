@@ -30,7 +30,7 @@ function AppComponent(props) {
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
-				const items = sidebarRef.current.querySelectorAll('li > a');
+				const items = sidebarRef.current.querySelectorAll('li > button');
 				if (items[newIndex]) {
 					items[newIndex].click();
 				}
@@ -45,7 +45,7 @@ function AppComponent(props) {
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
-				const items = sidebarRef.current.querySelectorAll('li > a');
+				const items = sidebarRef.current.querySelectorAll('li > button');
 				if (items[newIndex]) {
 					items[newIndex].click();
 				}

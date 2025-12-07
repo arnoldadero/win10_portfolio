@@ -54,7 +54,7 @@ window.addEventListener('unhandledrejection', (e) => {
 
 // Override global error handler
 const originalOnError = window.onerror;
-window.onerror = function(message, source, lineno, colno, error) {
+window.onerror = function (message, source, lineno, colno, error) {
 	if (resizeObserverLoopErr.test(message) || resizeObserverLoopErr.test(source)) {
 		return true;
 	}
@@ -77,5 +77,5 @@ root.render(
 	</React.StrictMode>
 );
 
-serviceWorker.register();
+serviceWorker.unregister();
 reportWebVitals();
