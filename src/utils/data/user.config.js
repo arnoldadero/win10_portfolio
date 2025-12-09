@@ -6,6 +6,7 @@ import coldStorageGif from "../../assets/images/projects/coldstorage.gif";
 const user = {
 	firstName: "Arnold",
 	lastName: "Adero",
+	role: "Full-Stack Developer",
 	userImage: user_avatar,
 	resume: ResumePDF,
 	email: "arnold@mvuvi.co.ke",

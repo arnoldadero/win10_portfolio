@@ -161,21 +161,41 @@ function StartMenu() {
 
 				{/* Pinned Tiles Section */}
 				<div className="start-tiles">
-					{/* Profile Card */}
+					{/* Enhanced Profile Card */}
 					<div className="profile-card">
-						{user.userImage !== undefined &&
-							user.userImage !== null &&
-							user.userImage !== "" && (
-								<LazyImage
-									src={user.userImage}
-									width="70"
-									height="70"
-									alt={user.firstName}
-									className="uk-img profile-card-img"
-								/>
-							)}
-						<p className="profile-greeting">Hi, {user.firstName}</p>
-						<SocialBlock />
+						<div className="profile-card-inner">
+							{/* Avatar with glow ring */}
+							<div className="profile-avatar-container">
+								{user.userImage !== undefined &&
+									user.userImage !== null &&
+									user.userImage !== "" && (
+										<LazyImage
+											src={user.userImage}
+											width="80"
+											height="80"
+											alt={user.firstName}
+											className="profile-avatar"
+										/>
+									)}
+								<div className="avatar-glow"></div>
+							</div>
+
+							{/* User Info */}
+							<div className="profile-info">
+								<h3 className="profile-name">
+									{user.firstName} {user.lastName || ''}
+								</h3>
+								<p className="profile-role">{user.role || 'Developer'}</p>
+							</div>
+
+							{/* Divider */}
+							<div className="profile-divider"></div>
+
+							{/* Social Links */}
+							<div className="profile-social">
+								<SocialBlock />
+							</div>
+						</div>
 					</div>
 
 					{/* Pinned Apps Section */}
