@@ -11,64 +11,77 @@ import {
 function Projects() {
 	return (
 		<div className="projects-app-container uk-padding">
-			<div className="uk-grid-small uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match" uk-grid="true">
+			<div
+				className="uk-grid-small uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match"
+				uk-grid="true"
+			>
 				{user.projects.map((project, index) => {
+					// Determine links: repoLink for GitHub, demoLink or link for Live Demo
+					const repoLink = project.repoLink || null;
+					const demoLink = project.demoLink || project.link || null;
+
 					return (
 						<article className="project-item" key={index}>
-							<div className="premium-card project-card">
+							<div className="premium-card project-card glassy-card">
+								{/* Project Image - Static, full-width view */}
 								{project.image && (
-									<div className="uk-card-media-top">
+									<div className="project-media">
 										<img
 											src={project.image}
 											alt={project.projectName}
-											style={{
-												width: "100%",
-												height: "200px",
-												objectFit: "cover",
-												borderTopLeftRadius: "8px",
-												borderTopRightRadius: "8px",
-											}}
+											className="project-image"
 										/>
 									</div>
 								)}
-								<div className="uk-card-header uk-padding-remove-horizontal">
-									<h3 className="uk-card-title font-color-white uk-margin-remove-bottom">
-										{project.projectName}
-										{project.link && (
+
+								{/* Card Header with Title and Links */}
+								<div className="project-header">
+									<h3 className="project-title">{project.projectName}</h3>
+									<div className="project-links">
+										{repoLink && (
 											<TooltipHost
-												content="View Project"
+												content="View GitHub Repo"
 												delay={TooltipDelay.zero}
 												directionalHint={DirectionalHint.bottomCenter}
 											>
 												<IconButton
-													iconProps={{
-														iconName: "NavigateExternalInline",
-													}}
-													className="link-to-project"
-													target="_blank"
-													href={project.link}
-													onClick={() => window.open(project.link, "_blank")}
+													iconProps={{ iconName: "GitGraph" }}
+													className="project-link-btn"
+													aria-label="GitHub Repository"
+													onClick={() => window.open(repoLink, "_blank")}
 												/>
 											</TooltipHost>
 										)}
-									</h3>
+										{demoLink && (
+											<TooltipHost
+												content="View Live Demo"
+												delay={TooltipDelay.zero}
+												directionalHint={DirectionalHint.bottomCenter}
+											>
+												<IconButton
+													iconProps={{ iconName: "Globe" }}
+													className="project-link-btn"
+													aria-label="Live Demo"
+													onClick={() => window.open(demoLink, "_blank")}
+												/>
+											</TooltipHost>
+										)}
+									</div>
 								</div>
-								<div className="uk-card-body uk-padding-remove-horizontal uk-flex-1">
-									<p className="uk-text-secondary">{project.description}</p>
+
+								{/* Card Body - Description */}
+								<div className="project-body">
+									<p className="project-description">{project.description}</p>
 								</div>
-								<div className="uk-card-footer uk-padding-remove-horizontal">
-									<div className="uk-flex uk-flex-wrap" style={{ gap: "8px" }}>
-										{project.madeWith.map((stack, stackIndex) => {
-											return (
-												<span
-													className="uk-badge uk-padding-small uk-background-secondary"
-													key={stackIndex}
-													style={{ fontSize: "11px", textTransform: "none" }}
-												>
-													{stack}
-												</span>
-											);
-										})}
+
+								{/* Card Footer - Tech Stack */}
+								<div className="project-footer">
+									<div className="project-tech-stack">
+										{project.madeWith.map((stack, stackIndex) => (
+											<span className="tech-badge" key={stackIndex}>
+												{stack}
+											</span>
+										))}
 									</div>
 								</div>
 							</div>
