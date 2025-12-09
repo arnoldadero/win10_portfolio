@@ -13,7 +13,7 @@ const user = {
 	linkedIn: "in/arnold-adero-49607955",
 	upwork: "arnoldadero",
 	gitHub: "arnoldadero",
-	twitter: "arnoldadero", // Assuming same handle or placeholder
+	whatsapp: "+254733943486",
 	aboutMe: {
 		intro: "Forward-thinking Full-Stack Developer with 10+ years of experience delivering scalable, high-performance web applications and digital systems.",
 		description:

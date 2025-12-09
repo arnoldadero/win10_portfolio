@@ -22,6 +22,10 @@
             background: var(--overlay-light);
             transform: scale(1.1);
             border-color: var(--border-light);
+            
+            .uk-img {
+                animation-play-state: paused;
+            }
         }
 
         &:focus-visible {
@@ -33,6 +37,16 @@
             max-width: 100%;
             height: auto;
             display: block;
+            animation: bounce 2s infinite ease-in-out;
         }
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
     }
 }

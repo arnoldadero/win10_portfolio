@@ -1,7 +1,7 @@
 import React from "react";
 import user from "../../utils/data/user.config";
 import "./socialBlock.scss";
-import twitter from "../../assets/images/social/twitter.svg";
+import whatsapp from "../../assets/images/social/whatsapp.svg";
 import linkedin from "../../assets/images/social/linkedin.svg";
 import github from "../../assets/images/social/github.svg";
 import upwork from "../../assets/images/social/upwork.svg";
@@ -30,11 +30,11 @@ function SocialBlock() {
 			label: "GitHub"
 		},
 		{
-			condition: user.twitter,
-			url: `https://twitter.com/${user.twitter}`,
-			icon: twitter,
-			alt: "Twitter Profile",
-			label: "Twitter"
+			condition: user.whatsapp,
+			url: `https://wa.me/${user.whatsapp}`,
+			icon: whatsapp,
+			alt: "WhatsApp Contact",
+			label: "WhatsApp"
 		},
 		{
 			condition: user.linkedIn,
