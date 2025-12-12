@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { AnalyticsListener } from "./analytics/ga";
 import "./App.css";
 import DesktopContainer from "./containers/desktop.container";
 import LockScreenContainer from "./containers/lockScreen.container";
@@ -11,6 +12,7 @@ const CRITICAL_IMAGES = [
   require("./assets/images/apps/aboutMe.png").default,
 ];
 
+
 function App() {
   const systemState = useSelector((state) => state.systemState);
 
@@ -21,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <AnalyticsListener />
       {systemState.isLocked ? <LockScreenContainer /> : <DesktopContainer />}
     </div>
   );

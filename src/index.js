@@ -18,7 +18,11 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 
 
+import { BrowserRouter } from "react-router-dom";
+import { initGA } from "./analytics/ga";
+
 initializeIcons();
+initGA(); // Initialize Google Analytics
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -26,7 +30,9 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>
 );
