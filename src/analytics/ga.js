@@ -6,14 +6,14 @@ import { useLocation } from "react-router-dom";
 
 
 const MEASUREMENT_ID = "G-5NR0W3DTHW";
-const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
 
 /**
  * Initialize Google Analytics 4
  */
 export const initGA = () => {
     ReactGA.initialize(MEASUREMENT_ID, {
-        testMode: !IS_PRODUCTION, // Use test mode in development to see logs
+        testMode: false, // Enable data sending even in development for verification
     });
     console.log("GA4 Initialized");
 };
