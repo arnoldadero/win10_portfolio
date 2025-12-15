@@ -41,6 +41,13 @@
 	height: calc(100% - 40px) !important;
 }
 
+.desktop-icons {
+	padding: 10px 8px;
+	gap: 6px;
+	max-width: 92px;
+	pointer-events: auto;
+}
+
 .taskbar {
 	height: 40px !important;
 }
@@ -53,6 +60,12 @@
 	.desktop-container {
 		height: calc(100% - 45px) !important;
 	}
+
+	.desktop-icons {
+		padding: 8px 6px;
+		gap: 4px;
+		max-width: 86px;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -62,6 +75,12 @@
 
 	.desktop-container {
 		height: calc(100% - 50px) !important;
+	}
+
+	.desktop-icons {
+		padding: 6px 5px;
+		gap: 3px;
+		max-width: 80px;
 	}
 }
 

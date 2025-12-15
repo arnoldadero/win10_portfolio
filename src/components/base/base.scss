@@ -18,18 +18,23 @@
 
 .app-icon {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
+	width: 76px;
+	min-height: 84px;
+	padding: 8px 6px 6px;
 	border-radius: 4px;
-	transition: all 0.2s ease;
-	padding: 4px;
+	transition: all 0.16s ease;
+	user-select: none;
+	-webkit-user-select: none;
 }
 
 .app-icon:hover {
-background: rgba(74, 74, 74, 0.5) !important;
-backdrop-filter: blur(20px) !important;
--webkit-backdrop-filter: blur(20px) !important;
-cursor: pointer;
+	background: rgba(255, 255, 255, 0.12) !important;
+	backdrop-filter: blur(14px) !important;
+	-webkit-backdrop-filter: blur(14px) !important;
+	cursor: pointer;
 }
 
 .app-icon:focus-visible {
@@ -39,7 +44,37 @@ border-radius: 4px;
 }
 
 .app-icon:active {
-transform: scale(0.95);
+	background: rgba(79, 193, 233, 0.18) !important;
+	transform: scale(0.98);
+}
+
+.app-icon-image {
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 2px;
+	margin-bottom: 6px;
+}
+
+.app-icon-image img {
+	width: 36px;
+	height: 36px;
+	object-fit: contain;
+}
+
+.app-icon-label {
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+	color: var(--font-white);
+	font-size: 12px;
+	line-height: 1.2;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -65,8 +100,14 @@ transform: none;
 	}
 
 	.app-icon {
-		padding: 3px;
-		border-radius: 3px;
+		width: 72px;
+		min-height: 80px;
+		padding: 7px 5px 5px;
+		border-radius: 4px;
+	}
+
+	.app-icon-label {
+		font-size: 11px;
 	}
 }
 
@@ -82,8 +123,14 @@ transform: none;
 	}
 
 	.app-icon {
-		padding: 2px;
-		border-radius: 2px;
+		width: 68px;
+		min-height: 76px;
+		padding: 6px 4px 4px;
+		border-radius: 4px;
+	}
+
+	.app-icon-label {
+		font-size: 11px;
 	}
 }
 
@@ -100,10 +147,14 @@ transform: none;
 	}
 
 	.app-icon {
-		padding: 1px;
-		border-radius: 1px;
-		min-width: 28px;
-		min-height: 28px;
+		width: 62px;
+		min-height: 72px;
+		padding: 6px 4px 4px;
+		border-radius: 4px;
+	}
+
+	.app-icon-label {
+		font-size: 10px;
 	}
 }
 
@@ -119,9 +170,13 @@ transform: none;
 	}
 
 	.app-icon {
-		min-width: 24px;
-		min-height: 24px;
-		padding: 1px;
+		width: 56px;
+		min-height: 66px;
+		padding: 5px 3px 3px;
+	}
+
+	.app-icon-label {
+		font-size: 9px;
 	}
 }
 

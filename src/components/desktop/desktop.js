@@ -63,7 +63,7 @@ return (
 					<StartMenu />
 					<CalendarOverlay />
 					<div className="app-playground uk-position-right">
-						<div className="uk-position-left uk-flex uk-flex-column">
+						<div className="desktop-icons uk-position-left uk-flex uk-flex-column">
 							{desktopApps.map((app, index) => {
 								return <AppIcon appInfo={app} key={index} />;
 							})}

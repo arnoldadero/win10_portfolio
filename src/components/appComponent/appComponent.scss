@@ -134,8 +134,10 @@
     flex: 1;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    padding: var(--spacing-sm);
     min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
 }
 
 .disabled-text-field {
@@ -198,9 +200,55 @@
 .app-nav-bar {
     border-bottom: 1px solid var(--border-light);
     align-items: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(20, 20, 26, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: var(--spacing-sm);
     gap: var(--spacing-sm);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex: 0 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+    .ms-TextField {
+        flex: 1 1 220px;
+        min-width: 0;
+    }
+
+    .ms-TextField-fieldGroup {
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        min-height: 34px;
+    }
+
+    .ms-TextField-field {
+        color: var(--text-primary);
+    }
+
+    .ms-TextField-fieldGroup i {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .ms-Button.ms-Button--icon {
+        min-width: 34px;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .ms-Button.ms-Button--icon:hover {
+        background: rgba(79, 193, 233, 0.18);
+        border-color: rgba(79, 193, 233, 0.28);
+    }
+
+    .ms-Button.ms-Button--icon:active {
+        transform: scale(0.98);
+    }
 
     button {
         transition: all var(--transition-base);
@@ -238,6 +286,16 @@
     backdrop-filter: blur(10px);
 }
 
+.app-content > .dropdown,
+.app-content > ul.uk-switcher {
+    padding: var(--spacing-sm);
+}
+
+.app-content > ul.uk-switcher {
+    flex: 1;
+    min-height: 0;
+}
+
 /* Responsive improvements */
 @media screen and (max-width: 1024px) {
     .app-sidebar {
@@ -250,7 +308,6 @@
     }
 
     .app-content {
-        padding: 6px;
         font-size: 13px;
     }
 
@@ -270,7 +327,6 @@
     }
 
     .app-content {
-        padding: 5px;
         font-size: 12px;
     }
 
@@ -297,7 +353,6 @@
     }
 
     .app-content {
-        padding: 4px;
         font-size: 11px;
     }
 
@@ -305,6 +360,22 @@
         padding: 4px;
         gap: 4px;
         flex-wrap: wrap;
+
+        .uk-width-3-5,
+        .uk-width-1-5 {
+            width: auto !important;
+        }
+
+        .ms-Button.ms-Button--icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 9px;
+        }
+
+        .ms-TextField {
+            flex: 1 1 160px;
+        }
     }
 
     .dropdown-content {
@@ -327,7 +398,6 @@
     }
 
     .app-content {
-        padding: 3px;
         font-size: 10px;
     }
 
@@ -335,6 +405,22 @@
         padding: 3px;
         gap: 3px;
         font-size: 10px;
+
+        .uk-width-3-5,
+        .uk-width-1-5 {
+            width: 100% !important;
+        }
+
+        .ms-Button.ms-Button--icon {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            border-radius: 9px;
+        }
+
+        .ms-TextField {
+            flex: 1 1 100%;
+        }
     }
 
     .dropdown-content {
@@ -356,7 +442,6 @@
     }
 
     .app-content {
-        padding: 2px;
         font-size: 9px;
     }
 

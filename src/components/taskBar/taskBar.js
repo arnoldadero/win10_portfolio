@@ -9,8 +9,8 @@ function Taskbar(props) {
 
 	return (
 		<div className="uk-width-expand taskbar-bottom">
-			<div className="uk-position-left uk-flex">
-				<div className="uk-flex">
+			<div className="uk-position-left uk-flex taskbar-left">
+				<div className="uk-flex taskbar-left-controls">
 					<div
 						className="uk-height-1-1 taskbar-icon"
 						uk-toggle="target: #start-menu"
@@ -35,13 +35,13 @@ function Taskbar(props) {
 						className="uk-height-1-1 taskbar-icon"
 					/> */}
 				</div>
-				<div className="uk-flex">
+				<div className="uk-flex taskbar-apps">
 					{props.onTaskbarApps.map((app, index) => {
 						return <TaskBarIcon appInfo={app} key={index} />;
 					})}
 				</div>
 			</div>
-			<div className="uk-position-right uk-flex">
+			<div className="uk-position-right uk-flex taskbar-right">
 				<div>
 					{settings.wifiEnabled && (
 						<IconButton
@@ -78,7 +78,7 @@ function Taskbar(props) {
 						/>
 					)}
 				</div>
-				<div>
+				<div className="taskbar-clock-wrap">
 					<ClockComponent />
 				</div>
 				<div

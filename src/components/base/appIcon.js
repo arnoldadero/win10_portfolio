@@ -19,14 +19,15 @@ function AppIcon(props) {
 
 	return (
 		<div
-			className="uk-text-center uk-margin-small uk-button app-icon uk-border-rounded"
+			className="app-icon"
 			onClick={() => handleIconClick(props.appInfo)}
 			onKeyDown={handleKeyDown}
 			role="button"
 			tabIndex={0}
 			aria-label={`Open ${props.appInfo.name}`}
+			title={props.appInfo.name}
 		>
-			<div>
+			<div className="app-icon-image">
 				<LazyImage
 					src={
 						props.appInfo.icon !== undefined &&
@@ -36,11 +37,11 @@ function AppIcon(props) {
 							: folder
 					}
 					alt={props.appInfo.name}
-					width="30"
-					height="30"
+					width="36"
+					height="36"
 				/>
 			</div>
-			<div className="font-color-white uk-text-small">
+			<div className="app-icon-label">
 				{props.appInfo.name}
 			</div>
 		</div>
