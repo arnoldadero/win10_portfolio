@@ -7,6 +7,74 @@
     flex: 1;
     flex-direction: column;
 
+    .chrome-tab-strip {
+        background: rgba(0, 0, 0, 0.35);
+        border-bottom: 1px solid var(--border-light);
+        padding: 6px 8px;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        flex-shrink: 0;
+        overflow-x: auto;
+
+        .chrome-tab-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            max-width: 220px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            cursor: pointer;
+            user-select: none;
+
+            &.active {
+                background: rgba(255, 255, 255, 0.12);
+                color: var(--text-primary);
+                border-color: var(--border-medium);
+            }
+
+            .chrome-tab-title {
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 12px;
+            }
+
+            .chrome-tab-close {
+                width: 22px;
+                height: 22px;
+                border-radius: 4px;
+                border: none;
+                background: transparent;
+                color: inherit;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                @include hover-state(rgba(255, 255, 255, 0.12));
+            }
+        }
+
+        .chrome-tab-add {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            @include hover-state();
+        }
+    }
+
     /* Browser Chrome Bar */
     .chrome-browser-bar {
         background: rgba(0, 0, 0, 0.3);
@@ -30,6 +98,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            &:disabled {
+                opacity: 0.45;
+                cursor: not-allowed;
+            }
 
             &:active {
                 background: var(--overlay-medium);
@@ -69,9 +142,52 @@
 
     /* Web Content Area */
     .chrome-content {
+        position: relative;
         flex: 1;
         overflow: auto;
         background: linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
+
+        .chrome-frame-blocked {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            z-index: 2;
+
+            .chrome-frame-blocked-card {
+                width: min(520px, 100%);
+                border: 1px solid var(--border-light);
+                border-radius: 10px;
+                padding: 14px 16px;
+                background: rgba(0, 0, 0, 0.45);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            }
+
+            .chrome-frame-blocked-title {
+                color: var(--text-primary);
+                font-weight: 600;
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .chrome-frame-blocked-body {
+                color: var(--text-secondary);
+                font-size: 12px;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
+
+            .chrome-frame-blocked-actions {
+                display: flex;
+                gap: 8px;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+            }
+        }
 
         h2 {
             @include app-content-spacing();

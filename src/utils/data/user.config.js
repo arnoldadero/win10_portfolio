@@ -6,7 +6,7 @@ import coldStorageGif from "../../assets/images/projects/coldstorage.webp";
 const user = {
 	firstName: "Arnold",
 	lastName: "Adero",
-	role: "Full-Stack Developer",
+	role: "Senior Full-Stack Engineer",
 	userImage: user_avatar,
 	resume: ResumePDF,
 	email: "arnold@mvuvi.co.ke",
@@ -15,7 +15,7 @@ const user = {
 	gitHub: "arnoldadero",
 	whatsapp: "+254733943486",
 	aboutMe: {
-		intro: "Forward-thinking Full-Stack Developer with 10+ years of experience delivering scalable, high-performance web applications and digital systems.",
+		intro: "Senior Full-Stack Engineer with 10+ years of experience delivering scalable, high-performance web applications and digital systems.",
 		description:
 			"Skilled in React, Next.js, Node.js, Laravel, and Docker, with hands-on expertise integrating modern tools and APIs to streamline development workflows. Known for transforming innovative concepts into reliable, production-ready software while leading teams and managing projects with precision and agility.",
 		outro: "I thrive at the intersection of clean code and modern tooling — leveraging Dockerized workflows, CI/CD pipelines, and modular front-end frameworks like React and Next.js to ship faster and smarter.",
