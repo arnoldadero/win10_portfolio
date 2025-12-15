@@ -1,5 +1,5 @@
 import { IconButton, TextField } from "@fluentui/react";
-import React, { useState, useRef, Suspense } from "react";
+import React, { useState, useRef, Suspense, useEffect } from "react";
 import "./appComponent.scss";
 import { useDispatch } from "react-redux";
 import { handleAppFunctions } from "../../utils/actions/app.action";
@@ -64,6 +64,27 @@ function AppComponent(props) {
 			}
 		}
 	};
+
+	// Sync with Redux state for Deep Linking
+	useEffect(() => {
+		if (
+			props.appInfo.activeSubComponentIndex !== undefined &&
+			props.appInfo.activeSubComponentIndex !== currentIndex &&
+			props.appInfo.subComponent
+		) {
+			const newIndex = props.appInfo.activeSubComponentIndex;
+			if (props.appInfo.subComponent[newIndex]) {
+				setComponent(props.appInfo.subComponent[newIndex].name, newIndex);
+				// Trigger UIkit switcher
+				if (sidebarRef.current) {
+					const items = sidebarRef.current.querySelectorAll("li > button");
+					if (items[newIndex]) {
+						items[newIndex].click();
+					}
+				}
+			}
+		}
+	}, [props.appInfo.activeSubComponentIndex, props.appInfo.subComponent, currentIndex]);
 
 	const navigateForward = () => {
 		if (props.appInfo.subComponent && currentIndex < props.appInfo.subComponent.length - 1) {

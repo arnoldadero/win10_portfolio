@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { AnalyticsListener } from "./analytics/ga";
+import RouteListener from "./components/router/RouteListener";
 import "./App.css";
 import DesktopContainer from "./containers/desktop.container";
 import LockScreenContainer from "./containers/lockScreen.container";
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <AnalyticsListener />
+      <RouteListener />
       {systemState.isLocked ? <LockScreenContainer /> : <DesktopContainer />}
     </div>
   );

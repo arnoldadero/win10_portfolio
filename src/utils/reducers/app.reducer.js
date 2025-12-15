@@ -39,11 +39,23 @@ const appStateReducer = (state = [initialAppState], action) => {
         case ACTION_TYPES.APP_CLICK:
             currentAppState = filterObjectListById(state.apps, action.app.id);
             if (currentAppState.isOpened) {
-                currentAppState.isMinimized = !currentAppState.isMinimized;
+                // If specific index requested, stay open and switch tab. 
+                // Otherwise toggle minimize if it was just a general click.
+                if (action.app.activeSubComponentIndex !== undefined) {
+                    currentAppState.isMinimized = false;
+                    currentAppState.isMaximized = false;
+                    currentAppState.isOpened = true;
+                    currentAppState.activeSubComponentIndex = action.app.activeSubComponentIndex;
+                } else {
+                    currentAppState.isMinimized = !currentAppState.isMinimized;
+                }
             } else {
                 currentAppState.isMinimized = false;
                 currentAppState.isMaximized = false;
                 currentAppState.isOpened = true;
+                if (action.app.activeSubComponentIndex !== undefined) {
+                    currentAppState.activeSubComponentIndex = action.app.activeSubComponentIndex;
+                }
             }
             apps = replaceObjectListByKey(state.apps, currentAppState, "id");
             return {
