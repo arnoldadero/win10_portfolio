@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 // IMPORT ERROR SUPPRESSION FIRST - before any UI libraries
 import "./suppressResizeObserverError";
 
@@ -30,9 +31,11 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
+			<HelmetProvider>
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+			</HelmetProvider>
 		</Provider>
 	</React.StrictMode>
 );

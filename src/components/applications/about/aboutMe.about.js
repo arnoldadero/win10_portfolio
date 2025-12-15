@@ -4,9 +4,19 @@ import user from "../../../utils/data/user.config";
 import LazyImage from "../../base/lazyImage";
 import './about.scss';
 
+import { Helmet } from "react-helmet-async";
+
 function AboutMe() {
 	return (
 		<div className="about-app-container">
+			<Helmet>
+				<title>About Me | Arnold Adero - Senior React & Node.js Developer</title>
+				<meta
+					name="description"
+					content="I am a Senior Full-Stack Engineer in Kenya with 10+ years of experience. I build high-performance web applications using modern tech stacks."
+				/>
+				<link rel="canonical" href="https://aderoportfolio.netlify.app/about" />
+			</Helmet>
 			<div className="about-content">
 				<div className="about-profile-card">
 					<div className="about-avatar-section">

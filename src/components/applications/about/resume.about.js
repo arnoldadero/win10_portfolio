@@ -6,6 +6,8 @@ import { ANALYTICS_EVENTS } from "../../../utils/documents/enums";
 import { analytics } from "../../../utils/firebaseConfig";
 import { logEvent } from "firebase/analytics";
 
+import { Helmet } from "react-helmet-async";
+
 function Resume() {
 	const downloadIcon = { iconName: "DownloadDocument" };
 	const onDownloadClick = (resume) => {
@@ -16,6 +18,14 @@ function Resume() {
 	};
 	return (
 		<div className="height-100">
+			<Helmet>
+				<title>Resume & CV | Arnold Adero - Senior Full Stack Engineer</title>
+				<meta
+					name="description"
+					content="Download my up-to-date resume. Freelance Senior Full-Stack Engineer with a track record of delivering scalable web apps."
+				/>
+				<link rel="canonical" href="https://aderoportfolio.netlify.app/resume" />
+			</Helmet>
 			<div className="uk-text-center height-100">
 				<div>
 					<PrimaryButton

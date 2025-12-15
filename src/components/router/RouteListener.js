@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { handleApplicationClick } from "../../utils/actions/app.action";
-import { setBackground } from "../../utils/actions/settings.action";
 
 // Map URLs to App IDs and SubComponent Indices
 const ROUTE_MAP = {

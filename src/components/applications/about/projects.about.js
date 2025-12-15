@@ -9,9 +9,19 @@ import {
 } from "@fluentui/react";
 import LazyImage from "../../base/lazyImage";
 
+import { Helmet } from "react-helmet-async";
+
 function Projects() {
 	return (
 		<div className="projects-app-container uk-padding">
+			<Helmet>
+				<title>React & Node.js Projects | Arnold Adero Portfolio</title>
+				<meta 
+					name="description" 
+					content="Explore my commercial software projects including Cold Storage Traceability (IoT/React), M-Pesa Payment Integrations (Laravel), and SaaS Platforms." 
+				/>
+				<link rel="canonical" href="https://aderoportfolio.netlify.app/projects" />
+			</Helmet>
 			<div
 				className="uk-grid-small uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match"
 				uk-grid="true"
