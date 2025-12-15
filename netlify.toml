@@ -9,7 +9,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://static2.sharepointonline.com; style-src 'self' 'unsafe-inline' https://static2.sharepointonline.com; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://static2.sharepointonline.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://static2.sharepointonline.com https://res-1.cdn.office.net https://res.cdn.office.net; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src https://www.jiosaavn.com https://github1s.com https://www.google.com https://www.google.com/webhp; frame-ancestors 'none';"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"

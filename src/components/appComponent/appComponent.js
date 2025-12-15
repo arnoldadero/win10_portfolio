@@ -6,6 +6,32 @@ import { handleAppFunctions } from "../../utils/actions/app.action";
 import WindowFrame from "../windowFrame/windowFrame";
 import AppRegistry from "../base/AppRegistry";
 
+class AppErrorBoundary extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { hasError: false };
+	}
+
+	static getDerivedStateFromError() {
+		return { hasError: true };
+	}
+
+	render() {
+		if (this.state.hasError) {
+			return (
+				<div className="uk-padding-small">
+					<div className="uk-text-bold">This app failed to load.</div>
+					<div className="uk-text-small uk-margin-small-top">
+						If this only happens on the deployed site, it’s usually a missing/blocked chunk or an embedded site refusing to load in an iframe.
+					</div>
+				</div>
+			);
+		}
+
+		return this.props.children;
+	}
+}
+
 function AppComponent(props) {
 	const dispatch = useDispatch();
 	const handleAppFunctionClick = (app, type) => {
@@ -213,13 +239,15 @@ function AppComponent(props) {
 											key={index}
 										>
 											<React.Fragment>
-												<Suspense fallback={<div className="uk-position-center">Loading...</div>}>
-													{AppRegistry[component.component] ? (
-														React.createElement(AppRegistry[component.component])
-													) : (
-														<div>Component not found</div>
-													)}
-												</Suspense>
+												<AppErrorBoundary key={component.component}>
+													<Suspense fallback={<div className="uk-position-center">Loading...</div>}>
+														{AppRegistry[component.component] ? (
+															React.createElement(AppRegistry[component.component])
+														) : (
+															<div>Component not found</div>
+														)}
+													</Suspense>
+												</AppErrorBoundary>
 											</React.Fragment>
 										</li>
 									);
