@@ -4,15 +4,6 @@ import './vscode.application.scss';
 function VSCode() {
 	return (
 		<div className="vscode-app-container">
-			<div className="vs-sidebar">
-				<div className="sidebar-section">
-					<div className="sidebar-item active">Explorer</div>
-					<div className="sidebar-item">Search</div>
-					<div className="sidebar-item">Source Control</div>
-					<div className="sidebar-item">Run</div>
-					<div className="sidebar-item">Extensions</div>
-				</div>
-			</div>
 			<div className="vs-main">
 				<div className="editor-tabs">
 					<button className="editor-tab active">App.js</button>
