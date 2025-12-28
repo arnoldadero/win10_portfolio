@@ -6,9 +6,11 @@ import {
     replaceObjectListByKey,
 } from "../services/common-util-services";
 
-const initialAppState = new AppStateDocument();
+const initialAppState = {
+    apps: [new AppStateDocument()]
+};
 
-const appStateReducer = (state = [initialAppState], action) => {
+const appStateReducer = (state = initialAppState, action) => {
     var apps = [];
     var currentAppState = {};
     switch (action.type) {

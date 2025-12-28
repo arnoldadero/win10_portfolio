@@ -27,6 +27,7 @@ export const filterObjectListById = (objectList, id) => {
 };
 
 export const replaceObjectListByKey = (objectList, object, key) => {
+	if (!objectList) return [];
 	if (objectList.length < 1) {
 		objectList.push(object);
 	} else {
