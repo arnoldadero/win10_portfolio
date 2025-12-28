@@ -1,5 +1,5 @@
 import { PrimaryButton } from "@fluentui/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import projectConfig from "../../../utils/data/project.config";
 import user from "../../../utils/data/user.config";
 import { ANALYTICS_EVENTS } from "../../../utils/documents/enums";
@@ -8,6 +8,13 @@ import { logEvent } from "../../../analytics/ga";
 import { Helmet } from "react-helmet-async";
 
 function Resume() {
+	// Only render PDF on client to avoid react-snap/minimalcss issues
+	const [isClient, setIsClient] = useState(false);
+
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+
 	const downloadIcon = { iconName: "DownloadDocument" };
 	const onDownloadClick = (resume) => {
 		if (projectConfig.enableAnalytics) {
@@ -34,18 +41,26 @@ function Resume() {
 						Download Resume
 					</PrimaryButton>
 				</div>
-				<object
-					data={user.resume}
-					type="application/pdf"
-					className="height-100 uk-width-1-1 uk-margin-small-top"
-				>
-					<p className="font-color-white">
-						Sorry Couldn't load the file.
+				{isClient && (
+					<object
+						data={user.resume}
+						type="application/pdf"
+						className="height-100 uk-width-1-1 uk-margin-small-top"
+					>
+						<p className="font-color-white">
+							Sorry Couldn't load the file.
+						</p>
+					</object>
+				)}
+				{!isClient && (
+					<p className="font-color-white uk-margin-small-top">
+						Loading resume...
 					</p>
-				</object>
+				)}
 			</div>
 		</div>
 	);
 }
 
 export default Resume;
+
