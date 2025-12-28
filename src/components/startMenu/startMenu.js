@@ -8,8 +8,7 @@ import { setSystemState } from "../../utils/actions/system.action";
 import { handleApplicationClick } from "../../utils/actions/app.action";
 import user from "../../utils/data/user.config";
 import SocialBlock from "../base/socialBlock";
-import { analytics } from "../../utils/firebaseConfig";
-import { logEvent } from "firebase/analytics";
+import { logEvent } from "../../analytics/ga";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
 import projectConfig from "../../utils/data/project.config";
 import LazyImage from "../base/lazyImage";
@@ -70,10 +69,8 @@ function StartMenu() {
 		dispatch(handleApplicationClick(app));
 	};
 	const setNextSystemState = (systemState) => {
-		if (projectConfig.enableAnalytics && analytics) {
-			logEvent(analytics, ANALYTICS_EVENTS.CHANGE_POWER_STATE, {
-				changedTo: systemState,
-			});
+		if (projectConfig.enableAnalytics) {
+			logEvent("Power", ANALYTICS_EVENTS.CHANGE_POWER_STATE, systemState);
 		}
 		dispatch(setSystemState(systemState));
 	};
@@ -100,8 +97,8 @@ function StartMenu() {
 				iconProps: { iconName: "Admin" },
 				text: "Admin",
 				onClick: () => {
-					if (projectConfig.enableAnalytics && analytics) {
-						logEvent(analytics, ANALYTICS_EVENTS.ADMIN);
+					if (projectConfig.enableAnalytics) {
+						logEvent("Power", ANALYTICS_EVENTS.ADMIN, "Admin Click");
 					}
 					window.open(
 						"https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO",

@@ -2,31 +2,31 @@
 
 /* Skip Link - WCAG 2.4.1 Compliance */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--color-blue);
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  z-index: 10001;
-  font-weight: 500;
-  font-size: 14px;
-  border-radius: 0 0 4px 0;
-  
-  &:focus {
-    top: 0;
-    outline: none;
-  }
-  
-  @media screen and (max-width: 640px) {
-    padding: 10px 16px;
-    font-size: 13px;
-  }
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background: var(--color-blue);
+	color: white;
+	padding: 12px 20px;
+	text-decoration: none;
+	z-index: 10001;
+	font-weight: 500;
+	font-size: 14px;
+	border-radius: 0 0 4px 0;
+
+	&:focus {
+		top: 0;
+		outline: none;
+	}
+
+	@media screen and (max-width: 640px) {
+		padding: 10px 16px;
+		font-size: 13px;
+	}
 }
 
 #main-content {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 .onDesktop {

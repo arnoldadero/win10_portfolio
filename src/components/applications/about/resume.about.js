@@ -3,16 +3,15 @@ import React from "react";
 import projectConfig from "../../../utils/data/project.config";
 import user from "../../../utils/data/user.config";
 import { ANALYTICS_EVENTS } from "../../../utils/documents/enums";
-import { analytics } from "../../../utils/firebaseConfig";
-import { logEvent } from "firebase/analytics";
+import { logEvent } from "../../../analytics/ga";
 
 import { Helmet } from "react-helmet-async";
 
 function Resume() {
 	const downloadIcon = { iconName: "DownloadDocument" };
 	const onDownloadClick = (resume) => {
-		if (projectConfig.enableAnalytics && analytics) {
-			logEvent(analytics, ANALYTICS_EVENTS.DOWNLOAD_RESUME);
+		if (projectConfig.enableAnalytics) {
+			logEvent("Resume", ANALYTICS_EVENTS.DOWNLOAD_RESUME, resume);
 		}
 		window.open(resume, "_blank");
 	};

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { handleApplicationClick } from "../../utils/actions/app.action";
 
@@ -23,7 +23,8 @@ const ROUTE_MAP = {
 const RouteListener = () => {
     const location = useLocation();
     const dispatch = useDispatch();
-    const appState = useSelector((state) => state.appState);
+    // Note: appState can be accessed via useSelector if needed for reverse sync
+    // const appState = useSelector((state) => state.appState);
 
     useEffect(() => {
         const path = location.pathname;

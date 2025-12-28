@@ -22,7 +22,7 @@
             background: var(--overlay-light);
             transform: scale(1.1);
             border-color: var(--border-light);
-            
+
             .uk-img {
                 animation-play-state: paused;
             }
@@ -43,9 +43,12 @@
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-8px);
     }

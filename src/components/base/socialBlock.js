@@ -6,18 +6,15 @@ import linkedin from "../../assets/images/social/linkedin.svg";
 import github from "../../assets/images/social/github.svg";
 import upwork from "../../assets/images/social/upwork.svg";
 import email from "../../assets/images/social/email.png";
-import { analytics } from "../../utils/firebaseConfig";
 import LazyImage from "./lazyImage";
-import { logEvent } from "firebase/analytics";
+import { logEvent } from "../../analytics/ga";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
 import projectConfig from "../../utils/data/project.config";
 
 function SocialBlock() {
 	const handleSocialClick = (socialLink) => {
-		if (projectConfig.enableAnalytics && analytics) {
-			logEvent(analytics, ANALYTICS_EVENTS.SOCIAL_CLICK, {
-				link: socialLink,
-			});
+		if (projectConfig.enableAnalytics) {
+			logEvent("Social", ANALYTICS_EVENTS.SOCIAL_CLICK, socialLink);
 		}
 	};
 

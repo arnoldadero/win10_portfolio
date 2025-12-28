@@ -4,8 +4,7 @@ import { changeDesktopBackground } from "../../../utils/actions/settingsaction";
 import settings from "../../../utils/data/settings.config";
 import checked from "../../../assets/images/baseImages/checked.svg";
 import "./settings.scss";
-import { analytics } from "../../../utils/firebaseConfig";
-import { logEvent } from "firebase/analytics";
+import { logEvent } from "../../../analytics/ga";
 import { ANALYTICS_EVENTS } from "../../../utils/documents/enums";
 import projectConfig from "../../../utils/data/project.config";
 
@@ -13,10 +12,8 @@ function BackgroundSettings() {
 	const current_settings = useSelector((state) => state.settingsState);
 	const dispatch = useDispatch();
 	const changeWallpaper = (wallpaperId) => {
-		if (projectConfig.enableAnalytics && analytics) {
-			logEvent(analytics, ANALYTICS_EVENTS.BACKGROUND_CHANGE, {
-				wallpaper_Id: wallpaperId,
-			});
+		if (projectConfig.enableAnalytics) {
+			logEvent("Settings", ANALYTICS_EVENTS.BACKGROUND_CHANGE, wallpaperId);
 		}
 		dispatch(changeDesktopBackground(wallpaperId));
 	};

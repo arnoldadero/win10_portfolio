@@ -9,7 +9,7 @@ import { preloadImages } from "./utils/imageOptimization";
 
 // Critical images to preload (above-the-fold)
 const CRITICAL_IMAGES = [
-  require("./assets/images/baseImages/profile.png").default,
+  require("./assets/images/baseImages/profile.webp").default,
   require("./assets/images/apps/aboutMe.png").default,
 ];
 

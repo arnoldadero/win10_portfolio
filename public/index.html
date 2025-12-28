@@ -3,6 +3,14 @@
 
 <head>
   <meta charset="utf-8" />
+
+  <!-- Preconnect to external origins for faster loading -->
+  <link rel="preconnect" href="https://static2.sharepointonline.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="dns-prefetch" href="https://static2.sharepointonline.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
   <title>Senior React & Node.js Developer | Arnold Adero (Full Stack)</title>
   <meta name="title" content="Senior React & Node.js Developer | Arnold Adero - Full Stack Engineer">
   <meta name="description"
@@ -92,8 +100,14 @@
   <meta name="theme-color" content="#000000" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <link rel="stylesheet"
-    href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+  <!-- Async load Office Fabric CSS to prevent render blocking -->
+  <link rel="preload" as="style"
+    href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+  </noscript>
   <link rel="preload" as="image" href="%PUBLIC_URL%/images/wallpapers/lockScreenWall.jpg" />
 
 
@@ -117,7 +131,8 @@
       console.log('Service Worker is not supported by browser.');
     }
   </script>
+  <!-- EmailJS deferred to not block initial render -->
+  <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 </body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 
 </html>

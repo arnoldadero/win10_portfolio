@@ -286,12 +286,12 @@
     backdrop-filter: blur(10px);
 }
 
-.app-content > .dropdown,
-.app-content > ul.uk-switcher {
+.app-content>.dropdown,
+.app-content>ul.uk-switcher {
     padding: var(--spacing-sm);
 }
 
-.app-content > ul.uk-switcher {
+.app-content>ul.uk-switcher {
     flex: 1;
     min-height: 0;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "./lockScreen.scss";
 import { setSystemState } from "../../utils/actions/system.action";
 import { useDispatch } from "react-redux";
-import avatar from "../../assets/images/baseImages/profile.png";
+import avatar from "../../assets/images/baseImages/profile.webp";
 import { Icon, PrimaryButton, TextField } from "@fluentui/react";
 import SocialBlock from "../base/socialBlock";
 import LazyImage from "../base/lazyImage";

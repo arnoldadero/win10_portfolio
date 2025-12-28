@@ -7,7 +7,7 @@ input.error,
 textarea.error,
 select.error {
   @include error-state();
-  
+
   &::placeholder {
     color: var(--color-alert);
     opacity: 0.7;
@@ -30,32 +30,32 @@ select.error {
   align-items: flex-start;
   gap: var(--spacing-md);
   animation: slideDown 0.3s ease;
-  
+
   .alert-icon {
     font-size: 20px;
     flex-shrink: 0;
     margin-top: 2px;
   }
-  
+
   .alert-content {
     flex: 1;
   }
-  
+
   .alert-title {
     color: var(--color-alert);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
   }
-  
+
   .alert-message {
     color: var(--text-primary);
     font-size: var(--font-size-sm);
     line-height: 1.5;
   }
-  
+
   &.dismissible {
     position: relative;
-    
+
     .alert-close {
       position: absolute;
       top: var(--spacing-sm);
@@ -72,11 +72,11 @@ select.error {
       align-items: center;
       justify-content: center;
       border-radius: 4px;
-      
+
       &:hover {
         background: rgba(255, 76, 76, 0.1);
       }
-      
+
       &:focus-visible {
         outline: 2px solid var(--color-alert);
       }
@@ -89,6 +89,7 @@ select.error {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -101,18 +102,18 @@ button[type="submit"].error {
   background: var(--color-alert);
   color: white;
   border: none;
-  
+
   &:hover {
     background: rgba(255, 76, 76, 0.9);
     box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
   }
-  
+
   &:focus-visible {
     outline: 2px solid var(--color-alert);
     outline-offset: 2px;
     box-shadow: 0 0 0 4px rgba(255, 76, 76, 0.15);
   }
-  
+
   &:active {
     transform: scale(0.98);
   }
@@ -124,21 +125,23 @@ button[type="submit"].error {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
-  
+
   &.has-error {
+
     input,
     textarea,
     select {
       @include error-state();
     }
-    
+
     .error-indicator {
       opacity: 1;
       visibility: visible;
     }
   }
-  
+
   &.has-value {
+
     input,
     textarea,
     select {
@@ -146,7 +149,7 @@ button[type="submit"].error {
       background: rgba(52, 199, 89, 0.03);
     }
   }
-  
+
   .error-indicator {
     position: absolute;
     right: var(--spacing-sm);
@@ -169,15 +172,15 @@ button[type="submit"].error {
   width: 16px;
   height: 16px;
   margin-left: var(--spacing-xs);
-  
+
   &.valid {
     color: var(--color-success);
   }
-  
+
   &.invalid {
     color: var(--color-alert);
   }
-  
+
   &.warning {
     color: var(--color-warning);
   }
@@ -188,7 +191,7 @@ button[type="submit"].error {
   list-style: none;
   padding: 0;
   margin: 0;
-  
+
   li {
     color: var(--color-alert);
     font-size: var(--font-size-sm);
@@ -196,7 +199,7 @@ button[type="submit"].error {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    
+
     &::before {
       content: '✕';
       font-weight: bold;
@@ -209,7 +212,7 @@ button[type="submit"].error {
   color: var(--color-alert);
   font-weight: bold;
   margin-left: var(--spacing-xs);
-  
+
   &::after {
     content: '*';
   }
@@ -220,20 +223,20 @@ button[type="submit"].error {
   .error-alert {
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
-    
+
     .alert-icon {
       font-size: 18px;
     }
-    
+
     .alert-title {
       font-size: var(--font-size-base);
     }
-    
+
     .alert-message {
       font-size: var(--font-size-sm);
     }
   }
-  
+
   .form-field {
     gap: var(--spacing-xs);
   }
@@ -244,7 +247,7 @@ button[type="submit"].error {
   .error-alert {
     animation: none;
   }
-  
+
   .error-indicator {
     transition: none;
   }
