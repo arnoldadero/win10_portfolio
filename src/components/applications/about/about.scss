@@ -12,16 +12,43 @@
         @include app-content-spacing();
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-        background: linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
-        border-radius: 6px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background:
+            radial-gradient(800px circle at 20% 10%, rgba(79, 193, 233, 0.12), transparent 45%),
+            radial-gradient(700px circle at 90% 60%, rgba(140, 100, 255, 0.12), transparent 40%),
+            linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
 
         /* Profile Card */
         .about-profile-card {
-            background: var(--overlay-light);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: var(--spacing-xl);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: calc(var(--spacing-xl) + 2px);
+            width: 100%;
+            max-width: 980px;
             color: var(--text-primary);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+            backdrop-filter: blur(14px) saturate(140%);
+            box-shadow:
+                0 18px 60px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+            will-change: transform;
+
+            &:hover {
+                transform: translateY(-2px);
+                border-color: rgba(79, 193, 233, 0.35);
+                box-shadow:
+                    0 22px 70px rgba(0, 0, 0, 0.55),
+                    0 0 0 1px rgba(79, 193, 233, 0.18),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+            }
 
             /* Avatar Section */
             .about-avatar-section {
@@ -37,13 +64,17 @@
                     border-radius: 50%;
                     object-fit: cover;
                     margin-bottom: var(--spacing-md);
-                    border: 2px solid var(--border-medium);
+                    border: 2px solid rgba(255, 255, 255, 0.18);
+                    box-shadow:
+                        0 10px 28px rgba(0, 0, 0, 0.55),
+                        0 0 0 6px rgba(79, 193, 233, 0.10);
                     display: block;
                 }
 
                 .about-name {
                     @include responsive-font(18px, 16px, 14px);
-                    font-weight: 600;
+                    font-weight: 700;
+                    letter-spacing: 0.2px;
                     margin-bottom: var(--spacing-sm);
                     color: var(--text-primary);
                 }
@@ -53,6 +84,7 @@
                     color: var(--text-secondary);
                     line-height: 1.6;
                     margin: 0;
+                    max-width: 60ch;
                 }
             }
 
@@ -62,7 +94,11 @@
                 color: var(--text-secondary);
                 line-height: 1.8;
                 margin-bottom: var(--spacing-md);
-                text-align: justify;
+                text-align: left;
+                background: rgba(0, 0, 0, 0.14);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                padding: var(--spacing-md);
             }
 
             /* Outro */
@@ -71,8 +107,10 @@
                 color: var(--text-secondary);
                 line-height: 1.8;
                 margin-top: var(--spacing-lg);
-                border-top: 1px solid var(--border-light);
-                padding-top: var(--spacing-lg);
+                background: rgba(0, 0, 0, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                padding: var(--spacing-md);
             }
         }
     }
@@ -85,6 +123,7 @@
 
             .about-profile-card {
                 padding: var(--spacing-lg);
+                border-radius: 12px;
 
                 .about-avatar-section .about-avatar {
                     width: 100px;

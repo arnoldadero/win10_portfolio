@@ -13,6 +13,7 @@ const ROUTE_MAP = {
     "/skills": { appId: "aboutMe", index: 4 },
     "/resume": { appId: "aboutMe", index: 5 },
     "/contact": { appId: "aboutMe", index: 6 },
+    "/services": { appId: "aboutMe", index: 7 },
     "/chrome": { appId: "chrome", index: 0 },
     "/vscode": { appId: "vscode", index: 0 },
     "/spotify": { appId: "jioSaavn", index: 0 },

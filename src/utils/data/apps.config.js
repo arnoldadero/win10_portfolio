@@ -46,6 +46,10 @@ const appConfig = [
 				name: "Contact Me",
 				component: "ContactMe",
 			},
+			{
+				name: "Services",
+				component: "Services",
+			},
 		],
 	},
 	{
