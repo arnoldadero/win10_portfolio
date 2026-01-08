@@ -4,6 +4,11 @@ import { initApplications } from "../utils/actions/app.action";
 import Desktop from "../components/desktop/desktop";
 import { useContextMenu } from "react-contexify";
 import "react-contexify/dist/ReactContexify.css";
+
+// Import UIkit JS only when desktop is loaded
+import "uikit/dist/js/uikit.min.js";
+import "uikit/dist/js/uikit-icons.min";
+
 import DesktopContextMenu from "../components/contextMenu/desktop.contextMenu";
 import { SCREENS } from "../utils/documents/enums";
 

@@ -10,8 +10,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "uikit/dist/css/uikit.min.css";
 import "uikit/dist/css/uikit-core.min.css";
-import "uikit/dist/js/uikit.min.js";
-import "uikit/dist/js/uikit-icons.min";
+// Moved uikit JS to lazy-loaded containers to reduce main bundle title
 import { initializeIcons } from "@fluentui/react/lib/Icons";
 import * as serviceWorker from "./serviceWorker";
 import "react-resizable/css/styles.css";
@@ -22,8 +21,17 @@ import store from "./utils/store";
 import { BrowserRouter } from "react-router-dom";
 import { initGA } from "./analytics/ga";
 
-initializeIcons();
-initGA(); // Initialize Google Analytics
+// Defer non-critical initializations
+const lazyInit = () => {
+	initializeIcons();
+	initGA();
+};
+
+if (window.requestIdleCallback) {
+	window.requestIdleCallback(lazyInit);
+} else {
+	setTimeout(lazyInit, 2000);
+}
 
 const container = document.getElementById("root");
 const app = (

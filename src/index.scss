@@ -10,14 +10,9 @@
 @import 'components/taskBar/taskbar';
 
 // 4. Application Styles
-// Note: Some apps import their own styles, but we can import them here for global availability if needed.
-// However, to avoid duplication if they are not modules, we should be careful.
-// The guide suggests importing 'components/applications/application.scss'.
+// Application styles are localized to their respective components and loaded via dynamic imports and React.lazy
+// We only keep the base application shared styles if any
 @import 'components/applications/application';
-@import 'components/applications/chrome.application';
-@import 'components/applications/vscode.application';
-@import 'components/applications/spreadsheet.application';
-@import 'components/applications/document.application';
 
 // 5. Utility Classes
 @import 'theme/grid';

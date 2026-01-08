@@ -1,11 +1,13 @@
 import { Icon } from "@fluentui/react";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { useSelector } from "react-redux";
 import "./actionCenter.scss";
 import { useDispatch } from "react-redux";
 import { toggleSettings } from "../../utils/actions/settingsaction";
 import { ACTION_TYPES } from "../../utils/documents/enums";
-import JIOSaavn from "../applications/jiosaavn.application";
+
+// Lazy load the media player
+const JIOSaavn = lazy(() => import("../applications/jiosaavn.application"));
 
 function ActionCenter() {
 	const settings = useSelector((state) => state.settingsState);
@@ -21,7 +23,9 @@ function ActionCenter() {
 					<div className="action-center-title">Action Center</div>
 				</div>
 				<div className="action-center-content">
-					<JIOSaavn />
+					<Suspense fallback={<div className="uk-text-center uk-margin-top">Loading Music...</div>}>
+						<JIOSaavn />
+					</Suspense>
 				</div>
 				<div className="action-center-footer">
 					<div className="action-center-wrapper">

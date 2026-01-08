@@ -44,7 +44,7 @@
     "puppeteer": {
       "timeout": 60000
     },
-    "inlineCss": false,
+    "inlineCss": true,
     "minifyHtml": {
       "collapseWhitespace": true,
       "removeComments": true
@@ -72,9 +72,10 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      "last 2 versions",
       "not dead",
-      "not op_mini all"
+      "> 0.5%",
+      "maintained node versions"
     ],
     "development": [
       "last 1 chrome version",

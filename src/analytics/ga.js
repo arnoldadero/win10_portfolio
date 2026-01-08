@@ -9,13 +9,32 @@ const MEASUREMENT_ID = "G-5NR0W3DTHW";
 
 
 /**
- * Initialize Google Analytics 4
+ * Initialize Google Analytics 4 with delay for performance
  */
 export const initGA = () => {
-    ReactGA.initialize(MEASUREMENT_ID, {
-        testMode: false, // Enable data sending even in development for verification
-    });
-    console.log("GA4 Initialized");
+    const initialize = () => {
+        if (window.GA_INITIALIZED) return;
+        ReactGA.initialize(MEASUREMENT_ID, {
+            testMode: false,
+        });
+        window.GA_INITIALIZED = true;
+        console.log("GA4 Initialized");
+    };
+
+    // Delay GA initialization to improve TBT and FID
+    if (window.requestIdleCallback) {
+        window.requestIdleCallback(() => setTimeout(initialize, 2000));
+    } else {
+        setTimeout(initialize, 4000);
+    }
+
+    // Also initialize on first interaction
+    const events = ["mousedown", "keydown", "touchstart", "scroll"];
+    const handler = () => {
+        initialize();
+        events.forEach(e => window.removeEventListener(e, handler));
+    };
+    events.forEach(e => window.addEventListener(e, handler, { passive: true }));
 };
 
 /**

@@ -6,9 +6,11 @@
 
   <!-- Preconnect to external origins for faster loading -->
   <link rel="preconnect" href="https://static2.sharepointonline.com" crossorigin />
+  <link rel="preconnect" href="https://res.cdn.office.net" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   <link rel="dns-prefetch" href="https://static2.sharepointonline.com" />
+  <link rel="dns-prefetch" href="https://res.cdn.office.net" />
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
   <title>Senior React & Node.js Developer | Arnold Adero (Full Stack)</title>
@@ -100,6 +102,28 @@
   <meta name="theme-color" content="#000000" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <style>
+    /* Force font-display: swap for common fonts used by UI libraries */
+    @font-face {
+      font-family: 'Segoe UI';
+      font-display: swap;
+      src: local('Segoe UI');
+    }
+
+    @font-face {
+      font-family: 'FabricMDL2Icons';
+      font-display: swap;
+      src: url('https://static2.sharepointonline.com/files/fabric/assets/icons/fabric-icons-mdl2-current.woff') format('woff');
+    }
+    /* Critical Loader CSS */
+    .screenHeight { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+    .uk-background-primary { background-color: #1c1c1e !important; }
+    .wrapper { text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .loader { position: relative; width: 50px; height: 50px; border-radius: 50%; animation: rotate 4.5s linear infinite; margin-left: 12px; }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .loader span::after { position: absolute; width: 8px; height: 8px; border-radius: 50%; background-color: #fff; content: ""; display: block; transform-origin: 25px 25px; }
+    .font-color-white { color: #fff !important; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 300; }
+  </style>
   <!-- Async load Office Fabric CSS to prevent render blocking -->
   <link rel="preload" as="style"
     href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
