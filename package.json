@@ -74,8 +74,7 @@
     "production": [
       "last 2 versions",
       "not dead",
-      "> 0.5%",
-      "maintained node versions"
+      "> 0.5%"
     ],
     "development": [
       "last 1 chrome version",
