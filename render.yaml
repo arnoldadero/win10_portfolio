@@ -1,7 +1,7 @@
 services:
   - type: static
     name: arnoldadero
-    buildCommand: npm install && npm run build
+    buildCommand: bun install && bun run build
     staticPublishPath: ./build
     envVars:
       - key: NODE_VERSION

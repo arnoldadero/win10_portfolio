@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm install && react-scripts build",
+    "build": "bun install && react-scripts build",
     "postbuild": "react-snap || echo 'React-snap failed, continuing build...'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
