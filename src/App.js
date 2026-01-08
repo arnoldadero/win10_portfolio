@@ -4,8 +4,11 @@ import RouteListener from "./components/router/RouteListener";
 import "./App.css";
 import DesktopContainer from "./containers/desktop.container";
 import LockScreenContainer from "./containers/lockScreen.container";
+import BlueScreen404 from "./containers/blueScreen404.container";
 import { useSelector } from "react-redux";
 import { preloadImages } from "./utils/imageOptimization";
+import { useLocation } from "react-router-dom";
+import { ROUTE_MAP } from "./components/router/RouteListener";
 
 // Critical images to preload (above-the-fold)
 const CRITICAL_IMAGES = [
@@ -14,8 +17,12 @@ const CRITICAL_IMAGES = [
 ];
 
 
+
 function App() {
   const systemState = useSelector((state) => state.systemState);
+  const location = useLocation();
+  // Show 404 if path is explicitly /404.html OR if it's not root and not in the route map
+  const is404 = location.pathname === "/404.html" || (location.pathname !== "/" && !ROUTE_MAP[location.pathname]);
 
   // Preload critical images on app mount
   useEffect(() => {
@@ -26,7 +33,7 @@ function App() {
     <div className="App">
       <AnalyticsListener />
       <RouteListener />
-      {systemState.isLocked ? <LockScreenContainer /> : <DesktopContainer />}
+      {is404 ? <BlueScreen404 /> : (systemState.isLocked ? <LockScreenContainer /> : <DesktopContainer />)}
     </div>
   );
 }

@@ -44,7 +44,7 @@
     "puppeteer": {
       "timeout": 60000
     },
-    "inlineCss": true,
+    "inlineCss": false,
     "minifyHtml": {
       "collapseWhitespace": true,
       "removeComments": true

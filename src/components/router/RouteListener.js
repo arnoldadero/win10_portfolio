@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { handleApplicationClick } from "../../utils/actions/app.action";
 
 // Map URLs to App IDs and SubComponent Indices
-const ROUTE_MAP = {
+export const ROUTE_MAP = {
     "/": null, // Desktop
     "/about": { appId: "aboutMe", index: 0 },
     "/experience": { appId: "aboutMe", index: 1 },
