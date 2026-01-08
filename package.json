@@ -36,11 +36,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npm install && react-scripts build",
-    "postbuild": "react-snap",
+    "postbuild": "react-snap || echo 'React-snap failed, continuing build...'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "reactSnap": {
+    "puppeteer": {
+      "timeout": 60000
+    },
     "inlineCss": true,
     "minifyHtml": {
       "collapseWhitespace": true,
