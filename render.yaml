@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: static
     name: arnoldadero
     buildCommand: bun install && bun run build
     staticPublishPath: ./build

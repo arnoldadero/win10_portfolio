@@ -15,6 +15,15 @@ An interactive personal portfolio website designed to emulate the Windows 10 des
 - **Performance**: Automated image optimization (WebP) and fast dependency management via Bun.
 - **Analytics**: Google Analytics 4 integration.
 
+## ⚡ Performance Optimizations (Mobile-First)
+
+This portfolio has been heavily optimized for Core Web Vitals, achieving high Lighthouse scores (~90+ on Mobile).
+
+- **Critical Rendering Path**: Inlined critical CSS and font preloads to minimize First Contentful Paint (FCP).
+- **Code Splitting**: Route-based chunking for Desktop, LockScreen, and 404 pages reduces initial bundle size.
+- **Lazy Loading**: Heavy components (like the Music player) and non-critical scripts (Google Analytics) are loaded only when needed or during browser idle time.
+- **Modern Build**: Targets modern browsers to reduce legacy polyfill overhead, with `react-snap` for static pre-rendering.
+
 ## 🛠️ Tech Stack
 
 - **Runtime**: [Bun](https://bun.sh/)
@@ -23,6 +32,7 @@ An interactive personal portfolio website designed to emulate the Windows 10 des
 - **Styling**: [Sass](https://sass-lang.com/), [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/), [UIKit](https://getuikit.com/)
 - **Components**: [React Draggable](https://github.com/react-grid-layout/react-draggable), [React Contexify](https://github.com/fkhadra/react-contexify)
 - **Deployment**: [Render](https://render.com/)
+- **Build Optimization**: [React Snap](https://github.com/stereobooster/react-snap)
 
 ## 🏁 Getting Started
 
