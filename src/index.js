@@ -21,9 +21,11 @@ import store from "./utils/store";
 import { BrowserRouter } from "react-router-dom";
 import { initGA } from "./analytics/ga";
 
+// Initialize icons early to avoid registration warnings
+initializeIcons();
+
 // Defer non-critical initializations
 const lazyInit = () => {
-	initializeIcons();
 	initGA();
 };
 
@@ -38,7 +40,7 @@ const app = (
 	<React.StrictMode>
 		<Provider store={store}>
 			<HelmetProvider>
-				<BrowserRouter>
+				<BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
 					<App />
 				</BrowserRouter>
 			</HelmetProvider>
