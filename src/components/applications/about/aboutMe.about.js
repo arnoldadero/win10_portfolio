@@ -15,7 +15,7 @@ function AboutMe() {
 					name="description"
 					content="I am a Senior Full-Stack Engineer in Kenya with 10+ years of experience. I build high-performance web applications using modern tech stacks."
 				/>
-				<link rel="canonical" href="https://aderoportfolio.netlify.app/about" />
+				<link rel="canonical" href="https://arnoldadero.onrender.com/about" />
 			</Helmet>
 			<div className="about-content">
 				<div className="about-profile-card">

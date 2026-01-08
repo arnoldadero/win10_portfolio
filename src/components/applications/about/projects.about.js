@@ -16,11 +16,11 @@ function Projects() {
 		<div className="projects-app-container uk-padding">
 			<Helmet>
 				<title>React & Node.js Projects | Arnold Adero Portfolio</title>
-				<meta 
-					name="description" 
-					content="Explore my commercial software projects including Cold Storage Traceability (IoT/React), M-Pesa Payment Integrations (Laravel), and SaaS Platforms." 
+				<meta
+					name="description"
+					content="Explore my commercial software projects including Cold Storage Traceability (IoT/React), M-Pesa Payment Integrations (Laravel), and SaaS Platforms."
 				/>
-				<link rel="canonical" href="https://aderoportfolio.netlify.app/projects" />
+				<link rel="canonical" href="https://arnoldadero.onrender.com/projects" />
 			</Helmet>
 			<div
 				className="uk-grid-small uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match"

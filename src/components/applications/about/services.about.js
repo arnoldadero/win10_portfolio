@@ -40,7 +40,7 @@ function Services() {
                     name="description"
                     content="Available for freelance projects, consulting, and full-time remote positions. Specializing in React, Node.js, and payment integrations."
                 />
-                <link rel="canonical" href="https://aderoportfolio.netlify.app/services" />
+                <link rel="canonical" href="https://arnoldadero.onrender.com/services" />
             </Helmet>
 
             <div className="services-header uk-text-center uk-margin-large-bottom">

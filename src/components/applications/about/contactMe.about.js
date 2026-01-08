@@ -13,7 +13,7 @@ function ContactMe() {
 					name="description"
 					content="Get in touch for freelance software development, consulting, or job opportunities. Email: arnold@mvuvi.co.ke"
 				/>
-				<link rel="canonical" href="https://aderoportfolio.netlify.app/contact" />
+				<link rel="canonical" href="https://arnoldadero.onrender.com/contact" />
 			</Helmet>
 			<div className="uk-text-center">
 				<p>Find me on : </p>

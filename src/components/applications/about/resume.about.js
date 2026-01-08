@@ -30,7 +30,7 @@ function Resume() {
 					name="description"
 					content="Download my up-to-date resume. Freelance Senior Full-Stack Engineer with a track record of delivering scalable web apps."
 				/>
-				<link rel="canonical" href="https://aderoportfolio.netlify.app/resume" />
+				<link rel="canonical" href="https://arnoldadero.onrender.com/resume" />
 			</Helmet>
 			<div className="uk-text-center height-100">
 				<div>

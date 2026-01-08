@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import scanCode from "../assets/images/baseImages/scanCode.png";
 
 function BlueScreen404() {
 	return (
 		<div className="blue-screen screenHeight">
+			<Helmet>
+				<title>404 Page Not Found | Arnold Adero - Portfolio</title>
+				<meta
+					name="description"
+					content="The page you are looking for does not exist. This virtual PC ran into a problem."
+				/>
+			</Helmet>
 			<div className="uk-padding-large uk-margin-large-left uk-width-1-1 font-color-white">
 				<h1 className="uk-heading-large font-color-white">:(</h1>
 				<p className="uk-text-lead uk-width-2-3@m font-color-white">
