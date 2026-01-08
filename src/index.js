@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 // IMPORT ERROR SUPPRESSION FIRST - before any UI libraries
 import "./suppressResizeObserverError";
@@ -26,9 +26,7 @@ initializeIcons();
 initGA(); // Initialize Google Analytics
 
 const container = document.getElementById("root");
-const root = createRoot(container);
-
-root.render(
+const app = (
 	<React.StrictMode>
 		<Provider store={store}>
 			<HelmetProvider>
@@ -39,6 +37,13 @@ root.render(
 		</Provider>
 	</React.StrictMode>
 );
+
+if (container.hasChildNodes()) {
+	hydrateRoot(container, app);
+} else {
+	const root = createRoot(container);
+	root.render(app);
+}
 
 serviceWorker.unregister();
 reportWebVitals();
