@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { handleAppFunctions } from "../../utils/actions/app.action";
 import WindowFrame from "../windowFrame/windowFrame";
 import AppRegistry from "../base/AppRegistry";
+import useAutoScroll from "../../hooks/useAutoScroll";
 
 class AppErrorBoundary extends React.Component {
 	constructor(props) {
@@ -42,6 +43,21 @@ function AppComponent(props) {
 	const [currentComponentName, setCurrentComponentName] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const sidebarRef = useRef(null);
+	const contentContainerRef = useRef(null);
+
+	// Initialize auto-scroll hook for About app on mobile
+	const autoScrollConfig = useAutoScroll(
+		contentContainerRef,
+		props.appInfo.subComponent || [],
+		{
+			enabled: props.appInfo.id === "aboutMe",
+			mobileBreakpoint: 768,
+			scrollDelay: 5000, // 5 seconds between auto-scrolls
+			scrollDuration: 1000, // 1 second smooth scroll
+			pauseOnHover: true,
+			pauseOnScroll: true,
+		}
+	);
 
 	const setComponent = (componentName, index) => {
 		setCurrentComponentName(componentName);
@@ -55,6 +71,12 @@ function AppComponent(props) {
 			const newIndex = currentIndex - 1;
 			setCurrentIndex(newIndex);
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
+			
+			// Update auto-scroll position
+			if (autoScrollConfig.isMobile) {
+				autoScrollConfig.scrollToSection(newIndex);
+			}
+			
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
 				const items = sidebarRef.current.querySelectorAll('li > button');
@@ -75,6 +97,12 @@ function AppComponent(props) {
 			const newIndex = props.appInfo.activeSubComponentIndex;
 			if (props.appInfo.subComponent[newIndex]) {
 				setComponent(props.appInfo.subComponent[newIndex].name, newIndex);
+				
+				// Update auto-scroll position
+				if (autoScrollConfig.isMobile) {
+					autoScrollConfig.scrollToSection(newIndex);
+				}
+				
 				// Trigger UIkit switcher
 				if (sidebarRef.current) {
 					const items = sidebarRef.current.querySelectorAll("li > button");
@@ -84,13 +112,19 @@ function AppComponent(props) {
 				}
 			}
 		}
-	}, [props.appInfo.activeSubComponentIndex, props.appInfo.subComponent, currentIndex]);
+	}, [props.appInfo.activeSubComponentIndex, props.appInfo.subComponent, currentIndex, autoScrollConfig.isMobile]);
 
 	const navigateForward = () => {
 		if (props.appInfo.subComponent && currentIndex < props.appInfo.subComponent.length - 1) {
 			const newIndex = currentIndex + 1;
 			setCurrentIndex(newIndex);
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
+			
+			// Update auto-scroll position
+			if (autoScrollConfig.isMobile) {
+				autoScrollConfig.scrollToSection(newIndex);
+			}
+			
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
 				const items = sidebarRef.current.querySelectorAll('li > button');
@@ -130,6 +164,10 @@ function AppComponent(props) {
 												type="button"
 												onClick={() => {
 													setComponent(component.name, index);
+													// Update auto-scroll position on mobile
+													if (autoScrollConfig.isMobile) {
+														autoScrollConfig.scrollToSection(index);
+													}
 												}}
 											>
 												<span className="sidebar-list-item uk-margin-remove">
@@ -155,7 +193,7 @@ function AppComponent(props) {
 				>
 					{/* Title bar is now handled by WindowFrame */}
 
-					<div className="app-content uk-background-secondary scrollbar">
+					<div className="app-content uk-background-secondary scrollbar" ref={contentContainerRef}>
 						{!props.appInfo.isApplication && (
 							<div className="app-nav-bar uk-padding-small uk-flex">
 								<IconButton
@@ -229,6 +267,10 @@ function AppComponent(props) {
 																component.name,
 																index
 															);
+															// Update auto-scroll position on mobile
+															if (autoScrollConfig.isMobile) {
+																autoScrollConfig.scrollToSection(index);
+															}
 														}}
 													>
 														<span className="sidebar-list-item uk-margin-remove">
