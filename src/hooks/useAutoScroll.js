@@ -26,6 +26,7 @@ export const useAutoScroll = (
 		mobileBreakpoint = 768,
 		scrollDelay = 4000,
 		scrollDuration = 800,
+		axis = 'x',
 		pauseOnHover = true,
 		pauseOnScroll = true,
 	} = options;
@@ -59,7 +60,9 @@ export const useAutoScroll = (
 	const smoothScrollTo = useCallback((targetPosition) => {
 		if (!containerRef.current) return;
 
-		const startPosition = containerRef.current.scrollLeft || 0;
+		const startPosition = axis === 'y'
+			? containerRef.current.scrollTop || 0
+			: containerRef.current.scrollLeft || 0;
 		const distance = targetPosition - startPosition;
 		scrollStartTimeRef.current = Date.now();
 		scrollStartPositionRef.current = startPosition;
@@ -75,14 +78,22 @@ export const useAutoScroll = (
 				: 1 - Math.pow(-2 * progress + 2, 3) / 2;
 
 			if (containerRef.current) {
-				containerRef.current.scrollLeft = scrollStartPositionRef.current + distance * easeProgress;
+				if (axis === 'y') {
+					containerRef.current.scrollTop = scrollStartPositionRef.current + distance * easeProgress;
+				} else {
+					containerRef.current.scrollLeft = scrollStartPositionRef.current + distance * easeProgress;
+				}
 			}
 
 			if (progress < 1) {
 				scrollAnimationRef.current = requestAnimationFrame(animate);
 			} else {
 				if (containerRef.current) {
-					containerRef.current.scrollLeft = targetPosition;
+					if (axis === 'y') {
+						containerRef.current.scrollTop = targetPosition;
+					} else {
+						containerRef.current.scrollLeft = targetPosition;
+					}
 				}
 				scrollAnimationRef.current = null;
 			}
@@ -106,11 +117,13 @@ export const useAutoScroll = (
 		const children = container.children;
 
 		if (children[sectionIndex]) {
-			const targetPosition = children[sectionIndex].offsetLeft;
+			const targetPosition = axis === 'y'
+				? children[sectionIndex].offsetTop
+				: children[sectionIndex].offsetLeft;
 			smoothScrollTo(targetPosition);
 			setCurrentSectionIndex(sectionIndex);
 		}
-	}, [sections.length, smoothScrollTo]);
+	}, [axis, sections.length, smoothScrollTo]);
 
 	// Auto-scroll to next section
 	const scrollToNextSection = useCallback(() => {

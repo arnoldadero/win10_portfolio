@@ -11,11 +11,13 @@
         flex: 1;
         @include mixins.app-content-spacing();
         overflow: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         position: relative;
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        scroll-behavior: smooth;
         background:
             radial-gradient(800px circle at 20% 10%, rgba(79, 193, 233, 0.12), transparent 45%),
             radial-gradient(700px circle at 90% 60%, rgba(140, 100, 255, 0.12), transparent 40%),
@@ -118,12 +120,34 @@
 
 @media screen and (max-width: 768px) {
     .about-app-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
         .about-content {
             @include mixins.app-content-spacing(10px, 8px, 6px);
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-sm);
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            align-items: stretch;
+            justify-content: flex-start;
 
             .about-profile-card {
                 padding: var(--spacing-lg);
                 border-radius: 12px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto var(--spacing-md);
+                flex-shrink: 0;
 
                 .about-avatar-section .about-avatar {
                     width: 100px;
@@ -136,11 +160,34 @@
 
 @media screen and (max-width: 640px) {
     .about-app-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
         .about-content {
             @include mixins.app-content-spacing(8px, 6px, 4px);
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-sm);
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            align-items: stretch;
+            justify-content: flex-start;
 
             .about-profile-card {
                 padding: var(--spacing-md);
+                border-radius: 12px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto var(--spacing-md);
+                flex-shrink: 0;
 
                 .about-avatar-section .about-avatar {
                     width: 80px;
@@ -642,6 +689,112 @@
                 .tech-badge {
                     padding: 3px 8px;
                     font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION: SMOOTH SCROLL FIXES
+   ========================================= */
+@media screen and (max-width: 480px) {
+    .about-app-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .about-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding: 4px;
+            border: none;
+            border-radius: 0;
+
+            .about-profile-card {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto 8px;
+                padding: var(--spacing-sm);
+                flex-shrink: 0;
+
+                .about-avatar-section {
+                    margin-bottom: var(--spacing-sm);
+
+                    .about-avatar {
+                        width: 60px;
+                        height: 60px;
+                    }
+
+                    .about-name {
+                        font-size: 12px;
+                    }
+
+                    .about-intro {
+                        font-size: 10px;
+                    }
+                }
+
+                .about-description,
+                .about-outro {
+                    padding: var(--spacing-sm);
+                    font-size: 10px;
+                    margin-bottom: var(--spacing-sm);
+                }
+            }
+        }
+    }
+
+    .experience-container,
+    .education-container,
+    .projects-app-container,
+    .skills-container,
+    .services-container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding: 4px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .about-app-container {
+        .about-content {
+            .about-profile-card {
+                padding: 6px;
+                margin: 0 auto 6px;
+
+                .about-avatar-section {
+                    margin-bottom: 6px;
+
+                    .about-avatar {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .about-name {
+                        font-size: 11px;
+                    }
+
+                    .about-intro {
+                        font-size: 9px;
+                    }
+                }
+
+                .about-description,
+                .about-outro {
+                    padding: 6px;
+                    font-size: 9px;
+                    margin-bottom: 6px;
                 }
             }
         }

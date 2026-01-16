@@ -54,6 +54,7 @@ function AppComponent(props) {
 			mobileBreakpoint: 768,
 			scrollDelay: 5000, // 5 seconds between auto-scrolls
 			scrollDuration: 1000, // 1 second smooth scroll
+			axis: "y",
 			pauseOnHover: true,
 			pauseOnScroll: true,
 		}
@@ -193,7 +194,7 @@ function AppComponent(props) {
 				>
 					{/* Title bar is now handled by WindowFrame */}
 
-					<div className="app-content uk-background-secondary scrollbar" ref={contentContainerRef}>
+					<div className={`app-content uk-background-secondary scrollbar ${props.appInfo.id}`}>
 						{!props.appInfo.isApplication && (
 							<div className="app-nav-bar uk-padding-small uk-flex">
 								<IconButton
@@ -213,7 +214,7 @@ function AppComponent(props) {
 								<TextField
 									disabled
 									iconProps={{ iconName: "Refresh" }}
-									className="uk-margin-small-right disabled-text-field uk-width-3-5"
+									className="app-path-field uk-margin-small-right disabled-text-field uk-width-3-5"
 									placeholder={`This PC > ${props.appInfo.name} > ${currentComponentName}`}
 								/>
 								<TextField
@@ -293,6 +294,7 @@ function AppComponent(props) {
 									? " isApplication-list"
 									: "")
 							}
+							ref={contentContainerRef}
 						>
 							{props.appInfo.subComponent && props.appInfo.subComponent.map(
 								(component, index) => {
