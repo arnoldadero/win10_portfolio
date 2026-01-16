@@ -1,5 +1,5 @@
-@import '../../theme/variables';
-@import '../../theme/mixins';
+@use '../../theme/variables';
+@use '../../theme/mixins';
 
 .vscode-app-container {
     height: 100%;
@@ -32,7 +32,7 @@
                 border: none;
                 color: var(--text-secondary);
                 cursor: pointer;
-                @include responsive-font(12px, 11px, 10px);
+                @include mixins.responsive-font(12px, 11px, 10px);
                 transition: all var(--transition-base);
                 border-bottom: 2px solid transparent;
                 white-space: nowrap;
@@ -56,10 +56,10 @@
             min-height: 0;
             background: linear-gradient(90deg, rgba(50, 50, 50, 0.3) 0%, transparent 100%);
             font-family: 'Monaco', 'Courier New', monospace;
-            @include responsive-font(12px, 11px, 10px);
+            @include mixins.responsive-font(12px, 11px, 10px);
             line-height: 1.6;
             color: var(--text-secondary);
-            @include app-content-spacing();
+            @include mixins.app-content-spacing();
 
             iframe {
                 display: block;

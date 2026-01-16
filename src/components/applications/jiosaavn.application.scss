@@ -1,5 +1,5 @@
-@import '../../theme/variables';
-@import '../../theme/mixins';
+@use '../../theme/variables';
+@use '../../theme/mixins';
 
 .jiosaavn-app-container {
     height: 100%;
@@ -9,7 +9,7 @@
     /* Jio Saavn Content Area */
     .jiosaavn-content {
         flex: 1;
-        @include app-content-spacing();
+        @include mixins.app-content-spacing();
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         background: linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
@@ -26,7 +26,7 @@
 @media screen and (max-width: 768px) {
     .jiosaavn-app-container {
         .jiosaavn-content {
-            @include app-content-spacing(10px, 8px, 6px);
+            @include mixins.app-content-spacing(10px, 8px, 6px);
         }
     }
 }
@@ -34,7 +34,7 @@
 @media screen and (max-width: 640px) {
     .jiosaavn-app-container {
         .jiosaavn-content {
-            @include app-content-spacing(8px, 6px, 4px);
+            @include mixins.app-content-spacing(8px, 6px, 4px);
         }
     }
 }

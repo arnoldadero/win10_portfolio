@@ -1,22 +1,22 @@
 // 1. Theme Variables (Single Source of Truth)
-@import 'theme/variables';
+@use 'theme/variables';
 
 // 2. Base Styles
-@import 'theme/reset';
+@use 'theme/reset';
 
 // 3. System Components
-@import 'components/desktop/desktop';
-@import 'components/windowFrame/windowFrame';
-@import 'components/taskBar/taskbar';
+@use 'components/desktop/desktop';
+@use 'components/windowFrame/windowFrame';
+@use 'components/taskBar/taskbar';
 
 // 4. Application Styles
 // Application styles are localized to their respective components and loaded via dynamic imports and React.lazy
 // We only keep the base application shared styles if any
-@import 'components/applications/application';
+@use 'components/applications/application';
 
 // 5. Utility Classes
-@import 'theme/grid';
-@import 'theme/mixins'; // Mixins don't output CSS unless used, but good to have available if we use this file as a global import.
+@use 'theme/grid';
+@use 'theme/mixins'; // Mixins don't output CSS unless used, but good to have available if we use this file as a global import.
 
 // 6. Responsive Overrides
-@import 'theme/optimize';
+@use 'theme/optimize';

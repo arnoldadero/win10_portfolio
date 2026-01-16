@@ -1,12 +1,12 @@
-@import '../../theme/variables';
-@import '../../theme/mixins';
+@use '../../theme/variables';
+@use '../../theme/mixins';
 
 /* ===== ERROR INPUT STATES ===== */
 input:invalid,
 input.error,
 textarea.error,
 select.error {
-  @include error-state();
+  @include mixins.error-state();
 
   &::placeholder {
     color: var(--color-alert);
@@ -16,7 +16,7 @@ select.error {
 
 /* ===== ERROR MESSAGE ===== */
 .error-message {
-  @include error-message();
+  @include mixins.error-message();
 }
 
 /* ===== ERROR ALERT BOX ===== */
@@ -131,7 +131,7 @@ button[type="submit"].error {
     input,
     textarea,
     select {
-      @include error-state();
+      @include mixins.error-state();
     }
 
     .error-indicator {

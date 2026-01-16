@@ -1,0 +1,262 @@
+/* =========================================
+   AI Workflow – Flip Card & Visual Design
+   ========================================= */
+
+@use "../../../theme/variables";
+
+.ai-workflow-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	overflow-y: auto;
+	padding-bottom: var(--spacing-3xl);
+
+	/* Hero Typography */
+	h1.uk-heading-small {
+		font-weight: 700;
+		font-size: 2.2rem;
+		letter-spacing: -0.02em;
+		background: linear-gradient(90deg, #fff, #a4a4a4);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.uk-text-lead {
+		max-width: 600px;
+		margin: 0 auto;
+		color: #cfd8dc !important;
+		line-height: 1.6;
+		font-size: 1.1rem;
+	}
+}
+
+/* =========================================
+   FLIP CARD COMPONENT
+   ========================================= */
+
+.flip-card {
+	perspective: 1000px;
+	height: 340px;
+	cursor: pointer;
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	border-radius: 16px;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background: rgba(30, 33, 36, 0.9);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card-front {
+	/* Gradient top border using accent color */
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 20%;
+		right: 20%;
+		height: 3px;
+		background: var(--card-accent);
+		border-radius: 0 0 4px 4px;
+	}
+}
+
+.flip-card-back {
+	transform: rotateY(180deg);
+	background: linear-gradient(135deg, rgba(30, 33, 36, 0.95), rgba(20, 20, 20, 0.98));
+	border-color: var(--card-accent);
+	
+	.card-title {
+		color: var(--card-accent) !important;
+		margin-bottom: 16px;
+	}
+	
+	.card-description {
+		color: #cfd8dc;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		max-width: 280px;
+	}
+}
+
+/* Card Elements */
+.card-icon-ring {
+	width: 72px;
+	height: 72px;
+	border-radius: 50%;
+	border: 2px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 16px;
+	background: rgba(255, 255, 255, 0.03);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flip-card:hover .card-icon-ring {
+	transform: scale(1.1);
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-title {
+	color: #fff !important;
+	font-size: 1.4rem;
+	font-weight: 700;
+	margin: 0 0 4px 0;
+}
+
+.card-tagline {
+	color: var(--card-accent);
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	margin-bottom: 16px;
+}
+
+.card-stats {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 16px 0;
+	width: 100%;
+	text-align: left;
+
+	li {
+		display: flex;
+		align-items: center;
+		color: rgba(255, 255, 255, 0.85);
+		font-size: 0.9rem;
+		padding: 6px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.flip-hint {
+	color: rgba(255, 255, 255, 0.4);
+	font-size: 0.75rem;
+	margin-top: auto;
+	transition: color 0.3s ease;
+}
+
+.flip-card:hover .flip-hint {
+	color: var(--card-accent);
+}
+
+/* =========================================
+   OUTCOME STATS SECTION
+   ========================================= */
+
+.outcomes-section {
+	padding: 32px 24px;
+	background: rgba(30, 33, 36, 0.7);
+	border-radius: 16px;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+
+	.uk-h4 {
+		color: #fff !important;
+		font-weight: 600;
+		margin-bottom: 24px;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: 0.9rem;
+	}
+}
+
+.outcomes-grid {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+.outcome-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 16px 32px;
+	background: rgba(255, 255, 255, 0.03);
+	border-radius: 12px;
+	border: 1px solid rgba(79, 193, 233, 0.15);
+	transition: transform 0.3s ease, border-color 0.3s ease;
+
+	&:hover {
+		transform: translateY(-4px);
+		border-color: rgba(79, 193, 233, 0.4);
+	}
+}
+
+.outcome-metric {
+	font-size: 2.5rem;
+	font-weight: 800;
+	background: linear-gradient(135deg, #4fc1e9, #22c55e);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	line-height: 1;
+	margin-bottom: 8px;
+}
+
+.outcome-label {
+	color: #cfd8dc;
+	font-size: 0.85rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media screen and (max-width: 960px) {
+	.flip-card {
+		height: 320px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.flip-card {
+		height: 300px;
+	}
+
+	.outcomes-grid {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.outcome-item {
+		width: 100%;
+		max-width: 280px;
+	}
+}
+

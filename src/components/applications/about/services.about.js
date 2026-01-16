@@ -4,37 +4,48 @@ import { PrimaryButton, DefaultButton, FontIcon } from "@fluentui/react";
 import user from "../../../utils/data/user.config";
 import "./about.scss";
 import "./services.scss";
+import "./aiWorkflow.scss";
 
 function Services() {
     const services = [
         {
             icon: "Rocket",
-            title: "Full-Stack Development",
-            benefit: "Launch faster with a scalable, production-ready web application.",
-            description: "End-to-end web application development using React, Node.js, and Laravel. From MVP to production-ready SaaS platforms.",
-            highlights: ["React/Next.js frontend", "Node.js/Laravel backend", "Database design & optimization", "API development & integration"]
+            title: "Full-Stack Dev",
+            tagline: "AI-Accelerated",
+            color: "#7c3aed",
+            frontStats: ["React / Next.js", "Node.js / Laravel", "REST & GraphQL APIs"],
+            backContent: "End-to-end web applications built with AI-augmented workflows. From MVP to scale, I deliver production-grade systems 40% faster."
         },
         {
-            icon: "Refresh",
-            title: "Legacy System Modernization",
-            benefit: "Transform outdated codebases into maintainable assets with zero downtime.",
-            description: "Transform outdated codebases into modern, maintainable applications. Seamless migrations with zero downtime.",
-            highlights: ["Code refactoring", "Framework migrations", "Performance optimization", "Documentation & training"]
+            icon: "Repair",
+            title: "Legacy Rescue",
+            tagline: "Modernization",
+            color: "#f59e0b",
+            frontStats: ["PHP → Modern Stack", "Zero-downtime migration", "Performance boost"],
+            backContent: "Breathing new life into aging codebases. I refactor, migrate, and optimize legacy systems without disrupting your business."
         },
         {
             icon: "Money",
-            title: "Payment Integration",
-            benefit: "Expand your market with secure, global payment processing.",
-            description: "Secure payment gateway implementation for African and global markets. M-Pesa, Stripe, PayPal expertise.",
-            highlights: ["M-Pesa API integration", "Stripe/PayPal setup", "Webhook handling", "PCI compliance"]
+            title: "Payments",
+            tagline: "Africa & Global",
+            color: "#22c55e",
+            frontStats: ["M-Pesa Integration", "Stripe & PayPal", "PCI Compliant"],
+            backContent: "Secure payment processing for African and global markets. I've processed $50K+ monthly through custom M-Pesa gateways."
         },
         {
             icon: "CloudWeather",
-            title: "DevOps & CI/CD",
-            benefit: "Sleep soundly with automated deployments and stable infrastructure.",
-            description: "Automated deployment pipelines and containerized infrastructure. Docker, Kubernetes, and cloud platform expertise.",
-            highlights: ["Docker containerization", "GitLab CI/CD pipelines", "AWS/Azure deployment", "Monitoring & logging"]
+            title: "DevOps",
+            tagline: "CI/CD Pipelines",
+            color: "#0ea5e9",
+            frontStats: ["Docker & Kubernetes", "GitLab CI/CD", "AWS / Azure"],
+            backContent: "Automated deployments that let you sleep at night. I reduce deploy times from 45 minutes to under 10 with zero-downtime releases."
         }
+    ];
+
+    const stats = [
+        { metric: "120+", label: "Projects Delivered" },
+        { metric: "100%", label: "Job Success (Upwork)" },
+        { metric: "10+", label: "Years Experience" }
     ];
 
     const openWhatsApp = () => {
@@ -44,90 +55,87 @@ function Services() {
     return (
         <div className="services-container uk-padding">
             <Helmet>
-                <title>Hire Arnold Adero | Freelance Senior Full Stack Developer</title>
+                <title>AI-Augmented Web Development Services | Arnold Adero Portfolio</title>
                 <meta
                     name="description"
-                    content="Available for freelance projects, consulting, and full-time remote positions. Specializing in React, Node.js, and payment integrations."
+                    content="Experience rapid, high-quality development with AI-augmented workflows. Services include full-stack React/Node.js, legacy modernization, and M-Pesa integrations."
                 />
                 <link rel="canonical" href="https://arnoldadero.onrender.com/services" />
             </Helmet>
 
+            {/* Hero */}
             <div className="services-header uk-text-center uk-margin-large-bottom">
-                <h1 className="uk-heading-small">Build Reliable, Scalable Web Products — Fast</h1>
-                <p className="uk-text-lead uk-margin-small-top">
-                    Senior Full-Stack Engineer helping startups & businesses ship production-ready systems with confidence.
+                <h1 className="uk-heading-small">What I Build</h1>
+                <p className="uk-text-lead">
+                    Hover the cards to see how I can help your business.
                 </p>
-                <div className="uk-flex uk-flex-center uk-margin-top">
-                    <div className="trust-badge">
-                        <FontIcon iconName="CheckMark" className="check-icon" /> 10+ Years Experience
-                    </div>
-                    <div className="trust-badge">
-                        <FontIcon iconName="CheckMark" className="check-icon" /> African + Global Payment Expertise
-                    </div>
-                    <div className="trust-badge">
-                        <FontIcon iconName="CheckMark" className="check-icon" /> Production-Grade Systems
-                    </div>
-                </div>
             </div>
 
-            <div className="uk-grid-small uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match" uk-grid="true">
+            {/* Stats Bar */}
+            <div className="stats-bar uk-margin-medium-bottom">
+                {stats.map((item, index) => (
+                    <div key={index} className="stat-item">
+                        <span className="stat-metric">{item.metric}</span>
+                        <span className="stat-label">{item.label}</span>
+                    </div>
+                ))}
+            </div>
+
+            {/* Flip Cards Grid */}
+            <div className="uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid="true">
                 {services.map((service, index) => (
                     <div key={index}>
-                        <div className="premium-card glassy-card uk-padding">
-                            <div className="card-header-flex">
-                                <div className="service-icon-wrapper">
-                                    <FontIcon iconName={service.icon} className="service-icon" />
+                        <div className="flip-card service-flip">
+                            <div className="flip-card-inner">
+                                {/* Front */}
+                                <div className="flip-card-front" style={{ '--card-accent': service.color }}>
+                                    <div className="card-icon-ring" style={{ borderColor: service.color }}>
+                                        <FontIcon iconName={service.icon} style={{ fontSize: '28px', color: service.color }} />
+                                    </div>
+                                    <h3 className="card-title">{service.title}</h3>
+                                    <span className="card-tagline">{service.tagline}</span>
+                                    <ul className="card-stats">
+                                        {service.frontStats.map((stat, i) => (
+                                            <li key={i}><FontIcon iconName="CheckMark" style={{ color: service.color, marginRight: '8px' }} />{stat}</li>
+                                        ))}
+                                    </ul>
+                                    <span className="flip-hint">Hover for details →</span>
                                 </div>
-                                <div className="service-title-wrapper">
-                                    <h3 className="uk-card-title">{service.title}</h3>
-                                    <p className="service-benefit">{service.benefit}</p>
+                                {/* Back */}
+                                <div className="flip-card-back" style={{ '--card-accent': service.color }}>
+                                    <h3 className="card-title">How It Works</h3>
+                                    <p className="card-description">{service.backContent}</p>
                                 </div>
                             </div>
-                            
-                            <p className="service-description">{service.description}</p>
-                            <ul className="uk-list uk-list-bullet">
-                                {service.highlights.map((highlight, idx) => (
-                                    <li key={idx}>{highlight}</li>
-                                ))}
-                            </ul>
                         </div>
                     </div>
                 ))}
             </div>
 
+            {/* CTA Section */}
             <div className="cta-section uk-margin-large-top uk-text-center">
-                <div className="premium-card glassy-card uk-padding-large cta-card">
-                    <h2>Ready to Start Your Project?</h2>
-                    <p className="uk-text-large uk-margin-medium">
-                        Let's discuss how I can help bring your ideas to life
-                    </p>
-                    <div className="uk-flex uk-flex-center uk-flex-wrap uk-margin-top" style={{ gap: "1rem" }}>
+                <div className="cta-card-simple">
+                    <h2>Let's Talk</h2>
+                    <p>Ready to start? I typically respond within 24 hours.</p>
+                    <div className="cta-buttons">
                         <PrimaryButton
-                            text="Chat on WhatsApp"
+                            text="WhatsApp"
                             onClick={openWhatsApp}
                             iconProps={{ iconName: "Chat" }}
-                            aria-label="Chat with Arnold on WhatsApp"
                             className="cta-button-primary"
                         />
                         <DefaultButton
-                            text="View LinkedIn"
+                            text="LinkedIn"
                             onClick={() => window.open(`https://www.linkedin.com/${user.linkedIn}`, "_blank")}
                             iconProps={{ iconName: "LinkedInLogo" }}
-                            aria-label="View Arnold's LinkedIn Profile"
                         />
                         <DefaultButton
-                            text="Upwork Profile"
+                            text="Upwork"
                             onClick={() => window.open(`https://www.upwork.com/freelancers/${user.upwork}`, "_blank")}
                             iconProps={{ iconName: "Work" }}
-                            aria-label="View Arnold's Upwork Profile"
                         />
                     </div>
-                    <p className="uk-margin-top uk-text-muted uk-text-small">
-                        Typically responds within 24 hours • No obligation call
-                    </p>
-                    <p className="uk-text-muted uk-text-small">
-                         <strong>Based in:</strong> Nairobi, Kenya (EAT UTC+3)
-                    </p>
+                    <p className="cta-location">📍 Nairobi, Kenya (UTC+3)</p>
                 </div>
             </div>
         </div>

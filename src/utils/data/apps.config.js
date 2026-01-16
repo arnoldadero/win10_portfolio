@@ -27,16 +27,24 @@ const appConfig = [
 				component: "Experience",
 			},
 			{
-				name: "Education",
-				component: "Education",
+				name: "Services",
+				component: "Services",
+			},
+			{
+				name: "AI & Workflow",
+				component: "AIWorkflow",
+			},
+			{
+				name: "Skills",
+				component: "Skills",
 			},
 			{
 				name: "Projects",
 				component: "Projects",
 			},
 			{
-				name: "Skills",
-				component: "Skills",
+				name: "Education",
+				component: "Education",
 			},
 			{
 				name: "Resume",
@@ -45,10 +53,6 @@ const appConfig = [
 			{
 				name: "Contact Me",
 				component: "ContactMe",
-			},
-			{
-				name: "Services",
-				component: "Services",
 			},
 		],
 	},

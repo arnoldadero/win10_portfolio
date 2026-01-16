@@ -25,10 +25,10 @@ function Resume() {
 	return (
 		<div className="height-100">
 			<Helmet>
-				<title>Resume & CV | Arnold Adero - Senior Full Stack Engineer</title>
+				<title>Resume & CV | Arnold Adero - AI-Augmented Engineer & Technical PM</title>
 				<meta
 					name="description"
-					content="Download my up-to-date resume. Freelance Senior Full-Stack Engineer with a track record of delivering scalable web apps."
+					content="View and download my resume. Senior AI-Augmented Full-Stack Engineer with 10+ years experience in React, Node.js, and technical project management."
 				/>
 				<link rel="canonical" href="https://arnoldadero.onrender.com/resume" />
 			</Helmet>

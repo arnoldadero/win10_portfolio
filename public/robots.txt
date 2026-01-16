@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://aderoportfolio.netlify.app/sitemap.xml
+Sitemap: https://arnoldadero.onrender.com/sitemap.xml

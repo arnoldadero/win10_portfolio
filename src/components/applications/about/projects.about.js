@@ -1,5 +1,6 @@
 import React from "react";
 import "./about.scss";
+import "./aiWorkflow.scss";
 import user from "../../../utils/data/user.config";
 import {
 	DirectionalHint,
@@ -15,10 +16,10 @@ function Projects() {
 	return (
 		<div className="projects-app-container uk-padding">
 			<Helmet>
-				<title>React & Node.js Projects | Arnold Adero Portfolio</title>
+				<title>AI-Augmented Software Projects | Arnold Adero Portfolio</title>
 				<meta
 					name="description"
-					content="Explore my commercial software projects including Cold Storage Traceability (IoT/React), M-Pesa Payment Integrations (Laravel), and SaaS Platforms."
+					content="Explore complex software systems built with AI-augmented workflows. Includes Cold Storage IoT, M-Pesa Gateways, and Enterprise DevOps pipelines."
 				/>
 				<link rel="canonical" href="https://arnoldadero.onrender.com/projects" />
 			</Helmet>
@@ -39,7 +40,7 @@ function Projects() {
 									<div className="project-media">
 										<LazyImage
 											src={project.image}
-											alt={project.projectName}
+											alt={`${project.projectName} – AI-augmented full stack development – Arnold Adero Portfolio`}
 											className="project-image"
 										/>
 									</div>

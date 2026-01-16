@@ -1,5 +1,5 @@
-@import "../../../theme/variables";
-@import "../../../theme/mixins";
+@use "../../../theme/variables";
+@use "../../../theme/mixins";
 
 .settings-app-container {
     height: 100%;
@@ -9,7 +9,7 @@
     /* Settings Content Area */
     .settings-content {
         flex: 1;
-        @include app-content-spacing();
+        @include mixins.app-content-spacing();
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         background: linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
@@ -17,7 +17,7 @@
 
         /* Settings Title */
         .settings-title {
-            @include responsive-font(16px, 14px, 13px);
+            @include mixins.responsive-font(16px, 14px, 13px);
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: var(--spacing-lg);
@@ -79,7 +79,7 @@
 @media screen and (max-width: 768px) {
     .settings-app-container {
         .settings-content {
-            @include app-content-spacing(10px, 8px, 6px);
+            @include mixins.app-content-spacing(10px, 8px, 6px);
 
             .settings-wallpaper-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -96,7 +96,7 @@
 @media screen and (max-width: 640px) {
     .settings-app-container {
         .settings-content {
-            @include app-content-spacing(8px, 6px, 4px);
+            @include mixins.app-content-spacing(8px, 6px, 4px);
 
             .settings-wallpaper-grid {
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));

@@ -6,7 +6,7 @@ import coldStorageGif from "../../assets/images/projects/coldstorage.webp";
 const user = {
 	firstName: "Arnold",
 	lastName: "Adero",
-	role: "Senior Full-Stack Engineer",
+	role: "AI-Augmented Full-Stack Engineer & Technical PM",
 	userImage: user_avatar,
 	resume: ResumePDF,
 	email: "arnold@mvuvi.co.ke",
@@ -15,10 +15,10 @@ const user = {
 	gitHub: "arnoldadero",
 	whatsapp: "+254733943486",
 	aboutMe: {
-		intro: "Senior Full-Stack Engineer with 10+ years of experience delivering scalable, high-performance web applications and digital systems.",
+		intro: "AI-Augmented Full-Stack Engineer & Technical Project Manager with 10+ years of experience delivering scalable, high-performance web systems.",
 		description:
-			"Skilled in React, Next.js, Node.js, Laravel, and Docker, with hands-on expertise integrating modern tools and APIs to streamline development workflows. Known for transforming innovative concepts into reliable, production-ready software while leading teams and managing projects with precision and agility.",
-		outro: "I thrive at the intersection of clean code and modern tooling — leveraging Dockerized workflows, CI/CD pipelines, and modular front-end frameworks like React and Next.js to ship faster and smarter.",
+			"Specialized in end-to-end software delivery using AI-powered workflows (Cursor, Lovable, Copilot) to accelerate delivery without compromising quality. Expertise spans React, Next.js, Node.js, Laravel, and Docker, with a focus on building systems that scale and maintainable legacy modernization.",
+		outro: "I thrive at the intersection of clean code and modern tooling — leveraging AI-augmented development, Dockerized workflows, and CI/CD pipelines to ship smarter, faster, and more reliably.",
 	},
 	experiences: [
 		{
@@ -29,12 +29,12 @@ const user = {
 			endDate: "Present",
 			positions: [
 				{
-					positionName: "Full-Stack Developer",
+					positionName: "Full-Stack Developer & AI Systems Integrator",
 					startDate: "2011",
 					endDate: "Present",
 					isPresent: true,
 					description:
-						"Built and maintained scalable full-stack solutions for international clients using React, Laravel, Node.js, and Docker. Delivered SaaS, eCommerce, and CMS projects optimized for performance, security, and SEO. Automated deployment pipelines and containerized production environments for consistency and scalability. Integrated global payment systems (Stripe, PayPal) and regional gateways (M-Pesa). Mentored junior developers and introduced workflow automation with modern dev tools.",
+						"Built and maintained scalable full-stack solutions for international clients using React, Laravel, Node.js, and Docker. Pioneer in AI-augmented development, utilizing Cursor and GitHub Copilot to reduce bug rates and accelerate delivery timelines by 40%. Delivered SaaS, eCommerce, and CMS projects optimized for performance, security, and SEO. Automated deployment pipelines and containerized production environments. Integrated global payment systems (Stripe, PayPal) and regional gateways (M-Pesa).",
 				},
 			],
 		},

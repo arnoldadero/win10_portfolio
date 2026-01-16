@@ -1,5 +1,5 @@
-@import '../../theme/variables';
-@import '../../theme/mixins';
+@use '../../theme/variables';
+@use '../../theme/mixins';
 
 .document-app-container {
     height: 100%;
@@ -40,7 +40,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            @include hover-state();
+            @include mixins.hover-state();
 
             &.active {
                 background: var(--overlay-medium);
@@ -63,7 +63,7 @@
         }
 
         .ql-editor {
-            @include app-content-spacing();
+            @include mixins.app-content-spacing();
             line-height: 1.6;
             min-height: 100%;
         }

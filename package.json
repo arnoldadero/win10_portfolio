@@ -24,45 +24,19 @@
     "react-redux": "^9.1.2",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^6.28.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-spreadsheet": "^0.10.1",
     "redux": "^5.0.1",
-    "sass": "^1.81.0",
-    "uikit": "^3.22.2",
-    "react-snap": "^1.23.0",
+    "sass": "^1.97.2",
     "sharp": "^0.34.5",
+    "uikit": "^3.22.2",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "bun install && react-scripts build",
-    "postbuild": "react-snap || echo 'React-snap failed, continuing build...'",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "reactSnap": {
-    "puppeteer": {
-      "timeout": 60000
-    },
-    "inlineCss": true,
-    "minifyHtml": {
-      "collapseWhitespace": true,
-      "removeComments": true
-    },
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ],
-    "include": [
-      "/",
-      "/about",
-      "/projects",
-      "/resume",
-      "/contact",
-      "/experience",
-      "/education",
-      "/skills"
-    ]
   },
   "eslintConfig": {
     "extends": [
@@ -92,5 +66,9 @@
     "html-minifier": "^4.0.0",
     "resolve-url-loader": "^5.0.0",
     "postcss": "^8.4.31"
+  },
+  "devDependencies": {
+    "sass-loader": "^16.0.6",
+    "sass-migrator": "^2.5.6"
   }
 }

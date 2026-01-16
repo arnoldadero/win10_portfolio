@@ -10,6 +10,7 @@ const AppRegistry = {
     Resume: lazy(() => import('../applications/about/resume.about')),
     ContactMe: lazy(() => import('../applications/about/contactMe.about')),
     Services: lazy(() => import('../applications/about/services.about')),
+    AIWorkflow: lazy(() => import('../applications/about/aiWorkflow.about')),
 
     // Applications
     VSCode: lazy(() => import('../applications/vscode.application')),

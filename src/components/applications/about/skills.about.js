@@ -1,5 +1,8 @@
 import React from "react";
 import user from "../../../utils/data/user.config";
+import "./about.scss";
+import "./aiWorkflow.scss";
+import { Helmet } from "react-helmet-async";
 
 // Import Skill Icons
 import reactIcon from "../../../assets/images/skills/react-js.svg";
@@ -39,6 +42,14 @@ function Skills() {
 
 	return (
 		<div className="skills-app-container uk-padding">
+			<Helmet>
+				<title>Technical Skills | Arnold Adero - AI-Augmented Engineer</title>
+				<meta
+					name="description"
+					content="Core competencies include React, Next.js, Node.js, PHP, Docker, and AI-augmented development workflows for rapid system delivery."
+				/>
+				<link rel="canonical" href="https://arnoldadero.onrender.com/skills" />
+			</Helmet>
 			<div className="uk-grid-medium uk-child-width-1-1" uk-grid="true">
 				{user.skills.map((category, index) => (
 					<div key={index}>
@@ -72,7 +83,7 @@ function Skills() {
 												{icon ? (
 													<img
 														src={icon}
-														alt={skill}
+														alt={`${skill} – AI-augmented full stack development – Arnold Adero Portfolio`}
 														className="uk-transition-scale-up uk-transition-opaque"
 														style={{ width: "40px", height: "40px", objectFit: "contain" }}
 													/>

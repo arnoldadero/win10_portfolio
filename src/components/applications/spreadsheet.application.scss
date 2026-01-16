@@ -1,5 +1,5 @@
-@import '../../theme/variables';
-@import '../../theme/mixins';
+@use '../../theme/variables';
+@use '../../theme/mixins';
 
 .spreadsheet-app-container {
     height: 100%;
@@ -22,9 +22,9 @@
             border: none;
             border-radius: 4px;
             color: var(--text-primary);
-            @include responsive-font(12px, 11px, 10px);
+            @include mixins.responsive-font(12px, 11px, 10px);
             cursor: pointer;
-            @include hover-state();
+            @include mixins.hover-state();
 
             &:active {
                 background: var(--overlay-medium);
@@ -55,7 +55,7 @@
                     padding: 8px;
                     border: 1px solid var(--border-light);
                     text-align: left;
-                    @include responsive-font(12px, 11px, 10px);
+                    @include mixins.responsive-font(12px, 11px, 10px);
                     font-weight: 600;
                     color: var(--text-primary);
                     user-select: none;
@@ -71,7 +71,7 @@
                     td {
                         padding: 8px;
                         border: 1px solid var(--border-light);
-                        @include responsive-font(12px, 11px, 10px);
+                        @include mixins.responsive-font(12px, 11px, 10px);
                         color: var(--text-secondary);
                         background: rgba(0, 0, 0, 0.1);
                     }

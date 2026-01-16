@@ -10,10 +10,10 @@ function AboutMe() {
 	return (
 		<div className="about-app-container">
 			<Helmet>
-				<title>About Me | Arnold Adero - Senior React & Node.js Developer</title>
+				<title>About Arnold Adero | AI-Augmented Full Stack Developer</title>
 				<meta
 					name="description"
-					content="I am a Senior Full-Stack Engineer in Kenya with 10+ years of experience. I build high-performance web applications using modern tech stacks."
+					content="Senior AI-Augmented Full Stack Engineer and Project Manager with 10+ years experience. Expert in React, Node.js, and scaling systems using AI workflows."
 				/>
 				<link rel="canonical" href="https://arnoldadero.onrender.com/about" />
 			</Helmet>

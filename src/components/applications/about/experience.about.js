@@ -3,11 +3,20 @@ import "./about.scss";
 import upworkAvatar from "../../../assets/images/baseImages/upwork_prof.png";
 import user from "../../../utils/data/user.config";
 import LazyImage from "../../base/lazyImage";
+import { Helmet } from "react-helmet-async";
 
 
 function Experience() {
 	return (
 		<div className="experience-container">
+			<Helmet>
+				<title>Experience | Arnold Adero - AI-Augmented Engineer & Technical PM</title>
+				<meta
+					name="description"
+					content="Verified work history and client reviews. 10+ years on Upwork as a Top-Rated Plus Full-Stack Developer specializing in AI-augmented workflows."
+				/>
+				<link rel="canonical" href="https://arnoldadero.onrender.com/experience" />
+			</Helmet>
 			<div className="experience-header">
 				<h3 className="experience-title">
 					{user.firstName} {user.lastName} - Upwork Profile
