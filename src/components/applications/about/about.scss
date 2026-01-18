@@ -2,8 +2,8 @@
 @use "../../../theme/mixins";
 
 /* =========================================
-   ABOUT APP CONTAINER – SEAMLESS SCROLL
-   ========================================= */
+    ABOUT APP CONTAINER – SEAMLESS SCROLL
+    ========================================= */
 .about-app-container {
     height: 100%;
     display: flex;
@@ -30,10 +30,15 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         
-        /* Hardware acceleration */
+        /* Hardware acceleration and performance optimization */
         will-change: scroll-position;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
+        contain: layout style paint;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
         
         /* Hide webkit scrollbars (Chrome, Safari, Edge) */
         &::-webkit-scrollbar {
@@ -67,11 +72,14 @@
                 0 18px 60px rgba(0, 0, 0, 0.45),
                 inset 0 1px 0 rgba(255, 255, 255, 0.08);
             
-            /* Optimized for mobile touch */
+            /* Optimized for mobile touch – prevent jank */
             transition: box-shadow 200ms ease, border-color 200ms ease;
             will-change: box-shadow, border-color;
             -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
+            contain: layout style paint;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
             
             flex-shrink: 0;
             display: flex;
@@ -163,8 +171,8 @@
 
 
 /* =========================================
-   EXPERIENCE SECTION – CONTINUOUS SCROLL
-   ========================================= */
+    EXPERIENCE SECTION – CONTINUOUS SCROLL
+    ========================================= */
 .experience-container {
     height: 100%;
     display: flex;
@@ -172,10 +180,13 @@
     background: var(--bg-secondary);
     overflow: hidden;
     
-    /* Hardware acceleration */
+    /* Hardware acceleration and performance optimization */
     will-change: scroll-position;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    contain: layout style paint;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
     .experience-header {
         padding: var(--spacing-md) var(--spacing-lg);
@@ -293,18 +304,21 @@
 
 
 /* =========================================
-   EDUCATION TIMELINE – OPTIMIZED SCROLL
-   ========================================= */
+    EDUCATION TIMELINE – OPTIMIZED SCROLL
+    ========================================= */
 .education-container {
     padding: var(--spacing-lg);
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
     
-    /* Hardware acceleration */
+    /* Hardware acceleration and performance optimization */
     will-change: contents;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    contain: layout style paint;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
     .timeline-wrapper {
         position: relative;
@@ -509,8 +523,8 @@
 }
 
 /* =========================================
-   PROJECTS SECTION STYLES – SEAMLESS FLOW
-   ========================================= */
+    PROJECTS SECTION STYLES – SEAMLESS FLOW
+    ========================================= */
 .projects-app-container {
     height: 100%;
     overflow: auto;
@@ -527,10 +541,14 @@
         display: none;
     }
     
-    /* Hardware acceleration */
+    /* Hardware acceleration and performance optimization */
     will-change: scroll-position;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    contain: layout style paint;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    scroll-behavior: smooth;
 }
 
 .project-item {
@@ -740,9 +758,32 @@
 }
 
 /* =========================================
-   MOBILE OPTIMIZATION: SMOOTH SCROLL FIXES
-   ========================================= */
-@media screen and (max-width: 480px) {
+    TABLET OPTIMIZATION: SMOOTH SCROLL (768px - 1024px)
+    ========================================= */
+@media screen and (max-width: 1024px) and (min-width: 641px) {
+    .about-app-container {
+        .about-content {
+            padding: var(--spacing-md);
+            
+            .about-profile-card {
+                padding: var(--spacing-lg);
+            }
+        }
+    }
+    
+    .experience-container,
+    .education-container,
+    .projects-app-container,
+    .skills-container,
+    .services-container {
+        padding: var(--spacing-md);
+    }
+}
+
+/* =========================================
+    MOBILE OPTIMIZATION: SMOOTH SCROLL FIXES (480px - 640px)
+    ========================================= */
+@media screen and (max-width: 640px) and (min-width: 481px) {
     .about-app-container {
         height: 100%;
         display: flex;
@@ -751,46 +792,55 @@
 
         .about-content {
             flex: 1;
-            overflow: visible;
+            overflow-y: auto;
+            overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: stretch;
-            padding: 4px;
+            padding: var(--spacing-sm);
             border: none;
             border-radius: 0;
+            background: linear-gradient(135deg, rgba(100, 150, 200, 0.03) 0%, rgba(50, 100, 150, 0.03) 100%);
+            contain: layout style paint;
 
             .about-profile-card {
                 width: 100%;
                 max-width: 100%;
-                margin: 0 auto 8px;
-                padding: var(--spacing-sm);
+                margin: 0 auto var(--spacing-sm);
+                padding: var(--spacing-md);
                 flex-shrink: 0;
+                will-change: transform;
 
                 .about-avatar-section {
                     margin-bottom: var(--spacing-sm);
 
                     .about-avatar {
-                        width: 60px;
-                        height: 60px;
+                        width: 80px;
+                        height: 80px;
+                        will-change: auto;
                     }
 
                     .about-name {
-                        font-size: 12px;
+                        font-size: 14px;
+                        font-weight: 600;
                     }
 
                     .about-intro {
-                        font-size: 10px;
+                        font-size: 11px;
+                        line-height: 1.5;
                     }
                 }
 
                 .about-description,
                 .about-outro {
                     padding: var(--spacing-sm);
-                    font-size: 10px;
+                    font-size: 11px;
                     margin-bottom: var(--spacing-sm);
+                    line-height: 1.6;
+                    contain: layout style;
                 }
             }
         }
@@ -803,19 +853,114 @@
     .services-container {
         height: auto;
         overflow: visible;
-        padding: 4px 4px var(--spacing-md);
+        padding: var(--spacing-sm);
+        contain: layout style paint;
+    }
+}
+
+/* =========================================
+    MOBILE OPTIMIZATION: SMOOTH SCROLL FIXES (max-width: 480px)
+    ========================================= */
+@media screen and (max-width: 480px) {
+    .about-app-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .about-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding: 6px;
+            border: none;
+            border-radius: 0;
+            background: linear-gradient(135deg, rgba(100, 150, 200, 0.03) 0%, rgba(50, 100, 150, 0.03) 100%);
+            contain: layout style paint;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: scroll-position;
+
+            .about-profile-card {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto 6px;
+                padding: 8px;
+                flex-shrink: 0;
+                will-change: transform;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+
+                .about-avatar-section {
+                    margin-bottom: 8px;
+
+                    .about-avatar {
+                        width: 60px;
+                        height: 60px;
+                        will-change: auto;
+                        backface-visibility: hidden;
+                        -webkit-backface-visibility: hidden;
+                    }
+
+                    .about-name {
+                        font-size: 12px;
+                        font-weight: 600;
+                        line-height: 1.4;
+                    }
+
+                    .about-intro {
+                        font-size: 10px;
+                        line-height: 1.4;
+                        margin: 4px 0 0 0;
+                    }
+                }
+
+                .about-description,
+                .about-outro {
+                    padding: 8px;
+                    font-size: 10px;
+                    margin-bottom: 8px;
+                    line-height: 1.5;
+                    contain: layout style;
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                }
+            }
+        }
+    }
+
+    .experience-container,
+    .education-container,
+    .projects-app-container,
+    .skills-container,
+    .services-container {
+        height: auto;
+        overflow: visible;
+        padding: 6px;
+        contain: layout style paint;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 }
 
 @media screen and (max-width: 360px) {
     .about-app-container {
         .about-content {
+            padding: 4px;
+            contain: layout style paint;
+
             .about-profile-card {
                 padding: 6px;
-                margin: 0 auto 6px;
+                margin: 0 auto 4px;
 
                 .about-avatar-section {
-                    margin-bottom: 6px;
+                    margin-bottom: 4px;
 
                     .about-avatar {
                         width: 50px;
@@ -828,6 +973,7 @@
 
                     .about-intro {
                         font-size: 9px;
+                        margin-top: 2px;
                     }
                 }
 
@@ -835,9 +981,18 @@
                 .about-outro {
                     padding: 6px;
                     font-size: 9px;
-                    margin-bottom: 6px;
+                    margin-bottom: 4px;
+                    line-height: 1.4;
                 }
             }
         }
+    }
+
+    .experience-container,
+    .education-container,
+    .projects-app-container,
+    .skills-container,
+    .services-container {
+        padding: 4px;
     }
 }
