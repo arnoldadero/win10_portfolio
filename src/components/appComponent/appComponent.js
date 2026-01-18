@@ -43,7 +43,9 @@ function AppComponent(props) {
 	const [currentComponentName, setCurrentComponentName] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const sidebarRef = useRef(null);
+	const scrollContainerRef = useRef(null);
 	const contentContainerRef = useRef(null);
+	const scrollRafRef = useRef(null);
 
 	// Initialize auto-scroll hook for About app on mobile
 	const autoScrollConfig = useAutoScroll(
@@ -66,6 +68,12 @@ function AppComponent(props) {
 			setCurrentIndex(index);
 		}
 	};
+
+	useEffect(() => {
+		if (props.appInfo.subComponent?.length && !currentComponentName) {
+			setComponent(props.appInfo.subComponent[0].name, 0);
+		}
+	}, [props.appInfo.subComponent, currentComponentName]);
 
 	const navigateBack = () => {
 		if (currentIndex > 0 && props.appInfo.subComponent) {
@@ -114,6 +122,53 @@ function AppComponent(props) {
 			}
 		}
 	}, [props.appInfo.activeSubComponentIndex, props.appInfo.subComponent, currentIndex, autoScrollConfig.isMobile]);
+
+	useEffect(() => {
+		const scrollContainer = scrollContainerRef.current;
+		const listContainer = contentContainerRef.current;
+		if (!scrollContainer || !listContainer || props.appInfo.id !== "aboutMe" || !autoScrollConfig.isMobile) {
+			return undefined;
+		}
+
+		const handleScroll = () => {
+			if (scrollRafRef.current) {
+				return;
+			}
+
+			scrollRafRef.current = requestAnimationFrame(() => {
+				const containerHeight = scrollContainer.clientHeight;
+				const scrollMidpoint = scrollContainer.scrollTop + containerHeight / 2;
+				const containerTop = scrollContainer.getBoundingClientRect().top;
+				const children = Array.from(listContainer.children);
+				let activeIndex = currentIndex;
+
+				children.forEach((child, index) => {
+					const rect = child.getBoundingClientRect();
+					const start = rect.top - containerTop + scrollContainer.scrollTop;
+					const end = start + rect.height;
+					if (scrollMidpoint >= start && scrollMidpoint < end) {
+						activeIndex = index;
+					}
+				});
+
+				if (activeIndex !== currentIndex && props.appInfo.subComponent?.[activeIndex]) {
+					setComponent(props.appInfo.subComponent[activeIndex].name, activeIndex);
+				}
+
+				scrollRafRef.current = null;
+			});
+		};
+
+		scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
+
+		return () => {
+			scrollContainer.removeEventListener("scroll", handleScroll);
+			if (scrollRafRef.current) {
+				cancelAnimationFrame(scrollRafRef.current);
+				scrollRafRef.current = null;
+			}
+		};
+	}, [props.appInfo.id, props.appInfo.subComponent, autoScrollConfig.isMobile, currentIndex]);
 
 	const navigateForward = () => {
 		if (props.appInfo.subComponent && currentIndex < props.appInfo.subComponent.length - 1) {
@@ -194,7 +249,10 @@ function AppComponent(props) {
 				>
 					{/* Title bar is now handled by WindowFrame */}
 
-					<div className={`app-content uk-background-secondary scrollbar ${props.appInfo.id}`}>
+					<div
+					className={`app-content uk-background-secondary scrollbar ${props.appInfo.id}`}
+					ref={scrollContainerRef}
+				>
 						{!props.appInfo.isApplication && (
 							<div className="app-nav-bar uk-padding-small uk-flex">
 								<IconButton
@@ -301,6 +359,8 @@ function AppComponent(props) {
 									return (
 										<li
 											className="uk-padding-small height-100"
+											data-section-name={component.name}
+											data-section-index={index}
 											key={index}
 										>
 											<React.Fragment>

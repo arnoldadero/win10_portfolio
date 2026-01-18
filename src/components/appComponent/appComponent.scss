@@ -146,6 +146,7 @@
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
+        @include mixins.scrollbar-hide;
 
         > ul.uk-switcher {
             display: flex;
@@ -167,6 +168,7 @@
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 scroll-behavior: smooth;
+                @include mixins.scrollbar-hide;
                 padding: var(--spacing-sm) !important;
                 margin: 0 !important;
                 border: none !important;
@@ -584,6 +586,7 @@
         -webkit-overflow-scrolling: touch;
         overflow-y: auto !important;
         overflow-x: hidden !important;
+        @include mixins.scrollbar-hide;
     }
 
     .app-content > ul.uk-switcher {
@@ -606,6 +609,7 @@
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
+        @include mixins.scrollbar-hide;
         border: none !important;
         background: transparent !important;
     }
@@ -617,6 +621,7 @@
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
+        @include mixins.scrollbar-hide;
     }
 
     .app-content > ul.uk-switcher {

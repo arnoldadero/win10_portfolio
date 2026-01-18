@@ -2,17 +2,34 @@
 @use "../../../theme/mixins";
 
 /* =========================================
-   SERVICES – FLIP CARD LAYOUT
+   SERVICES – SEAMLESS MOBILE EXPERIENCE
    ========================================= */
 .services-container {
     height: 100%;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: var(--spacing-3xl);
     max-width: 1200px;
     margin: 0 auto;
+    
+    /* Hide scrollbars while keeping smooth scroll */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    /* Hide webkit scrollbars (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hardware acceleration */
+    will-change: scroll-position;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 
     /* Hero Typography */
     .services-header {
+        padding: var(--spacing-lg);
+        
         .uk-heading-small {
             font-size: 2.2rem;
             font-weight: 700;
@@ -45,6 +62,10 @@
     background: rgba(30, 33, 36, 0.6);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.06);
+    margin: var(--spacing-lg);
+    will-change: contents;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .stat-item {
@@ -74,7 +95,7 @@
 }
 
 /* =========================================
-   SERVICE FLIP CARDS
+   SERVICE FLIP CARDS – TOUCH OPTIMIZED
    ========================================= */
 .service-flip {
     height: 280px;
@@ -83,6 +104,9 @@
 .flip-card {
     perspective: 1000px;
     cursor: pointer;
+    will-change: transform;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .flip-card-inner {
@@ -91,10 +115,13 @@
     height: 100%;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
+    will-change: transform;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+@media (hover: hover) and (pointer: fine) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
 }
 
 .flip-card-front,
@@ -114,6 +141,8 @@
     background: rgba(30, 33, 36, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .flip-card-front {
@@ -159,11 +188,16 @@
     margin-bottom: 12px;
     background: rgba(255, 255, 255, 0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    will-change: transform, box-shadow;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 
-.flip-card:hover .card-icon-ring {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    @media (hover: hover) and (pointer: fine) {
+        .flip-card:hover & {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+    }
 }
 
 .card-title {
@@ -208,10 +242,13 @@
     font-size: 0.7rem;
     margin-top: auto;
     transition: color 0.3s ease;
-}
+    will-change: color;
 
-.flip-card:hover .flip-hint {
-    color: var(--card-accent);
+    @media (hover: hover) and (pointer: fine) {
+        .flip-card:hover & {
+            color: var(--card-accent);
+        }
+    }
 }
 
 /* =========================================
@@ -222,6 +259,10 @@
     background: rgba(30, 33, 36, 0.8);
     border-radius: 16px;
     border: 1px solid rgba(79, 193, 233, 0.2);
+    margin: var(--spacing-lg);
+    will-change: contents;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 
     h2 {
         color: #fff !important;
@@ -246,10 +287,14 @@
     .cta-button-primary {
         background-color: #25d366 !important;
         border-color: #25d366 !important;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        will-change: background-color, border-color;
 
-        &:hover {
-            background-color: #1ebe57 !important;
-            border-color: #1ebe57 !important;
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                background-color: #1ebe57 !important;
+                border-color: #1ebe57 !important;
+            }
         }
 
         span {
@@ -284,6 +329,14 @@
 }
 
 @media screen and (max-width: 640px) {
+    .services-container {
+        padding: var(--spacing-md) 0 var(--spacing-3xl) 0;
+
+        .services-header {
+            padding: var(--spacing-md);
+        }
+    }
+
     .service-flip {
         height: 280px;
     }
@@ -291,6 +344,7 @@
     .stats-bar {
         flex-direction: column;
         gap: 16px;
+        margin: var(--spacing-md);
     }
 
     .stat-item {
@@ -306,5 +360,9 @@
             width: 100%;
             max-width: 280px;
         }
+    }
+
+    .cta-card-simple {
+        margin: var(--spacing-md);
     }
 }
