@@ -1,5 +1,15 @@
 @use "../../theme/variables";
 
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 .social-block {
     display: flex;
     justify-content: center;
@@ -42,14 +52,40 @@
     }
 }
 
-@keyframes bounce {
+.social-block--floating {
+    position: fixed;
+    right: 18px;
+    bottom: calc(40px + var(--spacing-sm));
+    z-index: 1200;
+    padding: 4px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 
-    0%,
-    100% {
-        transform: translateY(0);
+    .social-link {
+        padding: 8px;
+        border-radius: 14px;
+        background: rgba(18, 18, 24, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+        &:hover {
+            background: rgba(25, 25, 32, 0.85);
+            border-color: rgba(79, 193, 233, 0.45);
+        }
+
+        .uk-img {
+            width: 32px;
+            height: 32px;
+            animation-duration: 2.4s;
+        }
     }
 
-    50% {
-        transform: translateY(-8px);
+    .social-link:nth-child(2) .uk-img {
+        animation-delay: 0.8s;
+        animation-duration: 2.1s;
     }
 }

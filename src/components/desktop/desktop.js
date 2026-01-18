@@ -5,6 +5,7 @@ import ActionCenter from "../actionCenter/actionCenter";
 import AppComponent from "../appComponent/appComponent";
 import AppIcon from "../base/appIcon";
 import CalendarOverlay from "../base/calendarOverlay";
+import SocialBlock from "../base/socialBlock";
 import StartMenu from "../startMenu/startMenu";
 import Taskbar from "../taskBar/taskBar";
 import KeyboardShortcuts from "../base/keyboardShortcuts";
@@ -59,9 +60,10 @@ return (
           Skip to main content
         </a>
         <div className="desktop-container" id="main-content">
-<ActionCenter />
+					<ActionCenter />
 					<StartMenu />
 					<CalendarOverlay />
+					<SocialBlock variant="floating" />
 					<div className="app-playground uk-position-right">
 						<div className="desktop-icons uk-position-left uk-flex uk-flex-column">
 							{desktopApps.map((app, index) => {

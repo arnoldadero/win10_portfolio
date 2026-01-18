@@ -11,7 +11,7 @@ import { logEvent } from "../../analytics/ga";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
 import projectConfig from "../../utils/data/project.config";
 
-function SocialBlock() {
+function SocialBlock({ variant = "default" }) {
 	const handleSocialClick = (socialLink) => {
 		if (projectConfig.enableAnalytics) {
 			logEvent("Social", ANALYTICS_EVENTS.SOCIAL_CLICK, socialLink);
@@ -24,41 +24,50 @@ function SocialBlock() {
 			url: `https://github.com/${user.gitHub}`,
 			icon: github,
 			alt: "Github Profile",
-			label: "GitHub"
+			label: "GitHub",
+			id: "github",
 		},
 		{
 			condition: user.whatsapp,
 			url: `https://wa.me/${user.whatsapp}`,
 			icon: whatsapp,
 			alt: "WhatsApp Contact",
-			label: "WhatsApp"
+			label: "WhatsApp",
+			id: "whatsapp",
 		},
 		{
 			condition: user.linkedIn,
 			url: `https://www.linkedin.com/${user.linkedIn}`,
 			icon: linkedin,
 			alt: "LinkedIn Profile",
-			label: "LinkedIn"
+			label: "LinkedIn",
+			id: "linkedin",
 		},
 		{
 			condition: user.upwork,
 			url: `https://www.upwork.com/freelancers/${user.upwork}`,
 			icon: upwork,
 			alt: "Upwork Profile",
-			label: "Upwork"
+			label: "Upwork",
+			id: "upwork",
 		},
 		{
 			condition: user.email,
 			url: `mailto:${user.email}`,
 			icon: email,
 			alt: "Email Me",
-			label: "Email"
+			label: "Email",
+			id: "email",
 		}
 	];
 
+	const visibleLinks = variant === "floating"
+		? socialLinks.filter((social) => ["whatsapp", "upwork"].includes(social.id))
+		: socialLinks;
+
 	return (
-		<div className="social-block">
-			{socialLinks.map((social, index) => {
+		<div className={`social-block${variant === "floating" ? " social-block--floating" : ""}`}>
+			{visibleLinks.map((social, index) => {
 				if (!social.condition) return null;
 				return (
 					<a
