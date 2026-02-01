@@ -2,7 +2,82 @@
 @use "../../../theme/mixins";
 
 /* =========================================
+    ABOUT APPLICATION – UNIFIED SCROLL CONTAINER
+    Hardware-accelerated vertical scroll with all nested sections
+    ========================================= */
+.about-application-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* Hardware acceleration for the container */
+    will-change: scroll-position;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    contain: layout style;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+
+    /* Main scrollable content area */
+    .about-application-content {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        /* Hide scrollbars */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hardware acceleration for smooth scrolling */
+        will-change: scroll-position;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        contain: layout style paint;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+
+        /* Touch event optimization */
+        touch-action: pan-y;
+    }
+}
+
+/* Individual sections within the unified scroll container */
+.about-section {
+    width: 100%;
+    flex-shrink: 0;
+    contain: layout style paint;
+
+    /* Hardware acceleration for each section */
+    will-change: transform;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    /* Smooth transitions between sections */
+    transition: opacity 0.3s ease;
+}
+
+/* =========================================
     ABOUT APP CONTAINER – SEAMLESS SCROLL
+    (Legacy support for individual AboutMe component)
     ========================================= */
 .about-app-container {
     height: 100%;
@@ -25,11 +100,11 @@
         justify-content: flex-start;
         scroll-behavior: smooth;
         scroll-padding-top: 0;
-        
+
         /* Hide scrollbars while keeping smooth scroll */
         scrollbar-width: none;
         -ms-overflow-style: none;
-        
+
         /* Hardware acceleration and performance optimization */
         will-change: scroll-position;
         -webkit-transform: translateZ(0);
@@ -39,20 +114,19 @@
         -webkit-backface-visibility: hidden;
         perspective: 1000px;
         -webkit-perspective: 1000px;
-        
+
         /* Hide webkit scrollbars (Chrome, Safari, Edge) */
         &::-webkit-scrollbar {
             display: none;
         }
-        
-        background:
-            radial-gradient(800px circle at 20% 10%, rgba(79, 193, 233, 0.12), transparent 45%),
-            radial-gradient(700px circle at 90% 60%, rgba(140, 100, 255, 0.12), transparent 40%),
-            linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
+
+        background: radial-gradient(800px circle at 20% 10%, rgba(79, 193, 233, 0.12), transparent 45%),
+        radial-gradient(700px circle at 90% 60%, rgba(140, 100, 255, 0.12), transparent 40%),
+        linear-gradient(135deg, rgba(100, 150, 200, 0.05) 0%, rgba(50, 100, 150, 0.05) 100%);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.06);
         box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-        
+
         padding: var(--spacing-lg);
         gap: 0;
         margin: 0;
@@ -71,7 +145,7 @@
             box-shadow:
                 0 18px 60px rgba(0, 0, 0, 0.45),
                 inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            
+
             /* Optimized for mobile touch – prevent jank */
             transition: box-shadow 200ms ease, border-color 200ms ease;
             will-change: box-shadow, border-color;
@@ -80,7 +154,7 @@
             contain: layout style paint;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            
+
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
@@ -179,7 +253,7 @@
     flex-direction: column;
     background: var(--bg-secondary);
     overflow: hidden;
-    
+
     /* Hardware acceleration and performance optimization */
     will-change: scroll-position;
     -webkit-transform: translateZ(0);
@@ -217,16 +291,16 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        
+
         /* Hide scrollbars while keeping smooth scroll */
         scrollbar-width: none;
         -ms-overflow-style: none;
-        
+
         /* Hide webkit scrollbars (Chrome, Safari, Edge) */
         &::-webkit-scrollbar {
             display: none;
         }
-        
+
         /* Hardware acceleration for nested scroll */
         will-change: scroll-position;
         -webkit-transform: translateZ(0);
@@ -311,7 +385,7 @@
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
-    
+
     /* Hardware acceleration and performance optimization */
     will-change: contents;
     -webkit-transform: translateZ(0);
@@ -531,16 +605,16 @@
     -webkit-overflow-scrolling: touch;
     background: linear-gradient(135deg, rgba(100, 150, 200, 0.03) 0%, rgba(50, 100, 150, 0.03) 100%);
     padding: var(--spacing-lg);
-    
+
     /* Hide scrollbars while keeping smooth scroll */
     scrollbar-width: none;
     -ms-overflow-style: none;
-    
+
     /* Hide webkit scrollbars (Chrome, Safari, Edge) */
     &::-webkit-scrollbar {
         display: none;
     }
-    
+
     /* Hardware acceleration and performance optimization */
     will-change: scroll-position;
     -webkit-transform: translateZ(0);
@@ -764,13 +838,13 @@
     .about-app-container {
         .about-content {
             padding: var(--spacing-md);
-            
+
             .about-profile-card {
                 padding: var(--spacing-lg);
             }
         }
     }
-    
+
     .experience-container,
     .education-container,
     .projects-app-container,
