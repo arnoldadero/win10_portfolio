@@ -24,24 +24,24 @@ global.IntersectionObserver = class IntersectionObserver {
 
 // Mock UIkit
 global.UIkit = {
-    offcanvas: jest.fn(() => ({
-        hide: jest.fn()
+    offcanvas: vi.fn(() => ({
+        hide: vi.fn()
     }))
 };
 
 // Mock Firebase
-jest.mock('../../utils/firebaseConfig', () => ({
+vi.mock('../../utils/firebaseConfig', () => ({
     analytics: null
 }));
 
 // Mock user config
-jest.mock('../../utils/data/user.config', () => ({
+vi.mock('../../utils/data/user.config', () => ({
     firstName: 'Test',
     userImage: 'test-image.png'
 }));
 
 // Mock project config
-jest.mock('../../utils/data/project.config', () => ({
+vi.mock('../../utils/data/project.config', () => ({
     enableAnalytics: false
 }));
 
@@ -52,12 +52,12 @@ describe('StartMenu Component', () => {
     ];
 
     beforeEach(() => {
-        jest.useFakeTimers();
-        jest.clearAllMocks();
+        vi.useFakeTimers();
+        vi.clearAllMocks();
     });
 
     afterEach(() => {
-        jest.useRealTimers();
+        vi.useRealTimers();
     });
 
     test('renders app list from redux state', () => {
@@ -74,7 +74,7 @@ describe('StartMenu Component', () => {
 
     test('clicking an app dispatches APP_CLICK action', () => {
         const store = createMockStore(mockApps);
-        const dispatchSpy = jest.spyOn(store, 'dispatch');
+        const dispatchSpy = vi.spyOn(store, 'dispatch');
 
         render(
             <Provider store={store}>
@@ -102,6 +102,9 @@ describe('StartMenu Component', () => {
         );
 
         // Simulate Start Menu being open
+        const startMenu = screen.getByTestId('start-menu');
+        startMenu.classList.add('uk-open');
+
         const appItem = screen.getByText('Test App 1');
         fireEvent.click(appItem);
 
@@ -109,7 +112,6 @@ describe('StartMenu Component', () => {
         // We can use container.querySelector if absolutely necessary but lint prefers not.
         // For animation state, checking the class is sometimes required.
         // We'll use id to find it but via testing library.
-        const startMenu = screen.getByTestId('start-menu');
         expect(startMenu).toHaveClass('closing');
     });
 
@@ -129,7 +131,7 @@ describe('StartMenu Component', () => {
         fireEvent.click(appItem);
 
         // Fast-forward past animation delay
-        jest.advanceTimersByTime(200);
+        vi.advanceTimersByTime(200);
 
         // Check UIkit hide was called
         expect(global.UIkit.offcanvas).toHaveBeenCalledWith(startMenu);
@@ -150,7 +152,7 @@ describe('StartMenu Component', () => {
         fireEvent.click(appItem);
 
         // Fast-forward past animation delay
-        jest.advanceTimersByTime(200);
+        vi.advanceTimersByTime(200);
 
         // Closing class should be removed
         expect(startMenu).not.toHaveClass('closing');

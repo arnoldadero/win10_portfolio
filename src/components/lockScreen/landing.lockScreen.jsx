@@ -1,5 +1,5 @@
 import React from "react";
-import Clock from "react-live-clock";
+import CustomClock from "../base/customClock";
 import { Icon } from "@fluentui/react";
 import "./lockScreen.scss";
 
@@ -18,10 +18,10 @@ function LockWallpaperScreen() {
 			{/* LockScreen Clock */}
 			<div className="uk-position-bottom-left uk-overlay uk-flex uk-flex-column">
 				<h1 className="uk-heading-large uk-margin-remove-bottom font-color-white ">
-					<Clock ticking={true} />
+					<CustomClock ticking={true} />
 				</h1>
 				<h1 className="uk-heading-small uk-margin-remove-top font-color-white ">
-					<Clock format={"dddd,DD MMMM"} ticking={true} />
+					<CustomClock format={"dddd,DD MMMM"} ticking={true} />
 				</h1>
 			</div>
 

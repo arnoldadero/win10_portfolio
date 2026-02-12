@@ -6,7 +6,7 @@ import "react-contexify/dist/ReactContexify.css";
 import DesktopContextMenu from "../components/contextMenu/desktop.contextMenu";
 import { SCREENS } from "../utils/documents/enums";
 
-const lockScreenWall = `${process.env.PUBLIC_URL}/images/wallpapers/lockScreenWall.webp`;
+const lockScreenWall = `/images/wallpapers/lockScreenWall.webp`;
 
 const MENU_ID = "context-menu";
 

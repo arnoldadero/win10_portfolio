@@ -37,15 +37,13 @@ if (window.requestIdleCallback) {
 
 const container = document.getElementById("root");
 const app = (
-	<React.StrictMode>
-		<Provider store={store}>
-			<HelmetProvider>
-				<BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-					<App />
-				</BrowserRouter>
-			</HelmetProvider>
-		</Provider>
-	</React.StrictMode>
+	<Provider store={store}>
+		<HelmetProvider>
+			<BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+				<App />
+			</BrowserRouter>
+		</HelmetProvider>
+	</Provider>
 );
 
 if (container.hasChildNodes()) {

@@ -63,8 +63,8 @@ function StartMenu() {
 	};
 
 	const handleIconClick = (app) => {
-		// Close Start Menu immediately (no animation delay)
-		closeStartMenu(true);
+		// Close Start Menu with animation
+		closeStartMenu(false);
 		// Dispatch the app click action to open/focus the app
 		dispatch(handleApplicationClick(app));
 	};

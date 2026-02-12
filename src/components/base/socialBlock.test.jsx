@@ -4,14 +4,16 @@ import SocialBlock from './socialBlock';
 import user from '../../utils/data/user.config';
 
 // Mock the LazyImage component since it might involve intersection observer which acts up in tests
-jest.mock('./lazyImage', () => (props) => <img alt={props.alt || ''} {...props} />);
+vi.mock('./lazyImage', () => ({
+    default: (props) => <img alt={props.alt || ''} {...props} />
+}));
 
 // Mock firebase analytics
-jest.mock('../../utils/firebaseConfig', () => ({
+vi.mock('../../utils/firebaseConfig', () => ({
     analytics: {},
 }));
-jest.mock('firebase/analytics', () => ({
-    logEvent: jest.fn(),
+vi.mock('firebase/analytics', () => ({
+    logEvent: vi.fn(),
 }));
 
 describe('SocialBlock Component', () => {
@@ -48,7 +50,13 @@ describe('SocialBlock Component', () => {
         expect(links.length).toBeGreaterThan(0);
 
         links.forEach(link => {
-            const img = screen.getByAltText(link.getAttribute('aria-label'));
+            const label = link.getAttribute('aria-label');
+            const expectedAlt = label === 'GitHub' ? 'Github Profile' :
+                label === 'WhatsApp' ? 'WhatsApp Contact' :
+                    label === 'LinkedIn' ? 'LinkedIn Profile' :
+                        label === 'Upwork' ? 'Upwork Profile' :
+                            label === 'Email' ? 'Email Me' : label;
+            const img = screen.getByAltText(expectedAlt);
             expect(img).toBeInTheDocument();
             expect(img).toHaveClass('uk-img');
         });

@@ -9,14 +9,17 @@ import { preloadImages } from "./utils/imageOptimization";
 import { useLocation } from "react-router-dom";
 import { ROUTE_MAP } from "./components/router/RouteListener";
 
-const DesktopContainer = React.lazy(() => import("./containers/desktop.container"));
-const LockScreenContainer = React.lazy(() => import("./containers/lockScreen.container"));
-const BlueScreen404 = React.lazy(() => import("./containers/blueScreen404.container"));
+import profileImage from "./assets/images/baseImages/profile.webp";
+import aboutMeIcon from "./assets/images/apps/aboutMe.png";
+
+const DesktopContainer = React.lazy(() => import("./containers/desktop.container.jsx"));
+const LockScreenContainer = React.lazy(() => import("./containers/lockScreen.container.jsx"));
+const BlueScreen404 = React.lazy(() => import("./containers/blueScreen404.container.jsx"));
 
 // Critical images to preload (above-the-fold)
 const CRITICAL_IMAGES = [
-  require("./assets/images/baseImages/profile.webp").default,
-  require("./assets/images/apps/aboutMe.png").default,
+  profileImage,
+  aboutMeIcon,
 ];
 
 function App() {

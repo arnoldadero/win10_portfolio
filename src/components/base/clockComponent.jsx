@@ -1,5 +1,5 @@
 import React from "react";
-import Clock from "react-live-clock";
+import CustomClock from "./customClock";
 import "./base.scss";
 
 function ClockComponent() {
@@ -9,10 +9,10 @@ function ClockComponent() {
 			uk-toggle="target: #calendar-expanded"
 		>
 			<div className="clock-timer">
-				<Clock format={"h:mm A"} ticking={true} />
+				<CustomClock format={"h:mm A"} ticking={true} />
 			</div>
 			<div className="clock-timer">
-				<Clock format={"DD-MM-YYYY"} />
+				<CustomClock format={"DD-MM-YYYY"} />
 			</div>
 		</div>
 	);

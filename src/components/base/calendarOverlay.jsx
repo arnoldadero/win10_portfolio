@@ -1,6 +1,6 @@
 import { Separator } from "@fluentui/react";
 import React from "react";
-import Clock from "react-live-clock";
+import CustomClock from "./customClock";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
@@ -13,10 +13,10 @@ function CalendarOverlay() {
 		>
 			<div className="uk-offcanvas-bar action-center">
 				<h1 className="uk-padding-remove uk-margin-remove">
-					<Clock format="HH:mm:ss" ticking={true} />
+					<CustomClock format="HH:mm:ss" ticking={true} />
 				</h1>
 				<p className="uk-padding-remove uk-margin-remove">
-					<Clock format={"DD MMMM YYYY"} ticking={true} />
+					<CustomClock format={"DD MMMM YYYY"} ticking={true} />
 				</p>
 				<Separator />
 				<Calendar />
