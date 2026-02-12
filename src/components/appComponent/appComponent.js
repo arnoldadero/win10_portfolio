@@ -80,12 +80,12 @@ function AppComponent(props) {
 			const newIndex = currentIndex - 1;
 			setCurrentIndex(newIndex);
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
-			
+
 			// Update auto-scroll position
 			if (autoScrollConfig.isMobile) {
 				autoScrollConfig.scrollToSection(newIndex);
 			}
-			
+
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
 				const items = sidebarRef.current.querySelectorAll('li > button');
@@ -106,12 +106,12 @@ function AppComponent(props) {
 			const newIndex = props.appInfo.activeSubComponentIndex;
 			if (props.appInfo.subComponent[newIndex]) {
 				setComponent(props.appInfo.subComponent[newIndex].name, newIndex);
-				
+
 				// Update auto-scroll position
 				if (autoScrollConfig.isMobile) {
 					autoScrollConfig.scrollToSection(newIndex);
 				}
-				
+
 				// Trigger UIkit switcher
 				if (sidebarRef.current) {
 					const items = sidebarRef.current.querySelectorAll("li > button");
@@ -121,7 +121,7 @@ function AppComponent(props) {
 				}
 			}
 		}
-	}, [props.appInfo.activeSubComponentIndex, props.appInfo.subComponent, currentIndex, autoScrollConfig.isMobile]);
+	}, [props.appInfo.activeSubComponentIndex, props.appInfo.subComponent, currentIndex, autoScrollConfig.isMobile, autoScrollConfig]);
 
 	useEffect(() => {
 		const scrollContainer = scrollContainerRef.current;
@@ -175,12 +175,12 @@ function AppComponent(props) {
 			const newIndex = currentIndex + 1;
 			setCurrentIndex(newIndex);
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
-			
+
 			// Update auto-scroll position
 			if (autoScrollConfig.isMobile) {
 				autoScrollConfig.scrollToSection(newIndex);
 			}
-			
+
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
 				const items = sidebarRef.current.querySelectorAll('li > button');
@@ -250,9 +250,9 @@ function AppComponent(props) {
 					{/* Title bar is now handled by WindowFrame */}
 
 					<div
-					className={`app-content uk-background-secondary scrollbar ${props.appInfo.id}`}
-					ref={scrollContainerRef}
-				>
+						className={`app-content uk-background-secondary scrollbar ${props.appInfo.id}`}
+						ref={scrollContainerRef}
+					>
 						{!props.appInfo.isApplication && (
 							<div className="app-nav-bar uk-padding-small uk-flex">
 								<IconButton

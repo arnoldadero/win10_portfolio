@@ -128,7 +128,7 @@ function StartMenu() {
 	};
 
 	return (
-		<div id="start-menu" uk-offcanvas="overlay: false">
+		<div id="start-menu" uk-offcanvas="overlay: false" data-testid="start-menu">
 			<div className="uk-offcanvas-bar start-menu uk-flex uk-padding-remove">
 				{/* Quick Actions Sidebar */}
 				<div className="start-quick-actions">

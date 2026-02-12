@@ -13,38 +13,38 @@ export const validators = {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value);
   },
-  
+
   /**
    * Validate required field (not empty)
    * @param {string} value - Value to validate
    * @returns {boolean}
    */
   required: (value) => value && value.trim().length > 0,
-  
+
   /**
    * Validate minimum length
    * @param {number} min - Minimum length
    * @returns {function}
    */
   minLength: (min) => (value) => value.length >= min,
-  
+
   /**
    * Validate maximum length
    * @param {number} max - Maximum length
    * @returns {function}
    */
   maxLength: (max) => (value) => value.length <= max,
-  
+
   /**
    * Validate phone number
    * @param {string} value - Phone number to validate
    * @returns {boolean}
    */
   phone: (value) => {
-    const regex = /^[\d\s\-\+\(\)]+$/;
+    const regex = /^[\d\s\-+()]+$/;
     return regex.test(value) && value.length >= 10;
   },
-  
+
   /**
    * Validate URL format
    * @param {string} value - URL to validate
@@ -58,7 +58,7 @@ export const validators = {
       return false;
     }
   },
-  
+
   /**
    * Validate password strength
    * Requires: 1 uppercase, 1 lowercase, 1 number, 1 special char, min 8 chars
@@ -69,21 +69,21 @@ export const validators = {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return regex.test(value);
   },
-  
+
   /**
    * Validate alphanumeric only
    * @param {string} value - Value to validate
    * @returns {boolean}
    */
   alphanumeric: (value) => /^[a-zA-Z0-9]+$/.test(value),
-  
+
   /**
    * Validate numeric only
    * @param {string} value - Value to validate
    * @returns {boolean}
    */
   numeric: (value) => /^\d+$/.test(value),
-  
+
   /**
    * Validate matches pattern
    * @param {RegExp} pattern - Regex pattern to match
@@ -112,7 +112,7 @@ export const getValidationMessage = (field, rule, params = {}) => {
     numeric: `${field} can only contain numbers`,
     pattern: `${field} format is invalid`,
   };
-  
+
   return messages[rule] || 'Invalid input';
 };
 
@@ -141,9 +141,11 @@ export const customValidator = (validatorFn, message) => ({
   message,
 });
 
-export default {
+const validation = {
   validators,
   getValidationMessage,
   combine,
   customValidator,
 };
+
+export default validation;

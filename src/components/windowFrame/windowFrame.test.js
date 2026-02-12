@@ -58,24 +58,24 @@ describe('WindowFrame Component', () => {
     });
 
     test('has launching animation class on mount', () => {
-        const { container } = render(
+        render(
             <WindowFrame appInfo={mockAppInfo} onFunctionClick={mockFunctionClick}>
                 <div>Test Content</div>
             </WindowFrame>
         );
 
-        const frame = container.querySelector('.window-frame');
+        const frame = screen.getByTestId('window-frame');
         expect(frame).toHaveClass('launching');
     });
 
     test('launching class is cleared after animation duration', async () => {
-        const { container } = render(
+        render(
             <WindowFrame appInfo={mockAppInfo} onFunctionClick={mockFunctionClick}>
                 <div>Test Content</div>
             </WindowFrame>
         );
 
-        const frame = container.querySelector('.window-frame');
+        const frame = screen.getByTestId('window-frame');
         expect(frame).toHaveClass('launching');
 
         // Fast-forward past animation duration
@@ -87,7 +87,7 @@ describe('WindowFrame Component', () => {
     });
 
     test('applies restoring class when un-minimizing', () => {
-        const { container, rerender } = render(
+        const { rerender } = render(
             <WindowFrame
                 appInfo={{ ...mockAppInfo, isMinimized: true }}
                 onFunctionClick={mockFunctionClick}
@@ -111,12 +111,12 @@ describe('WindowFrame Component', () => {
             </WindowFrame>
         );
 
-        const frame = container.querySelector('.window-frame');
+        const frame = screen.getByTestId('window-frame');
         expect(frame).toHaveClass('restoring');
     });
 
     test('applies maximized class when maximized', () => {
-        const { container } = render(
+        render(
             <WindowFrame
                 appInfo={{ ...mockAppInfo, isMaximized: true }}
                 onFunctionClick={mockFunctionClick}
@@ -125,7 +125,7 @@ describe('WindowFrame Component', () => {
             </WindowFrame>
         );
 
-        const frame = container.querySelector('.window-frame');
+        const frame = screen.getByTestId('window-frame');
         expect(frame).toHaveClass('maximized');
     });
 
@@ -142,13 +142,13 @@ describe('WindowFrame Component', () => {
     });
 
     test('centers window on initial render', () => {
-        const { container } = render(
+        render(
             <WindowFrame appInfo={mockAppInfo} onFunctionClick={mockFunctionClick}>
                 <div>Test Content</div>
             </WindowFrame>
         );
 
-        const frame = container.querySelector('.window-frame');
+        const frame = screen.getByTestId('window-frame');
         const transform = frame.style.transform;
 
         // Should have some translate value (not 0,0 since it's centered)

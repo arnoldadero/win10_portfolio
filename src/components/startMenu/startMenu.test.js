@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import StartMenu from './startMenu';
 import { Provider } from 'react-redux';
@@ -103,14 +102,15 @@ describe('StartMenu Component', () => {
         );
 
         // Simulate Start Menu being open
-        const startMenu = document.getElementById('start-menu');
-        startMenu.classList.add('uk-open');
-
         const appItem = screen.getByText('Test App 1');
         fireEvent.click(appItem);
 
         // Check closing class is added
-        expect(startMenu.classList.contains('closing')).toBe(true);
+        // We can use container.querySelector if absolutely necessary but lint prefers not.
+        // For animation state, checking the class is sometimes required.
+        // We'll use id to find it but via testing library.
+        const startMenu = screen.getByTestId('start-menu');
+        expect(startMenu).toHaveClass('closing');
     });
 
     test('Start Menu calls UIkit.offcanvas.hide after animation delay', async () => {
@@ -122,7 +122,7 @@ describe('StartMenu Component', () => {
         );
 
         // Simulate Start Menu being open
-        const startMenu = document.getElementById('start-menu');
+        const startMenu = screen.getByTestId('start-menu');
         startMenu.classList.add('uk-open');
 
         const appItem = screen.getByText('Test App 1');
@@ -143,7 +143,7 @@ describe('StartMenu Component', () => {
             </Provider>
         );
 
-        const startMenu = document.getElementById('start-menu');
+        const startMenu = screen.getByTestId('start-menu');
         startMenu.classList.add('uk-open');
 
         const appItem = screen.getByText('Test App 1');
@@ -153,6 +153,6 @@ describe('StartMenu Component', () => {
         jest.advanceTimersByTime(200);
 
         // Closing class should be removed
-        expect(startMenu.classList.contains('closing')).toBe(false);
+        expect(startMenu).not.toHaveClass('closing');
     });
 });

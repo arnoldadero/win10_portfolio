@@ -105,7 +105,7 @@ export const useAutoScroll = (
 		}
 
 		scrollAnimationRef.current = requestAnimationFrame(animate);
-	}, [scrollDuration]);
+	}, [scrollDuration, axis, containerRef]);
 
 	// Scroll to specific section
 	const scrollToSection = useCallback((sectionIndex) => {
@@ -123,7 +123,7 @@ export const useAutoScroll = (
 			smoothScrollTo(targetPosition);
 			setCurrentSectionIndex(sectionIndex);
 		}
-	}, [axis, sections.length, smoothScrollTo]);
+	}, [axis, sections.length, smoothScrollTo, containerRef]);
 
 	// Auto-scroll to next section
 	const scrollToNextSection = useCallback(() => {
@@ -148,10 +148,10 @@ export const useAutoScroll = (
 		// Initial scroll delay before first auto-scroll
 		scrollTimeoutRef.current = setTimeout(() => {
 			scrollToNextSection();
-			
+
 			// Set up recurring auto-scroll
 			const interval = setInterval(scrollToNextSection, scrollDelay + scrollDuration);
-			
+
 			// Store interval ID for cleanup
 			if (scrollTimeoutRef.current !== null) {
 				scrollTimeoutRef.current = interval;
@@ -165,7 +165,7 @@ export const useAutoScroll = (
 				scrollTimeoutRef.current = null;
 			}
 		};
-	}, [isAutoScrolling, isMobile, sections.length, isPaused, scrollDelay, scrollToNextSection]);
+	}, [isAutoScrolling, isMobile, sections.length, isPaused, scrollDelay, scrollDuration, scrollToNextSection]);
 
 	// Handle manual scroll detection
 	useEffect(() => {
@@ -197,7 +197,7 @@ export const useAutoScroll = (
 				clearTimeout(userInteractionTimeoutRef.current);
 			}
 		};
-	}, [pauseOnScroll]);
+	}, [containerRef, pauseOnScroll]);
 
 	// Handle hover pause
 	useEffect(() => {
@@ -219,7 +219,7 @@ export const useAutoScroll = (
 			container.removeEventListener('mouseenter', handleMouseEnter);
 			container.removeEventListener('mouseleave', handleMouseLeave);
 		};
-	}, [pauseOnHover]);
+	}, [containerRef, pauseOnHover]);
 
 	// Cleanup on unmount
 	useEffect(() => {

@@ -1,11 +1,10 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SocialBlock from './socialBlock';
 import user from '../../utils/data/user.config';
 
 // Mock the LazyImage component since it might involve intersection observer which acts up in tests
-jest.mock('./lazyImage', () => (props) => <img {...props} />);
+jest.mock('./lazyImage', () => (props) => <img alt={props.alt || ''} {...props} />);
 
 // Mock firebase analytics
 jest.mock('../../utils/firebaseConfig', () => ({
@@ -42,11 +41,16 @@ describe('SocialBlock Component', () => {
         expect(whatsappLink.href).toContain('254733943486');
     });
 
-    test('renders images with bouncing class logic implied by structure', () => {
-        const { container } = render(<SocialBlock />);
-        // We can't test CSS animations easily in jsdom, but we can check if the structure allows for it
-        // The SCSS change applies animation to .uk-img
-        const images = container.querySelectorAll('.uk-img');
-        expect(images.length).toBeGreaterThan(0);
+    test('renders icons with bounce logic implied by role', () => {
+        render(<SocialBlock />);
+        // Checking for links which wrap the icons
+        const links = screen.getAllByRole('link');
+        expect(links.length).toBeGreaterThan(0);
+
+        links.forEach(link => {
+            const img = screen.getByAltText(link.getAttribute('aria-label'));
+            expect(img).toBeInTheDocument();
+            expect(img).toHaveClass('uk-img');
+        });
     });
 });

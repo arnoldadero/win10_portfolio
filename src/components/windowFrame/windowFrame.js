@@ -525,6 +525,7 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
                 onKeyDown={handleKeyDown}
                 role="dialog"
                 aria-label={appInfo.name}
+                data-testid="window-frame"
             >
                 <div className="title-bar" onMouseDown={startDrag} onDoubleClick={() =>
                     onFunctionClick(appInfo, ACTION_TYPES.MAXIMIZE)
