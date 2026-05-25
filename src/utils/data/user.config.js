@@ -12,8 +12,8 @@ const user = {
 	upwork: "arnoldadero",
 	gitHub: "arnoldadero",
 	whatsapp: "+254****3486",
-	instagram: "mvuvi_ke",
-	facebook: "mvuvi.co.ke",
+	instagram: "",
+	facebook: "",
 	aboutMe: {
 		intro: "I build real things for real industries — from seafood supply chains to web platforms. Clean, efficient code that solves problems that matter.",
 		description:
