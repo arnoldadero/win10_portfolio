@@ -124,7 +124,7 @@ function AppComponent(props) {
 	useEffect(() => {
 		const scrollContainer = scrollContainerRef.current;
 		const listContainer = contentContainerRef.current;
-		if (!scrollContainer || !listContainer || props.appInfo.id !== "aboutMe" || !autoScrollConfig.isMobile) {
+		if (!scrollContainer || !listContainer || props.appInfo.id !== "aboutMe") {
 			return undefined;
 		}
 
@@ -151,6 +151,14 @@ function AppComponent(props) {
 
 				if (activeIndex !== currentIndex && props.appInfo.subComponent?.[activeIndex]) {
 					setComponent(props.appInfo.subComponent[activeIndex].name, activeIndex);
+
+					// Sync sidebar active state with scroll position
+					if (sidebarRef.current) {
+						const items = sidebarRef.current.querySelectorAll('li > button');
+						if (items[activeIndex]) {
+							items[activeIndex].click();
+						}
+					}
 				}
 
 				scrollRafRef.current = null;
@@ -166,7 +174,7 @@ function AppComponent(props) {
 				scrollRafRef.current = null;
 			}
 		};
-	}, [props.appInfo.id, props.appInfo.subComponent, autoScrollConfig.isMobile, currentIndex]);
+	}, [props.appInfo.id, props.appInfo.subComponent, currentIndex]);
 
 	const navigateForward = () => {
 		if (props.appInfo.subComponent && currentIndex < props.appInfo.subComponent.length - 1) {
