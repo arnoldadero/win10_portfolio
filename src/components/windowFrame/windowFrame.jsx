@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { IconButton } from "@fluentui/react";
 import { ACTION_TYPES } from "../../utils/documents/enums";
 import "./windowFrame.scss";
 import LazyImage from "../base/lazyImage";
@@ -441,14 +440,14 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
     // Determine container style
     const getContainerStyle = () => {
         if (isMobile || appInfo.isMaximized) {
-            return {
-                width: "100%",
-                height: isMobile ? "calc(100% - 48px)" : "100%",
-                transform: "translate(0px, 0px)",
-                top: 0,
-                left: 0,
-                borderRadius: 0
-            };
+		return {
+				width: "100%",
+				height: "calc(100% - 48px)",
+				transform: "translate(0px, 0px)",
+				top: 0,
+				left: 0,
+				borderRadius: 0
+			};
         }
 
         return {
@@ -545,32 +544,49 @@ export default function WindowFrame({ children, appInfo, onFunctionClick }) {
                         </span>
                     </div>
 
-                    <div className="app-top-functions">
-                        <IconButton
-                            className="window-control-btn minimize-btn"
-                            iconProps={{ iconName: "ChromeMinimize" }}
-                            title="Minimize"
-                            ariaLabel="Minimize window"
-                            onClick={() => onFunctionClick(appInfo, ACTION_TYPES.MINIMIZE)}
-                        />
-                        <IconButton
-                            className="window-control-btn maximize-btn"
-                            iconProps={{ iconName: appInfo.isMaximized ? "ChromeRestore" : "FullScreen" }}
-                            title={appInfo.isMaximized ? "Restore" : "Maximize"}
-                            ariaLabel={appInfo.isMaximized ? "Restore window" : "Maximize window"}
-                            onClick={() => onFunctionClick(appInfo, ACTION_TYPES.MAXIMIZE)}
-                        />
-                        <IconButton
-                            className="window-control-btn close-btn"
-                            iconProps={{ iconName: "ChromeClose" }}
-                            title="Close"
-                            ariaLabel="Close window"
-                            onClick={() => onFunctionClick(appInfo, ACTION_TYPES.CLOSE)}
-                        />
-                    </div>
+					<div className="app-top-functions">
+						<button
+							className="window-control-btn minimize-btn"
+							title="Minimize"
+							aria-label="Minimize window"
+							onClick={() => onFunctionClick(appInfo, ACTION_TYPES.MINIMIZE)}
+						>
+							<svg width="10" height="10" viewBox="0 0 10 10">
+								<rect x="0" y="4.5" width="10" height="1" fill="currentColor"/>
+							</svg>
+						</button>
+						<button
+							className="window-control-btn maximize-btn"
+							title={appInfo.isMaximized ? "Restore" : "Maximize"}
+							aria-label={appInfo.isMaximized ? "Restore window" : "Maximize window"}
+							onClick={() => onFunctionClick(appInfo, ACTION_TYPES.MAXIMIZE)}
+						>
+							{appInfo.isMaximized ? (
+								<svg width="10" height="10" viewBox="0 0 10 10">
+									<rect x="1.5" y="0" width="7" height="7" rx="0.5" fill="none" stroke="currentColor" strokeWidth="1"/>
+									<rect x="0" y="3" width="7" height="7" rx="0.5" fill="none" stroke="currentColor" strokeWidth="1"/>
+								</svg>
+							) : (
+								<svg width="10" height="10" viewBox="0 0 10 10">
+									<rect x="0.5" y="0.5" width="9" height="9" rx="0.5" fill="none" stroke="currentColor" strokeWidth="1"/>
+								</svg>
+							)}
+						</button>
+						<button
+							className="window-control-btn close-btn"
+							title="Close"
+							aria-label="Close window"
+							onClick={() => onFunctionClick(appInfo, ACTION_TYPES.CLOSE)}
+						>
+							<svg width="10" height="10" viewBox="0 0 10 10">
+								<line x1="1" y1="1" x2="9" y2="9" stroke="currentColor" strokeWidth="1.2"/>
+								<line x1="9" y1="1" x2="1" y2="9" stroke="currentColor" strokeWidth="1.2"/>
+							</svg>
+						</button>
+					</div>
                 </div>
 
-                <div className="window-content">
+                <div className={`window-content${appInfo.isApplication ? ' fullbleed' : ''}`}>
                     {children}
                 </div>
             </div>
