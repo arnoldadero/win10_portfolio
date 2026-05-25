@@ -1,41 +1,44 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { FontIcon } from "@fluentui/react";
 import "./about.scss";
 import "./aiWorkflow.scss";
+import antigravityIcon from "../../../assets/images/ai-workflow/antigravity.svg";
+import hermesIcon from "../../../assets/images/ai-workflow/hermes.svg";
+import githubIcon from "../../../assets/images/skills/github.svg";
+import LazyImage from "../../base/lazyImage";
 
 function AIWorkflow() {
 	const tools = [
 		{
-			name: "Cursor",
-			tagline: "AI-Native IDE",
-			icon: "Code",
-			color: "#7c3aed",
-			frontStats: ["Full-project context", "Intelligent refactoring", "Natural language coding"],
-			backContent: "Write features by describing intent. Cursor understands your entire codebase to deliver precise, context-aware implementations."
+			name: "Antigravity",
+			tagline: "Autonomous Agent Platform",
+			iconImg: antigravityIcon,
+			color: "#3b82f6",
+			frontStats: ["Multi-agent orchestration", "Context-aware code generation", "Automated code review & refactor"],
+			backContent: "Antigravity agents handle entire feature cycles — from planning through implementation to review. I orchestrate parallel agents for complex refactors, test generation, and cross-file changes while I focus on architecture."
 		},
 		{
-			name: "Lovable",
-			tagline: "Rapid Prototyping",
-			icon: "Design",
-			color: "#ec4899",
-			frontStats: ["UI in minutes", "Full-stack scaffolding", "Instant deployment"],
-			backContent: "Go from idea to live prototype in under an hour. Perfect for validating concepts with stakeholders before committing to code."
+			name: "Hermes Agent",
+			tagline: "CLI-First AI Engineer",
+			iconImg: hermesIcon,
+			color: "#8b5cf6",
+			frontStats: ["Terminal-native workflow", "Context-rich sessions", "Skill-based knowledge system"],
+			backContent: "Hermes is my daily driver for terminal-based development. It remembers project patterns across sessions via persistent skills and memory, runs autonomously on background tasks, and integrates directly with git and deployment pipelines."
 		},
 		{
 			name: "GitHub Copilot",
 			tagline: "AI Pair Programmer",
-			icon: "GitGraph",
+			iconImg: githubIcon,
 			color: "#22c55e",
 			frontStats: ["Autocomplete on steroids", "Test generation", "Docs & boilerplate"],
-			backContent: "My daily driver for eliminating repetitive work. Generates tests, documentation, and boilerplate so I can focus on architecture."
+			backContent: "My daily driver for eliminating repetitive work. Generates tests, documentation, and boilerplate so I can focus on architecture. Combined with Antigravity and Hermes, I maintain an always-on AI development pipeline."
 		}
 	];
 
 	const outcomes = [
-		{ metric: "40%", label: "Faster Delivery" },
-		{ metric: "2x", label: "Test Coverage" },
-		{ metric: "60%", label: "Less Boilerplate" }
+		{ metric: "3x", label: "Feature Velocity" },
+		{ metric: "60%", label: "Less Boilerplate" },
+		{ metric: "24/7", label: "AI Development Pipeline" }
 	];
 
 	return (
@@ -44,7 +47,7 @@ function AIWorkflow() {
 				<title>AI-Augmented Engineering | Arnold Adero</title>
 				<meta
 					name="description"
-					content="How I use Cursor, Lovable, and GitHub Copilot to build software faster."
+					content="How I use Antigravity, Hermes Agent, and GitHub Copilot to build software 3x faster."
 				/>
 				<link rel="canonical" href="https://arnoldadero.onrender.com/ai-workflow" />
 			</Helmet>
@@ -53,7 +56,7 @@ function AIWorkflow() {
 			<div className="uk-text-center uk-margin-large-bottom">
 				<h1 className="uk-heading-small">My AI Toolkit</h1>
 				<p className="uk-text-lead">
-					I use AI to ship faster, not cheaper. Hover the cards to see how.
+					I run a multi-agent AI pipeline — not just autocomplete. Hover the cards to see how each layer works.
 				</p>
 			</div>
 
@@ -66,7 +69,11 @@ function AIWorkflow() {
 								{/* Front */}
 								<div className="flip-card-front" style={{ '--card-accent': tool.color }}>
 									<div className="card-icon-ring" style={{ borderColor: tool.color }}>
-										<FontIcon iconName={tool.icon} style={{ fontSize: '32px', color: tool.color }} />
+										<LazyImage
+											src={tool.iconImg}
+											alt={tool.name}
+											style={{ width: '36px', height: '36px' }}
+										/>
 									</div>
 									<h3 className="card-title">{tool.name}</h3>
 									<span className="card-tagline">{tool.tagline}</span>
