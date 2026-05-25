@@ -5,7 +5,7 @@ services:
     staticPublishPath: ./build
     envVars:
       - key: NODE_VERSION
-        value: 20.14.0
+        value: 20.19.0
       - key: SKIP_PREFLIGHT_CHECK
         value: "true"
       - key: CI
