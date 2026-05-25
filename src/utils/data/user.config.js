@@ -158,10 +158,20 @@ const user = {
 		{
 			projectName: "Queen of Peace NGO",
 			description:
-				"Digital platform supporting Queen of Peace NGO in Kenya — covers education, healthcare, peace building, sustainable agriculture, women empowerment, climate change, and services for disabled & vulnerable children.",
+				"Digital platform supporting Queen of Peace NGO in Kenya — covers education, healthcare, peace building, sustainable agriculture, women empowerment, climate change, and services for disabled & vulnerable children across 5 counties.",
 			madeWith: ["Next.js", "TypeScript", "Tailwind CSS"],
-			link: "",
-			image: null,
+			link: "https://queenofpeace.co.ke",
+			demoLink: "https://queenofpeace.co.ke",
+			image: "/images/projects/queenofpeace.png",
+		},
+		{
+			projectName: "Clockwise Trade / DSG Parts",
+			description:
+				"E-commerce SPA for DSG Parts and industrial supplies. Built with React + Vite — fast, lightweight, optimised for product discovery across 7 business divisions including automotive, solar, steel, and logistics.",
+			madeWith: ["React", "Vite", "TypeScript"],
+			link: "https://tickclockwise.com",
+			demoLink: "https://tickclockwise.com",
+			image: "/images/projects/clockwise.png",
 		},
 		{
 			projectName: "Cold Storage Traceability",
