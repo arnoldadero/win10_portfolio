@@ -6,6 +6,7 @@ import linkedin from "../../assets/images/social/linkedin.svg";
 import github from "../../assets/images/social/github.svg";
 import upwork from "../../assets/images/social/upwork.svg";
 import email from "../../assets/images/social/email.png";
+import { FontIcon } from "@fluentui/react";
 import LazyImage from "./lazyImage";
 import { logEvent } from "../../analytics/ga";
 import { ANALYTICS_EVENTS } from "../../utils/documents/enums";
@@ -44,6 +45,24 @@ function SocialBlock({ variant = "default" }) {
 			id: "linkedin",
 		},
 		{
+			condition: user.instagram,
+			url: `https://instagram.com/${user.instagram}`,
+			icon: null,
+			fluentIcon: "InstagramLogo",
+			alt: "Instagram Profile",
+			label: "Instagram",
+			id: "instagram",
+		},
+		{
+			condition: user.facebook,
+			url: `https://facebook.com/${user.facebook}`,
+			icon: null,
+			fluentIcon: "FacebookLogo",
+			alt: "Facebook Profile",
+			label: "Facebook",
+			id: "facebook",
+		},
+		{
 			condition: user.upwork,
 			url: `https://www.upwork.com/freelancers/${user.upwork}`,
 			icon: upwork,
@@ -80,13 +99,21 @@ function SocialBlock({ variant = "default" }) {
 						onClick={() => handleSocialClick(social.url)}
 						uk-tooltip={social.label}
 					>
-						<LazyImage
-							src={social.icon}
-							width="40"
-							height="40"
-							alt={social.alt}
-							className="uk-img"
-						/>
+						{social.icon ? (
+							<LazyImage
+								src={social.icon}
+								width="40"
+								height="40"
+								alt={social.alt}
+								className="uk-img"
+							/>
+						) : (
+							<FontIcon
+								iconName={social.fluentIcon}
+								className="social-fluent-icon"
+								style={{ fontSize: "32px", color: "var(--text-primary)" }}
+							/>
+						)}
 					</a>
 				);
 			})}
