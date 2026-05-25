@@ -19,6 +19,13 @@ import jsIcon from "../../../assets/images/skills/javascript.svg";
 import phpIcon from "../../../assets/images/skills/php.svg";
 import htmlIcon from "../../../assets/images/skills/html.svg";
 import gitIcon from "../../../assets/images/skills/github.svg";
+import nestjsIcon from "../../../assets/images/skills/nestjs.svg";
+import postgresIcon from "../../../assets/images/skills/postgresql.svg";
+import typescriptIcon from "../../../assets/images/skills/typescript.svg";
+import pythonIcon from "../../../assets/images/skills/python.svg";
+import goIcon from "../../../assets/images/skills/go.svg";
+import prismaIcon from "../../../assets/images/skills/prisma.svg";
+import fastapiIcon from "../../../assets/images/skills/fastapi.svg";
 
 function Skills() {
 	const getSkillIcon = (skillName) => {
@@ -37,6 +44,13 @@ function Skills() {
 			php: phpIcon,
 			html5css3: htmlIcon,
 			gitgithub: gitIcon,
+			nestjs: nestjsIcon,
+			postgresql: postgresIcon,
+			typescript: typescriptIcon,
+			python: pythonIcon,
+			go: goIcon,
+			prisma: prismaIcon,
+			fastapi: fastapiIcon,
 		};
 		return map[normalize(skillName)] || null;
 	};
