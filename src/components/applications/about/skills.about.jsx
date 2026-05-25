@@ -1,4 +1,5 @@
 import React from "react";
+import LazyImage from "../../../components/base/lazyImage";
 import user from "../../../utils/data/user.config";
 import "./about.scss";
 import "./aiWorkflow.scss";
@@ -81,12 +82,12 @@ function Skills() {
 												}}
 											>
 												{icon ? (
-													<img
-														src={icon}
-														alt={`${skill} – AI-augmented full stack development – Arnold Adero Portfolio`}
-														className="uk-transition-scale-up uk-transition-opaque"
-														style={{ width: "40px", height: "40px", objectFit: "contain" }}
-													/>
+                                <LazyImage
+                                    src={icon}
+                                    alt={`${skill} – AI-augmented full stack development – Arnold Adero Portfolio`}
+                                    className="uk-transition-scale-up uk-transition-opaque"
+                                    style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                                />
 												) : (
 													<div
 														className="uk-border-circle uk-background-primary uk-flex uk-flex-center uk-flex-middle"

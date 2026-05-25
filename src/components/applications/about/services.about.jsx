@@ -53,7 +53,7 @@ function Services() {
     };
 
     return (
-        <div className="services-container uk-padding">
+        <div className="services-section">
             <Helmet>
                 <title>AI-Augmented Web Development Services | Arnold Adero Portfolio</title>
                 <meta

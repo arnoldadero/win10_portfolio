@@ -39,7 +39,7 @@ function AIWorkflow() {
 	];
 
 	return (
-		<div className="ai-workflow-container uk-padding">
+		<div className="ai-workflow-section">
 			<Helmet>
 				<title>AI-Augmented Engineering | Arnold Adero</title>
 				<meta

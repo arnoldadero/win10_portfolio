@@ -81,10 +81,8 @@ function AppComponent(props) {
 			setCurrentIndex(newIndex);
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
 
-			// Update auto-scroll position
-			if (autoScrollConfig.isMobile) {
-				autoScrollConfig.scrollToSection(newIndex);
-			}
+			// Scroll to section on all viewports
+			autoScrollConfig.scrollToSection(newIndex);
 
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
@@ -176,10 +174,8 @@ function AppComponent(props) {
 			setCurrentIndex(newIndex);
 			setCurrentComponentName(props.appInfo.subComponent[newIndex].name);
 
-			// Update auto-scroll position
-			if (autoScrollConfig.isMobile) {
-				autoScrollConfig.scrollToSection(newIndex);
-			}
+			// Scroll to section on all viewports
+			autoScrollConfig.scrollToSection(newIndex);
 
 			// Trigger UIkit switcher
 			if (sidebarRef.current) {
@@ -220,10 +216,8 @@ function AppComponent(props) {
 												type="button"
 												onClick={() => {
 													setComponent(component.name, index);
-													// Update auto-scroll position on mobile
-													if (autoScrollConfig.isMobile) {
-														autoScrollConfig.scrollToSection(index);
-													}
+													// Scroll to section on all viewports
+													autoScrollConfig.scrollToSection(index);
 												}}
 											>
 												<span className="sidebar-list-item uk-margin-remove">
@@ -326,10 +320,8 @@ function AppComponent(props) {
 																component.name,
 																index
 															);
-															// Update auto-scroll position on mobile
-															if (autoScrollConfig.isMobile) {
-																autoScrollConfig.scrollToSection(index);
-															}
+															// Scroll to section on all viewports
+															autoScrollConfig.scrollToSection(index);
 														}}
 													>
 														<span className="sidebar-list-item uk-margin-remove">

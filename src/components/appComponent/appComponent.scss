@@ -140,41 +140,45 @@
     padding: 0;
     scroll-behavior: smooth;
 
-    /* Mobile auto-scroll support */
+    /* Hide scrollbars while keeping smooth scroll */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar { display: none; }
+
+    /* UNIVERSAL: switcher is a flex column, all sections visible (override UIKit hidden) */
+    > ul.uk-switcher {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        > li {
+            display: block !important;
+            flex: 0 0 auto;
+            width: 100% !important;
+            height: auto !important;
+            min-height: auto !important;
+            overflow: visible !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            background: transparent !important;
+        }
+    }
+
+    /* Mobile-only adjustments */
     @media screen and (max-width: 768px) {
+        font-size: 12px;
         overflow-y: auto !important;
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-        @include mixins.scrollbar-hide;
-
-        > ul.uk-switcher {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            width: 100%;
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            scroll-behavior: smooth;
-
-            > li {
-                display: block !important;
-                flex: 0 0 auto;
-                width: 100% !important;
-                min-height: auto;
-                overflow: visible;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                scroll-behavior: smooth;
-                @include mixins.scrollbar-hide;
-                padding: var(--spacing-sm) !important;
-                margin: 0 !important;
-                border: none !important;
-                background: transparent !important;
-            }
-        }
+        position: relative;
+        width: 100%;
     }
 }
 
@@ -341,8 +345,8 @@
 
 .app-content>ul.uk-switcher>li {
     overflow: visible !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
+    height: auto !important;
+    min-height: 0;
 }
 
 /* Responsive improvements */
@@ -377,42 +381,10 @@
 
     .app-content {
         font-size: 12px;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        position: relative;
-        width: 100%;
     }
 
     .app-content > .dropdown {
         display: none;
-    }
-
-    .app-content > ul.uk-switcher {
-        display: flex;
-        flex-direction: column;
-        width: 100% !important;
-        min-width: 100%;
-        margin: 0;
-        padding: 0;
-        flex: 1;
-        min-height: 0;
-    }
-
-    .app-content > ul.uk-switcher > li {
-        display: block !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        flex: 0 0 auto;
-        height: auto;
-        min-height: auto;
-        margin: 0;
-        padding: var(--spacing-sm) !important;
-        overflow: visible !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
     }
 
     .app-nav-bar {

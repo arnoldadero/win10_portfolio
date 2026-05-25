@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 function AboutMe() {
 	return (
-		<div className="about-app-container">
+		<div className="about-me-section">
 			<Helmet>
 				<title>About Arnold Adero | AI-Augmented Full Stack Developer</title>
 				<meta
@@ -17,8 +17,7 @@ function AboutMe() {
 				/>
 				<link rel="canonical" href="https://arnoldadero.onrender.com/about" />
 			</Helmet>
-			<div className="about-content">
-				<div className="about-profile-card">
+			<div className="about-profile-card">
 					<div className="about-avatar-section">
 						<LazyImage
 							className="about-avatar"
@@ -55,8 +54,7 @@ function AboutMe() {
 					)}
 				</div>
 			</div>
-		</div>
-	);
-}
+		);
+	}
 
-export default AboutMe;
+	export default AboutMe;

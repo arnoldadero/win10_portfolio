@@ -3,7 +3,7 @@ import user from "../../../utils/data/user.config";
 
 function Education() {
 	return (
-		<section className="education-container">
+		<div className="education-section">
 			<div className="timeline-wrapper">
 				{user.education.map((education, index) => {
 					return (
@@ -22,7 +22,7 @@ function Education() {
 					);
 				})}
 			</div>
-		</section>
+		</div>
 	);
 }
 

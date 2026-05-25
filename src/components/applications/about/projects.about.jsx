@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet-async";
 
 function Projects() {
 	return (
-		<div className="projects-app-container uk-padding">
+		<div className="projects-section">
 			<Helmet>
 				<title>AI-Augmented Software Projects | Arnold Adero Portfolio</title>
 				<meta

@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 function Experience() {
 	return (
-		<div className="experience-container">
+		<div className="experience-section">
 			<Helmet>
 				<title>Experience | Arnold Adero - AI-Augmented Engineer & Technical PM</title>
 				<meta
